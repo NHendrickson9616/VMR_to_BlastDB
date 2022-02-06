@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+#SBATCH --job-name=fetch_fasta_files
+#SBATCH --output=res.out
+#SBATCH --error=res.err
+#
+# Number of tasks needed for this job. Generally, used with MPI jobs
+#SBATCH --ntasks=1
+#SBATCH --partition=medium
+#
+# Time format = HH:MM:SS, DD-HH:MM:SS
+#SBATCH --time=40:00:00
+#
+# Number of CPUs allocated to each task. 
+#SBATCH --cpus-per-task=2
+#
+# Mimimum memory required per allocated  CPU  in  MegaBytes. 
+#SBATCH --mem-per-cpu=4000
+#
+
+#Set your environment here
+
+module load Anaconda3/2020.11
+conda activate VMR_ENV
+python VMR_to_fasta.py
