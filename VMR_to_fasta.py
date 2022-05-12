@@ -1,32 +1,75 @@
 import pandas
 import subprocess
-from Bio import Entrez
 import time
 from urllib import error
 import argparse
-# variables
-parser = argparse.ArgumentParser()
-parser.add_argument('-email',help="email for entrez to use")
-parser.add_argument('-VMR_file_name',help='path to VMR file to use.')
-parser.add_argument('-FASTA_file_name',help='path to output FASTA')
+import numpy as np
+import sys
+# Class needed to load args from files. 
+class LoadFromFile (argparse.Action):
+    def __call__ (self, parser, namespace, values, option_string = None):
+        with values as f:
+            # parse arguments in the file and store them in the target namespace
+            parser.parse_args(f.read().split(), namespace)
+parser = argparse.ArgumentParser(description="")
+#setting arguments.
+parser.add_argument('-file',help="optional argument. Name of the file to get arguments from.",type=open, action=LoadFromFile)
+parser.add_argument("-email",help="email for Entrez to use when fetching Fasta files")
+parser.add_argument("-mode",help="what function to do. Options: VMR,fasta,db")
+parser.add_argument("-fasta_file_name",help="Name of the fasta file to output",default="/fasta/all_alt.fa")
+parser.add_argument("-VMR_file_name",help="name of the VMR file to load.",default="VMR_E_data.xlsx")
+parser.add_argument("-query",help="Name of the fasta file to query the database")
 args = parser.parse_args()
-email = "halko@uab.edu"
-VMR_file_name = 'VMR_E_data.xlsx'
-FASTA_file_name = 'all.fa'
-query = 'MN876842.fasta'
-
+email = args.email
+mode = args.mode
+#if mode != 'fasta' or "VMR" or "db":
+#    print("Valid mode not selected. Options: VMR,fasta,db",file=sys.stderr)
+#Takes forever to import so only imports if it's going to be needed
+if mode == 'fasta':
+    from Bio import Entrez
+query = args.query
+fasta_file_name = args.fasta_file_name
+VMR_file_name = args.VMR_file_name
+#Catching error
+if mode == "db":
+    if args.query == None:
+        print("Database Query mode is selected but no fasta file was specified! Please set the '-fasta_file_name' or change mode.",file=sys.stderr)
 ###############################################################################################################
 # Loads excel from https://talk.ictvonline.org/taxonomy/vmr/m/vmr-file-repository/ and puts it into a DataFrame
 ############################################################################################################### 
+# DataFrame['column name'] = provides entire column
+# DataFrame['column name'][0,1,2,3,4,5 etc] provides row for that column
+# 
+#
 def load_VMR_data():
     # Importing excel sheet as a DataFrame. Requires xlrd and openpyxl package
-    raw_vmr_data = pandas.read_excel(VMR_file_name)
-    
+    try:
+        raw_vmr_data = pandas.read_excel(VMR_file_name)
 
     # list of the columns to extract from raw_vmr_data
-    vmr_cols_needed = ['Virus GENBANK accession','Species']
+        vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage']
+
+        print("VMR data loaded.")
+    except(FileNotFoundError):
+        print("The VMR file specified does not exist! Make sure the path set by '-VMR_file_name' is correct.",file=sys.stderr)
+    
+
     # compiling new dataframe from vmr_cols_needed
     truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
+    # DataFrame.loc is helpful for indexing by row. Allows expression as an argument. Here, 
+    # it finds every row where 'E' is in column 'Exemplar or additional isolate' and returns 
+    # only the columns specified. 
+    vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']=='E',['Species','Virus GENBANK accession',"Genome coverage"]]
+    # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
+    vmr_data.to_excel("fixed_vmr.xlsx")
+    raw_vmr_data = pandas.read_excel('fixed_vmr.xlsx')
+    # Removing Genome Coverage column from the returned value. 
+    vmr_cols_needed = ['Virus GENBANK accession','Species']
+    truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
+
+    print(truncated_vmr_data)
+    #truncated_vmr_data = truncated_vmr_data.drop(columns=['Exemplar or additional isolate'])
+    
     return truncated_vmr_data
 
 ##############################################################################################################
@@ -48,12 +91,20 @@ def test_accession_IDs(df):
         accession_ID = df['Virus GENBANK accession'][entry_count]
         accession_ID = str(accession_ID).replace(" ","")
         accession_ID = accession_ID.split(';')
+
         accession_ID = [accession_part.split(':') for accession_part in accession_ID]
+    
+        for accession_part in accession_ID:
+            if len(accession_part) > 10:
+                print('suspiciously long accession number or segment name. Please verify its correct:'+str(accession_part),file=sys.stderr)
+
+
         # for loop for every ";" split done
         for accession_seg in accession_ID:
             segment = None
             # for loop for every ":" split done
             for accession_part in accession_seg:
+                
                 number_count = 0
                 letter_count = 0
                 # counting letters
@@ -66,34 +117,74 @@ def test_accession_IDs(df):
                 #checks if current selection fits schema of a accession number
                 if len(str(accession_part)) == 8 or 6 and letter_count<3 and number_count>3:
                     processed_accession_ID = accession_part
-                    if processed_accession_ID in processed_accession_IDs['Accession_IDs'].values:
-                        print(processed_accession_ID+" is already in array! Duplicate found.")
                     processed_accession_IDs.loc[len(processed_accession_IDs.index)] = [Species,processed_accession_ID,segment]
+                    #print("'"+processed_accession_ID+"'"+' has been cleaned.')
                 else:
                     segment = accession_part
+                    print("'"+segment+"'"+" was determined to be a segment label")
     return processed_accession_IDs               
 #test_accession_IDs(truncated_vmr_data).to_excel('processed_accessions.xlsx')
 #######################################################################################################################################
 # Utilizes Biopython's Entrez API to fetch FASTA data from Accession numbers. Prints Accession Numbers that failed to 'clean' correctly
 #######################################################################################################################################  
+def parse_taxname(raw_xml):
+    # Fetchs FASTA data for every accession number
+    read = raw_xml
+    read = read.split('taxname')[1]
+    read = read.split(',')[0]
+    return read
 def fetch_fasta():
+    #Check to see if fasta data exists and, if it does, loads the accessions numbers from it into an np array.
     bad_accessions = []
     Accessions = pandas.read_excel('processed_accessions.xlsx')
     all_reads = []
-    # Fetchs FASTA data for every accession number
+    # Fetches FASTA data for every accession number
+    count = 0
     for accession_ID in Accessions['Accession_IDs']:
-        time.sleep(1)
-        fa_file = open('fasta/all_alt.fa','a')
-        Entrez.email = email
-        try:
-            handle = Entrez.efetch(db="nuccore", id=accession_ID, rettype="fasta", retmode="text")
-        # prints out accession that got though cleaning
-        except(error.HTTPError):
-            print(accession_ID)
-            bad_accessions = bad_accessions+[accession_ID]
-        read = handle.read()
-        fa_file.write(read)
-        fa_file.close()
+            row = Accessions.loc[count]
+            Species = row[1]
+            accession_ID = row[2]
+            segment = row[3]
+            print(segment)
+            if str(segment).lower() == "nan":
+                segment = ""
+            #needed to limit requests to 3 per second. can be upped to 10 with auth token. 
+            time.sleep(.34)
+            # loading fasta_file into memory
+            try:
+
+                fa_file = open("fasta_new_vmr/"+accession_ID+".fa",'r')
+                fa_file.close()
+                print("file found for "+str(accession_ID))
+
+            except(FileNotFoundError):
+                fa_file = open("fasta_new_vmr/"+str(accession_ID)+".fa",'w')
+                print("creating fasta file for "+str(accession_ID))
+                Entrez.email = email
+                try:
+                
+                    handle = Entrez.efetch(db="nuccore", id=accession_ID, rettype="fasta", retmode="text")
+
+                    print('fasta for '+accession_ID+ ' obtained.')
+
+            # prints out accession that got though cleaning
+                
+                    read = handle.read()
+                    desc_line = read.split("\n")[0].split(" ",1)[1]
+                    if str(segment).lower() == "":
+                        desc_line = ">"+""+str(Species.replace(" ","_"))+" "+str(accession_ID)+" "+desc_line.replace(">","")
+                    else:
+                        desc_line = ">"+""+str(Species.replace(" ","_"))+"#"+str(segment)+" "+str(accession_ID)+" "+desc_line.replace(">","")
+                    print(desc_line)
+                    fa_file.write(desc_line+"\n"+read.split("\n",1)[1])
+                
+                    fa_file.close()
+                except:
+                    print("Accession ID"+"'"+str(accession_ID)+"'"+"did not get properly cleaned. Accession Cleaning Heuristic needs editing.",file=sys.stderr)
+                    bad_accessions = bad_accessions+[accession_ID]
+            count=count+1
+
+
 #######################################################################################################################################
 # Calls makedatabase.sh. Uses 'all.fa'
 #######################################################################################################################################
@@ -103,13 +194,23 @@ def make_database():
 #######################################################################################################################################
 # BLAST searches a given FASTA file and returns DataFrame rows with from the accession numbers. Returns in order of significance.  
 #######################################################################################################################################
+# How closely related
+# Run 'A' viruses
+# Compare to members of same species
+# BLAST score -- 
+# Top hit
+# check to see if many seg return same virus
+
 def query_database(path_to_query):
     p1 = subprocess.run(["bash","query_database.sh",path_to_query])
-
+    """
     results = open("output/results.out","r")
     result_text = results.readlines()
     results.close()
-    # set count to 20 since thats where result summary starts. 
+    print(res)
+    """
+    # set count to 20 since thats where result summary starts.
+    """
     count = 20
     hits = []
     while True:
@@ -125,17 +226,17 @@ def query_database(path_to_query):
         elif ">" in current_line:
             break
     return hits 
+    """
 
 def main():
-    try:
-        pandas.read_excel('processed_accessions.xlsx')
-    except:
-        test_accession_IDs(load_VMR_data())
-    try:
-        open("fasta/all_alt.fa")
-    except:
+
+    if mode == "VMR" or None:
+        pandas.DataFrame.to_excel(test_accession_IDs(load_VMR_data()),"processed_accessions.xlsx")
+
+    if mode == "fasta" or None:
         fetch_fasta()
-    query_database("fasta/"+query)
+    if mode == "db" or None:
+        query_database("query/"+query)
 
 main()
 
