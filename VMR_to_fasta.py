@@ -72,13 +72,6 @@ def load_VMR_data():
     
     return truncated_vmr_data
 
-##############################################################################################################
-# Cleans Accession numbers assuming the following about the accession numbers:
-# 1. Each Accession Number is 6-8 characters long
-# 2. Each Accession Number contains at least 3 numbers
-# 3. Each Accession Number contains at most 3 letters
-# 4. Accession Numbers in the same block are seperated by a ; or a :
-##############################################################################################################
 
 def test_accession_IDs(df):
 ##############################################################################################################
