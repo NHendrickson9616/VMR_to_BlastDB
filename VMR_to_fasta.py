@@ -47,7 +47,7 @@ def load_VMR_data():
         raw_vmr_data = pandas.read_excel(VMR_file_name)
 
     # list of the columns to extract from raw_vmr_data
-        vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage']
+        vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage','Genus']
 
         print("VMR data loaded.")
     except(FileNotFoundError):
@@ -59,15 +59,15 @@ def load_VMR_data():
     # DataFrame.loc is helpful for indexing by row. Allows expression as an argument. Here, 
     # it finds every row where 'E' is in column 'Exemplar or additional isolate' and returns 
     # only the columns specified. 
-    vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']=='E',['Species','Virus GENBANK accession',"Genome coverage"]]
+    vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']=='E',['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
     # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
     vmr_data.to_excel("fixed_vmr.xlsx")
     raw_vmr_data = pandas.read_excel('fixed_vmr.xlsx')
     # Removing Genome Coverage column from the returned value. 
-    vmr_cols_needed = ['Virus GENBANK accession','Species']
+    vmr_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
     truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
 
-    print(truncated_vmr_data)
+    
     #truncated_vmr_data = truncated_vmr_data.drop(columns=['Exemplar or additional isolate'])
     
     return truncated_vmr_data
@@ -81,20 +81,36 @@ def load_VMR_data():
 ##############################################################################################################
 
 def test_accession_IDs(df):
+##############################################################################################################
+# Cleans Accession numbers assuming the following about the accession numbers:
+# 1. Each Accession Number is 6-8 characters long
+# 2. Each Accession Number contains at least 3 numbers
+# 3. Each Accession Number contains at most 3 letters
+# 4. Accession Numbers in the same block are seperated by a ; or a , or a :
+##############################################################################################################
     # defining new DataFrame before hand
-    processed_accession_IDs = pandas.DataFrame(columns=['Species','Accession_IDs','segment'])
-    # for loop for every entry in given dataframe
+    processed_accession_IDs = pandas.DataFrame(columns=['Species','Accession_IDs','segment',"Genus"])
+    # for loop for every entry in given processed_accession_IDs
     for entry_count in range(0,len(df.index)):
         # Find current species in this row
         Species=df['Species'][entry_count]
+        # Find current Genus in this row
+        Genus=df['Genus'][entry_count]
         #initial processing of raw accession numbers.
         accession_ID = df['Virus GENBANK accession'][entry_count]
+        #removing whitespace.
         accession_ID = str(accession_ID).replace(" ","")
+        # instead of trying to split by commas and semicolons, I just replace the commas with semicolons. 
+        accession_ID.replace(",",";")
         accession_ID = accession_ID.split(';')
+        
+        
+        #split by colons too
 
         accession_ID = [accession_part.split(':') for accession_part in accession_ID]
     
         for accession_part in accession_ID:
+            #flag long strings as being suspect. Most aren't 10 characters long. 
             if len(accession_part) > 10:
                 print('suspiciously long accession number or segment name. Please verify its correct:'+str(accession_part),file=sys.stderr)
 
@@ -114,14 +130,13 @@ def test_accession_IDs(df):
                 # counting numbers
                     elif char in '1234567890':
                         number_count = number_count+1
-                #checks if current selection fits schema of a accession number
+                #checks if current selection fits what an accession number should be
                 if len(str(accession_part)) == 8 or 6 and letter_count<3 and number_count>3:
                     processed_accession_ID = accession_part
-                    processed_accession_IDs.loc[len(processed_accession_IDs.index)] = [Species,processed_accession_ID,segment]
+                    processed_accession_IDs.loc[len(processed_accession_IDs.index)] = [Species,processed_accession_ID,segment,Genus]
                     #print("'"+processed_accession_ID+"'"+' has been cleaned.')
                 else:
                     segment = accession_part
-                    print("'"+segment+"'"+" was determined to be a segment label")
     return processed_accession_IDs               
 #test_accession_IDs(truncated_vmr_data).to_excel('processed_accessions.xlsx')
 #######################################################################################################################################
