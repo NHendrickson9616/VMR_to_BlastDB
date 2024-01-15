@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import pandas
 import subprocess
 import time
@@ -44,7 +45,7 @@ if mode == "db":
 def load_VMR_data():
     # Importing excel sheet as a DataFrame. Requires xlrd and openpyxl package
     try:
-        raw_vmr_data = pandas.read_excel(VMR_file_name)
+        raw_vmr_data = pandas.read_excel(VMR_file_name,engine='openpyxl')
 
     # list of the columns to extract from raw_vmr_data
         vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage','Genus']
@@ -62,7 +63,7 @@ def load_VMR_data():
     vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']=='E',['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
     # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
     vmr_data.to_excel("fixed_vmr.xlsx")
-    raw_vmr_data = pandas.read_excel('fixed_vmr.xlsx')
+    raw_vmr_data = pandas.read_excel('fixed_vmr.xlsx',engine='openpyxl')
     # Removing Genome Coverage column from the returned value. 
     vmr_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
     truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
@@ -144,7 +145,7 @@ def parse_taxname(raw_xml):
 def fetch_fasta():
     #Check to see if fasta data exists and, if it does, loads the accessions numbers from it into an np array.
     bad_accessions = []
-    Accessions = pandas.read_excel('processed_accessions.xlsx')
+    Accessions = pandas.read_excel('processed_accessions.xlsx',engine='openpyxl')
     all_reads = []
     # Fetches FASTA data for every accession number
     count = 0
