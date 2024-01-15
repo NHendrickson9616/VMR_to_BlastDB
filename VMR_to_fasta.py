@@ -6,6 +6,7 @@ from urllib import error
 import argparse
 import numpy as np
 import sys
+
 # Class needed to load args from files. 
 class LoadFromFile (argparse.Action):
     def __call__ (self, parser, namespace, values, option_string = None):
@@ -13,7 +14,9 @@ class LoadFromFile (argparse.Action):
             # parse arguments in the file and store them in the target namespace
             parser.parse_args(f.read().split(), namespace)
 parser = argparse.ArgumentParser(description="")
+
 #setting arguments.
+parser.add_argument('-verbose',help="printout details during run",action=argparse.BooleanOptionalAction)
 parser.add_argument('-file',help="optional argument. Name of the file to get arguments from.",type=open, action=LoadFromFile)
 parser.add_argument("-email",help="email for Entrez to use when fetching Fasta files")
 parser.add_argument("-mode",help="what function to do. Options: VMR,fasta,db")
@@ -23,8 +26,8 @@ parser.add_argument("-query",help="Name of the fasta file to query the database"
 args = parser.parse_args()
 email = args.email
 mode = args.mode
-#if mode != 'fasta' or "VMR" or "db":
-#    print("Valid mode not selected. Options: VMR,fasta,db",file=sys.stderr)
+if mode != 'fasta' and mode != "VMR" and mode != "db":
+    print("Valid mode not selected. Options: VMR,fasta,db",file=sys.stderr)
 #Takes forever to import so only imports if it's going to be needed
 if mode == 'fasta':
     from Bio import Entrez
@@ -37,12 +40,16 @@ if mode == "db":
         print("Database Query mode is selected but no fasta file was specified! Please set the '-fasta_file_name' or change mode.",file=sys.stderr)
 ###############################################################################################################
 # Loads excel from https://talk.ictvonline.org/taxonomy/vmr/m/vmr-file-repository/ and puts it into a DataFrame
+# NOTE: URL is incorrect. 
 ############################################################################################################### 
 # DataFrame['column name'] = provides entire column
 # DataFrame['column name'][0,1,2,3,4,5 etc] provides row for that column
 # 
 #
 def load_VMR_data():
+    if args.verbose: print("load_VMR_data()")
+    if args.verbose: print("  opening", VMR_file_name)
+
     # Importing excel sheet as a DataFrame. Requires xlrd and openpyxl package
     try:
         raw_vmr_data = pandas.read_excel(VMR_file_name,engine='openpyxl')
@@ -50,7 +57,7 @@ def load_VMR_data():
     # list of the columns to extract from raw_vmr_data
         vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage','Genus']
 
-        print("VMR data loaded.")
+        if args.verbose: print("VMR data loaded.")
     except(FileNotFoundError):
         print("The VMR file specified does not exist! Make sure the path set by '-VMR_file_name' is correct.",file=sys.stderr)
     
@@ -62,8 +69,11 @@ def load_VMR_data():
     # only the columns specified. 
     vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']=='E',['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
     # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
-    vmr_data.to_excel("fixed_vmr.xlsx")
-    raw_vmr_data = pandas.read_excel('fixed_vmr.xlsx',engine='openpyxl')
+    e_VMR_file_name = "fixed_vmr.xlsx"
+    if args.verbose: print("Writing",e_VMR_file_name,": workaround - filters VMR down to E records only")
+    vmr_data.to_excel(e_VMR_file_name)
+    if args.verbose: print("Loading",e_VMR_file_name)
+    raw_vmr_data = pandas.read_excel(e_VMR_file_name,engine='openpyxl')
     # Removing Genome Coverage column from the returned value. 
     vmr_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
     truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
@@ -75,6 +85,7 @@ def load_VMR_data():
 
 
 def test_accession_IDs(df):
+    if args.verbose: print("test_accession_IDs()")
 ##############################################################################################################
 # Cleans Accession numbers assuming the following about the accession numbers:
 # 1. Each Accession Number is 6-8 characters long
@@ -238,17 +249,27 @@ def query_database(path_to_query):
     """
 
 def main():
-
+    if args.verbose: print("main()")
     if mode == "VMR" or None:
-        pandas.DataFrame.to_excel(test_accession_IDs(load_VMR_data()),"processed_accessions.xlsx")
+        print("# load VMR")
+        vmr_data = load_VMR_data()
+
+        if args.verbose: print("# testing accession IDs")
+        tested_accessions_ids = test_accession_IDs(vmr_data)
+        
+        output_accession_file_name ="processed_accessions.xlsx"
+        if args.verbose: print("Writing", output_accession_file_name)
+        pandas.DataFrame.to_excel(tested_accessions_ids,output_accession_file_name)
 
     if mode == "fasta" or None:
         fetch_fasta()
+
     if mode == "db" or None:
         query_database("query/"+query)
 
 main()
 
+if args.verbose: print("Done.")
 
 
 
