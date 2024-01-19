@@ -6,6 +6,7 @@ from urllib import error
 import argparse
 import numpy as np
 import sys
+import os
 
 # Class needed to load args from files. 
 class LoadFromFile (argparse.Action):
@@ -20,11 +21,11 @@ parser.add_argument('-verbose',help="printout details during run",action=argpars
 parser.add_argument('-file',help="optional argument. Name of the file to get arguments from.",type=open, action=LoadFromFile)
 parser.add_argument("-email",help="email for Entrez to use when fetching Fasta files")
 parser.add_argument("-mode",help="what function to do. Options: VMR,fasta,db")
-parser.add_argument("-fasta_file_name",help="Name of the fasta file to output",default="/fasta/all_alt.fa")
+parser.add_argument("-ea",help="Fetch E or A records (Exemplars or AdditionalIsolates)", default="E")
+parser.add_argument("-fasta_file_name",help="Name of the fasta file to output",default="./fasta/all_alt.fa")
 parser.add_argument("-VMR_file_name",help="name of the VMR file to load.",default="VMR_E_data.xlsx")
 parser.add_argument("-query",help="Name of the fasta file to query the database")
 args = parser.parse_args()
-email = args.email
 mode = args.mode
 if mode != 'fasta' and mode != "VMR" and mode != "db":
     print("Valid mode not selected. Options: VMR,fasta,db",file=sys.stderr)
@@ -67,13 +68,14 @@ def load_VMR_data():
     # DataFrame.loc is helpful for indexing by row. Allows expression as an argument. Here, 
     # it finds every row where 'E' is in column 'Exemplar or additional isolate' and returns 
     # only the columns specified. 
-    vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']=='E',['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
+    vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
+
     # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
-    e_VMR_file_name = "fixed_vmr.xlsx"
-    if args.verbose: print("Writing",e_VMR_file_name,": workaround - filters VMR down to E records only")
-    vmr_data.to_excel(e_VMR_file_name)
-    if args.verbose: print("Loading",e_VMR_file_name)
-    raw_vmr_data = pandas.read_excel(e_VMR_file_name,engine='openpyxl')
+    VMR_hack_file_name = "fixed_vmr_"+args.ea+".xlsx"
+    if args.verbose: print("Writing"+VMR_hack_file_name,": workaround - filters VMR down to "+args.ea.upper()+" records only")
+    vmr_data.to_excel(VMR_hack_file_name)
+    if args.verbose: print("Loading",VMR_hack_file_name)
+    raw_vmr_data = pandas.read_excel(VMR_hack_file_name,engine='openpyxl')
     # Removing Genome Coverage column from the returned value. 
     vmr_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
     truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
@@ -145,54 +147,92 @@ def test_accession_IDs(df):
     return processed_accession_IDs               
 #test_accession_IDs(truncated_vmr_data).to_excel('processed_accessions.xlsx')
 #######################################################################################################################################
-# Utilizes Biopython's Entrez API to fetch FASTA data from Accession numbers. Prints Accession Numbers that failed to 'clean' correctly
+# Utilizes Biopython's Entrez API to fetch FASTA data from Accession numbers. 
+# Prints Accession Numbers that failed to 'clean' correctly
+# 
+# this should use epost to work in batches
 #######################################################################################################################################  
-def parse_taxname(raw_xml):
-    # Fetchs FASTA data for every accession number
-    read = raw_xml
-    read = read.split('taxname')[1]
-    read = read.split(',')[0]
-    return read
-def fetch_fasta():
+def fetch_fasta(processed_accession_file_name):
+    if args.verbose: print("fetch_fasta(",processed_accession_file_name,")")
+
+    # make sure the output directory exists
+    fasta_dir = "./fasta_new_vmr"
+    if args.ea == "a": 
+        fasta_dir = fasta_dir+"_a"
+    if not os.path.exists(fasta_dir):
+        # Create the directory if it doesn't exist
+        os.makedirs(fasta_dir)
+        if args.verbose: print(f"Directory '{fasta_dir}' created successfully.")
+    
     #Check to see if fasta data exists and, if it does, loads the accessions numbers from it into an np array.
     bad_accessions = []
-    Accessions = pandas.read_excel('processed_accessions.xlsx',engine='openpyxl')
+
+    if args.verbose: print("  loading:", processed_accession_file_name)
+    Accessions = pandas.read_excel(processed_accession_file_name,engine='openpyxl')
+
     all_reads = []
+
+    # NCBI Entrez Session setup
+    entrez_sleep = 0.34 # 3 requests per second with email authN
+    Entrez.email = args.email
+    if "NCBI_API_KEY" in os.environ:
+        # use API_KEY  authN (10 queries per second)
+        entrez_sleep = 0.1 # 10 requrests per second with API_KEY
+        Entrez.api_key = os.environ["NCBI_API_KEY"]
+        if args.verbose: print("NCBI Entrez 10/second with NCBI_API_KEY")
+    else: 
+        # use email authN
+        if args.verbose: print("NCBI Entrez 3/second with email=",args.email)
+
     # Fetches FASTA data for every accession number
     count = 0
     for accession_ID in Accessions['Accession_IDs']:
             row = Accessions.loc[count]
-            Species = row[1]
-            accession_ID = row[2]
-            segment = row[3]
-            print(segment)
-            if str(segment).lower() == "nan":
+            Species = row.iloc[1]
+            accession_ID = row.iloc[2]
+            segment = row.iloc[3]
+            genus_name = row.iloc[4]
+
+            # emtpy cell becomes float:NaN!
+            if segment != segment: 
                 segment = ""
-            #needed to limit requests to 3 per second. can be upped to 10 with auth token. 
-            time.sleep(.34)
-            # loading fasta_file into memory
-            try:
-
-                fa_file = open("fasta_new_vmr/"+accession_ID+".fa",'r')
-                fa_file.close()
-                print("file found for "+str(accession_ID))
-
-            except(FileNotFoundError):
-                fa_file = open("fasta_new_vmr/"+str(accession_ID)+".fa",'w')
-                print("creating fasta file for "+str(accession_ID))
-                Entrez.email = email
-                try:
+            if genus_name != genus_name: 
+                genus_name = ""
                 
+            # fasta_file_name
+            genus_dir = fasta_dir+"/"+genus_name
+            if genus_name == "":
+                genus_dir = fasta_dir+"/"+"no_genus"
+            accession_file_name = genus_dir+"/"+str(accession_ID)+".fa"
+            
+            # make sure dir exists
+            if not os.path.exists(genus_dir):
+                # Create the directory if it doesn't exist
+                os.makedirs(genus_dir)
+                if args.verbose: print(f"Directory '{genus_dir}' created successfully.")
+    
+            try:
+                fa_file = open(accession_file_name,'r')
+                fa_file.close()
+                print("file found for "+genus_name+"/"+str(accession_ID),"[SKIP]")
+            except(FileNotFoundError):
+                fa_file = open(accession_file_name,'w')
+                print("fetching fasta file for "+genus_name+"/"+str(accession_ID))
+                try:
+                    # fetch FASTA from NCBI
                     handle = Entrez.efetch(db="nuccore", id=accession_ID, rettype="fasta", retmode="text")
+
+                    # limit requests: 3/second with email, 10/second with API_KEY
+                    time.sleep(entrez_sleep)
 
                     print('fasta for '+accession_ID+ ' obtained.')
 
-            # prints out accession that got though cleaning
+                    # prints out accession that got though cleaning
                 
                     read = handle.read()
                     desc_line = read.split("\n")[0].split(" ",1)[1]
                     if str(segment).lower() == "":
-                        desc_line = ">"+""+str(Species.replace(" ","_"))+" "+str(accession_ID)+" "+desc_line.replace(">","")
+                        desc_line = ">"+""+str(Species.replace(" ","_"))                 +" "+str(accession_ID)+" "+desc_line.replace(">","")
                     else:
                         desc_line = ">"+""+str(Species.replace(" ","_"))+"#"+str(segment)+" "+str(accession_ID)+" "+desc_line.replace(">","")
                     print(desc_line)
@@ -209,6 +249,7 @@ def fetch_fasta():
 # Calls makedatabase.sh. Uses 'all.fa'
 #######################################################################################################################################
 def make_database():
+    if args.verbose: print("make_database()")
     p1 = subprocess.run("makedatabase.sh")
     
 #######################################################################################################################################
@@ -250,6 +291,11 @@ def query_database(path_to_query):
 
 def main():
     if args.verbose: print("main()")
+
+    processed_accession_file_name ="processed_accessions.xlsx"
+    if args.ea == "a": 
+        processed_accession_file_name ="processed_accessions_a.xlsx"        
+
     if mode == "VMR" or None:
         print("# load VMR")
         vmr_data = load_VMR_data()
@@ -257,14 +303,15 @@ def main():
         if args.verbose: print("# testing accession IDs")
         tested_accessions_ids = test_accession_IDs(vmr_data)
         
-        output_accession_file_name ="processed_accessions.xlsx"
-        if args.verbose: print("Writing", output_accession_file_name)
-        pandas.DataFrame.to_excel(tested_accessions_ids,output_accession_file_name)
+        if args.verbose: print("Writing", processed_accession_file_name)
+        pandas.DataFrame.to_excel(tested_accessions_ids,processed_accession_file_name)
 
     if mode == "fasta" or None:
-        fetch_fasta()
+        print("# pull FASTAs from NCBI")
+        fetch_fasta(processed_accession_file_name)
 
     if mode == "db" or None:
+        print("# Query local VMR-E BLASTdb")
         query_database("query/"+query)
 
 main()
