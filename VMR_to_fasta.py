@@ -7,6 +7,7 @@ import argparse
 import numpy as np
 import sys
 import os
+import pathlib # for stem=basename(.txt)
 
 # Class needed to load args from files. 
 class LoadFromFile (argparse.Action):
@@ -263,9 +264,12 @@ def make_database():
 # check to see if many seg return same virus
 
 def query_database(path_to_query):
-    p1 = subprocess.run(["bash","query_database.sh",path_to_query])
+    results_dir="./results/e"
+    results_file=results_dir+"/"+pathlib.Path(path_to_query).stem+".csv"
+
+    p1 = subprocess.run(["bash","query_database.sh",path_to_query,results_file])
     """
-    results = open("output/results.out","r")
+    results = open(results_file,"r")
     result_text = results.readlines()
     results.close()
     print(res)
@@ -312,7 +316,7 @@ def main():
 
     if mode == "db" or None:
         print("# Query local VMR-E BLASTdb")
-        query_database("query/"+query)
+        query_database(args.query)
 
 main()
 
