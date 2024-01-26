@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 #
+# test_e_accessions.sh [-g genus] [-m mode]
+#
+# mode=default,blastn,blastn16,blastn20,blastn24,blastn-short
+#
 # query each "A" (additional) sequence against the blastdb of "E" sequences. 
 # tabulate matches and mis-matches
 #
@@ -9,8 +13,8 @@
 # 20240122 runtime 
 #
 #SBATCH --job-name=ICTV_BLAST_A_fastas_vs_E_db
-#SBATCH --output=log.%J.%x.out
-#SBATCH --error=log.%J.%x.out
+#SBATCH --output=logs/log.%J.%x.out
+#SBATCH --error=logs/log.%J.%x.err
 #
 # Number of tasks needed for this job. Generally, used with MPI jobs
 # Time format = HH:MM:SS, DD-HH:MM:SS
@@ -25,12 +29,38 @@
 #
 
 QUERY_DIR=./fasta_new_vmr_a
+if [[ "$1" == "-g" && ! -z "$2" ]]; then QUERY_DIR=./fasta_new_vmr_a/$2; shift 2; fi
 echo "QUERY_DIR:   $QUERY_DIR"
-RESULTS_DIR=./results/a
-echo "RESULTS_DIR: $RESULTS_DIR"
-mkdir -p $RESULTS_DIR
 BLAST_DB=./blast/ICTV_VMR_e
 echo "BLAST_DB:    $BLAST_DB"
+
+# 
+# BLAST_ARGS
+# 
+# The default blastn command runs megablastn with a default word size of 28
+# '-task blastn'       uses a default word size of 11.
+# '-task blastn-short' uses a default word size of 7
+BLAST_ABBREV="default"
+#BLAST_ABBREV="blastn"
+#BLAST_ABBREV="short"
+if [[ "$1" == "-m" && ! -z "$2"   ]]; then 
+    BLAST_ABBREV=$2
+    echo BLAST_ABBREV=$BLAST_ABBREV
+    shift 2
+fi
+if [[ $BLAST_ABBREV == "default"  ]]; then BLAST_ARGS=""; fi
+if [[ $BLAST_ABBREV == "blastn"   ]]; then BLAST_ARGS="-task blastn"; 
+else 
+    if [[ "$BLAST_ABBREV" == blastn* ]]; then 
+	BLAST_ARGS="-task blastn -word_size $(echo $BLAST_ABBREV|sed 's/blastn//')"
+	echo "BLAST_ARGS=\"$BLAST_ARGS\""
+    fi
+fi
+if [[ $BLAST_ABBREV == "short"    ]]; then BLAST_ARGS="-task blastn-short"; fi
+
+RESULTS_DIR=./results/$BLAST_ABBREV/a
+echo "RESULTS_DIR: $RESULTS_DIR"
+mkdir -p $RESULTS_DIR
 
 if [ -z "$(which blastn 2>/dev/null)" ]; then
     echo "#module load BLAST"
@@ -41,9 +71,9 @@ fi
 echo "#"
 echo "# enumerate A seqs"
 echo "# "
-echo '# find fasta_new_vmr_a -name "*.fa"'
-A_FASTAS=$(find fasta_new_vmr_a -name "*.fa")
-echo '# found ' $(find fasta_new_vmr_a -name "*.fa"|wc -l) " A fastas"
+echo '# find $QUERY_DIR -name "*.fa"'
+A_FASTAS=$(find $QUERY_DIR -name "*.fa")
+echo '# found ' $(find $QUERY_DIR -name "*.fa"|wc -l) " A fastas"
 
 
 echo "#"
@@ -54,14 +84,47 @@ for QUERY in $A_FASTAS; do
     GENUS=$(basename $(dirname $QUERY))
     ACCESS=$(basename $QUERY .fa)
     RESULT_DIR=$RESULTS_DIR/$GENUS
-    RESULTS_FILE="$RESULT_DIR/$ACCESS.csv"
+    RESULTS_FILE_RAW="$RESULT_DIR/$ACCESS.raw.txt"
+    RESULTS_FILE_SORT_BIT="$RESULT_DIR/$ACCESS.bitscore.csv"
+    RESULTS_FILE_SORT_EV="$RESULT_DIR/$ACCESS.evalue.csv"
 
-    if [[ -e $RESULTS_FILE && $RESULTS_FILE -nt $QUERY ]]; then
-	echo "${GENUS}/${ACCESS}: SKIP"
+    # 
+    # run BLAST
+    #
+    if [[ -e $RESULTS_FILE_RAW && $RESULTS_FILE_RAW -nt $QUERY ]]; then
+	echo "${GENUS}/${ACCESS}: SKIP BLAST"
     else
 	echo -n "${GENUS}/${ACCESS}: blast " 
 	mkdir -p $RESULT_DIR
-	blastn -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE} -outfmt '7 delim=,'    
-	grep "hits found" $RESULTS_FILE
+	blastn $BLAST_ARGS -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE_RAW} -outfmt '7 delim=,'    
+	echo -n $(grep "hits found" $RESULTS_FILE_RAW)
+	echo " # blastn $BLAST_ARGS -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE_RAW} -outfmt '7 delim=,'"
     fi
+
+    #
+    # SORT blast output: BITSCORE
+    # 
+    if [[ -e $RESULTS_FILE_SORT_BIT && $RESULTS_FILE_SORT_BIT -nt $RESULTS_FILE_RAW ]]; then
+	echo "${GENUS}/${ACCESS}: SKIP SORT bitscore"
+    else
+	echo "${GENUS}/${ACCESS}: sort by bitscore " 
+	(head -n 5 $RESULTS_FILE_RAW; \
+         grep -v "^#" $RESULTS_FILE_RAW | sort -t , -k12,12nr; \
+	 tail -n 1 $RESULTS_FILE_RAW ) \
+         > $RESULTS_FILE_SORT_BIT
+    fi
+
+    #
+    # SORT blast output: EVALUE
+    # 
+    if [[ -e $RESULTS_FILE_SORT_EV && $RESULTS_FILE_SORT_EV -nt $RESULTS_FILE_RAW ]]; then
+	echo "${GENUS}/${ACCESS}: SKIP SORT evalue"
+    else
+	echo "${GENUS}/${ACCESS}: sort by evalue " 
+	(head -n 5 $RESULTS_FILE_RAW; \
+         grep -v "^#" $RESULTS_FILE_RAW | sort -t , -k11,11n -k12,12rn; \
+	 tail -n 1 $RESULTS_FILE_RAW ) \
+         > $RESULTS_FILE_SORT_EV
+    fi
+
 done
