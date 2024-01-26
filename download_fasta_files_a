@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# 20240117 runtime ~7h, RAM=402M
+#
+#SBATCH --job-name=ICTV_NCBI_efetch_fasta_files
+#SBATCH --output=log.%J.%x.out
+#SBATCH --error=log.%J.%x.out
+#
+# Number of tasks needed for this job. Generally, used with MPI jobs
+# Time format = HH:MM:SS, DD-HH:MM:SS
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=amd-hdr100 --time=00-12:00:00
+##SBATCH --partition=amd-hdr100 --time=06-06:00:00
+##SBATCH --partition=medium --time=40:00:00
+#
+# Number of CPUs allocated to each task. 
+#
+# Mimimum memory required per allocated  CPU  in  MegaBytes. 
+#  last run was 402M
+#SBATCH --mem-per-cpu=1000
+#
+
+#Set your environment here
+
+module load Anaconda3/2023.07-2
+conda activate conda/vmr_openpyxl3
+echo "### parse VMR ###"
+./VMR_to_fasta.py -verbose -mode VMR   -ea a -email $USER@uab.edu -VMR_file_name ../VMR_MSL38_v3.200923.xlsx
+echo "### fetch FASTA ###"
+./VMR_to_fasta.py -verbose -mode fasta -ea a -email $USER@uab.edu -VMR_file_name processed_accessions_a.xlsx
