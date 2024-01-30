@@ -102,7 +102,7 @@ echo "# --------------------------------------------------"
 echo "# summarize mismatches"
 echo "#"
 echo "# $TOP_HITS -> $MISMATCH_SUMMARY"
-cut -f 1,2 $TOP_HITS | grep -wv match |  sort -k2,2 -k1,1 | uniq -c | awk 'BEGIN{OFS="\t"}{print $3"."$2,$3,$2,$1}'| sort -k1,1 > $MISMATCH_SUMMARY
+cut -f 1,2 $TOP_HITS | egrep -wv "(match|match_seg)" |  sort -k2,2 -k1,1 | uniq -c | awk 'BEGIN{OFS="\t"}{print $3"."$2,$3,$2,$1}'| sort -k1,1 > $MISMATCH_SUMMARY
 cat $MISMATCH_SUMMARY | awk 'BEGIN{KEY=1;GENUS=2;ERR=3;CT=4}{sum=sum+$CT;cts[$ERR]=cts[$ERR]+$CT}END{printf sum " total mismatches: ";for(i in cts){printf cts[i]" "i","};print ""}' > $MISMATCH_ONELINE
 echo "Mismatches: " $(cat $MISMATCH_ONELINE)
 

@@ -5,6 +5,7 @@
 mkdir -p logs
 
 SORTS="raw bitscore evalue"
+SORTS="raw bitscore"
 echo SORTS=\"$SORTS\"
 
 MODES=$(ls -d */a | cut -d / -f 1)

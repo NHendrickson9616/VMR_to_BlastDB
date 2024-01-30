@@ -3,8 +3,8 @@
 # 20240117 runtime ~7h, RAM=402M
 #
 #SBATCH --job-name=ICTV_NCBI_efetch_fasta_files
-#SBATCH --output=log.%J.%x.out
-#SBATCH --error=log.%J.%x.out
+#SBATCH --output=logs/log.%J.%x.out
+#SBATCH --error=logs/log.%J.%x.out
 #
 # Number of tasks needed for this job. Generally, used with MPI jobs
 # Time format = HH:MM:SS, DD-HH:MM:SS
@@ -25,4 +25,7 @@
 
 module load Anaconda3/2023.07-2
 conda activate conda/vmr_openpyxl3
-./VMR_to_fasta.py -verbose -mode fasta -email $USER@uab.edu -VMR_file_name processed_accessions.xlsx
+echo "### parse VMR ###"
+./VMR_to_fasta.py -verbose -mode VMR   -ea e -email $USER@uab.edu -VMR_file_name ../VMR_MSL38_v3.26012024.xlsx
+echo "### fetch FASTA for E###"
+./VMR_to_fasta.py -verbose -mode fasta -ea e -email $USER@uab.edu -VMR_file_name processed_accessions_e.xlsx

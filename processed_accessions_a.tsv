@@ -1,0 +1,2194 @@
+	Species	Accession_IDs	segment	Genus
+0	Agatevirus Bp8pC	KJ010548		Agatevirus
+1	Bequatrovirus B4	JN797796		Bequatrovirus
+2	Tsarbombavirus BCP78	JN797798		Tsarbombavirus
+3	Wphvirus megatron	KT207918		Wphvirus
+4	Kochikohdavirus EF24C	AB609718		Kochikohdavirus
+5	Pecentumvirus LMSP25	KJ591605		Pecentumvirus
+6	Pecentumvirus LMSP25	KJ586795		Pecentumvirus
+7	Pecentumvirus LP064	KJ094031		Pecentumvirus
+8	Pecentumvirus LP0832	JX126918		Pecentumvirus
+9	Kayvirus G1	JX080302		Kayvirus
+10	Kayvirus G1	JX080301		Kayvirus
+11	Kayvirus G1	EU418428		Kayvirus
+12	Kayvirus G1	JX080303		Kayvirus
+13	Kayvirus G1	KP687431		Kayvirus
+14	Kayvirus G1	KR902361		Kayvirus
+15	Kayvirus G1	KR908644		Kayvirus
+16	Kayvirus G1	KP687432		Kayvirus
+17	Kayvirus G1	FR852584		Kayvirus
+18	Kayvirus G1	JX080304		Kayvirus
+19	Kayvirus G1	JX080305		Kayvirus
+20	Kayvirus G1	JX875065		Kayvirus
+21	Kayvirus G1	JX080300		Kayvirus
+22	Kayvirus G1	KC012913		Kayvirus
+23	Silviavirus remus	JX846613		Silviavirus
+24	Coriovirus Cf1c	AB910602		Coriovirus
+25	Fibrovirus fs1	AB572858		Fibrovirus
+26	Fibrovirus fs1	AF453500		Fibrovirus
+27	Fibrovirus fs1	AF452449		Fibrovirus
+28	Fibrovirus fs1	FJ904927		Fibrovirus
+29	Habenivirus RS551	MF716957		Habenivirus
+30	Habenivirus RSM3	AB981170		Habenivirus
+31	Inovirus M13	J02451		Inovirus
+32	Inovirus M13	JX412914		Inovirus
+33	Inovirus M13	JF719734		Inovirus
+34	Inovirus M13	JF719733		Inovirus
+35	Inovirus M13	JF719732		Inovirus
+36	Inovirus M13	GQ153919		Inovirus
+37	Inovirus M13	GQ153918		Inovirus
+38	Inovirus M13	GQ153917		Inovirus
+39	Inovirus M13	GQ153916		Inovirus
+40	Inovirus M13	AB334721		Inovirus
+41	Inovirus M13	AB334720		Inovirus
+42	Inovirus M13	J02448		Inovirus
+43	Restivirus RSS1	JQ408219		Restivirus
+44	Restivirus RSS1	LC066596		Restivirus
+45	Restivirus RSS1	AB931172		Restivirus
+46	Tertilicivirus Pf3	M19377		Tertilicivirus
+47	Versovirus VfO3K6	AB043679		Versovirus
+48	Villovirus Vf33	AB012574		Villovirus
+49	Xylivirus Xf109	KY853667		Xylivirus
+50	Alphapapillomavirus 1	M73236		Alphapapillomavirus
+51	Alphapapillomavirus 10	AF436130		Alphapapillomavirus
+52	Alphapapillomavirus 10	M14119		Alphapapillomavirus
+53	Alphapapillomavirus 10	U31788		Alphapapillomavirus
+54	Alphapapillomavirus 10	X62843		Alphapapillomavirus
+55	Alphapapillomavirus 10	X62844		Alphapapillomavirus
+56	Alphapapillomavirus 11	X94165		Alphapapillomavirus
+57	Alphapapillomavirus 12	EF558838		Alphapapillomavirus
+58	Alphapapillomavirus 12	EF558839		Alphapapillomavirus
+59	Alphapapillomavirus 12	EF558840		Alphapapillomavirus
+60	Alphapapillomavirus 12	EF558841		Alphapapillomavirus
+61	Alphapapillomavirus 12	EF558842		Alphapapillomavirus
+62	Alphapapillomavirus 12	EF558843		Alphapapillomavirus
+63	Alphapapillomavirus 12	EU490515		Alphapapillomavirus
+64	Alphapapillomavirus 12	EU490516		Alphapapillomavirus
+65	Alphapapillomavirus 12	GQ227670		Alphapapillomavirus
+66	Alphapapillomavirus 12	JF304764		Alphapapillomavirus
+67	Alphapapillomavirus 12	KT944080		Alphapapillomavirus
+68	Alphapapillomavirus 14	AY057438		Alphapapillomavirus
+69	Alphapapillomavirus 14	DQ080082		Alphapapillomavirus
+70	Alphapapillomavirus 14	GU014532		Alphapapillomavirus
+71	Alphapapillomavirus 2	AB745694		Alphapapillomavirus
+72	Alphapapillomavirus 2	AJ620211		Alphapapillomavirus
+73	Alphapapillomavirus 2	FN547152		Alphapapillomavirus
+74	Alphapapillomavirus 2	GQ246950		Alphapapillomavirus
+75	Alphapapillomavirus 2	KC138720		Alphapapillomavirus
+76	Alphapapillomavirus 2	U31783		Alphapapillomavirus
+77	Alphapapillomavirus 2	U31784		Alphapapillomavirus
+78	Alphapapillomavirus 2	X74462		Alphapapillomavirus
+79	Alphapapillomavirus 2	Y15175		Alphapapillomavirus
+80	Alphapapillomavirus 3	AF151983		Alphapapillomavirus
+81	Alphapapillomavirus 3	AF293960		Alphapapillomavirus
+82	Alphapapillomavirus 3	AF349909		Alphapapillomavirus
+83	Alphapapillomavirus 3	AF436128		Alphapapillomavirus
+84	Alphapapillomavirus 3	AJ400628		Alphapapillomavirus
+85	Alphapapillomavirus 3	AJ620209		Alphapapillomavirus
+86	Alphapapillomavirus 3	AY395706		Alphapapillomavirus
+87	Alphapapillomavirus 3	DQ080083		Alphapapillomavirus
+88	Alphapapillomavirus 3	GQ244463		Alphapapillomavirus
+89	Alphapapillomavirus 3	X94164		Alphapapillomavirus
+90	Alphapapillomavirus 4	X55965		Alphapapillomavirus
+91	Alphapapillomavirus 4	X74473		Alphapapillomavirus
+92	Alphapapillomavirus 5	AB027020		Alphapapillomavirus
+93	Alphapapillomavirus 5	AB027021		Alphapapillomavirus
+94	Alphapapillomavirus 5	M62877		Alphapapillomavirus
+95	Alphapapillomavirus 6	U31794		Alphapapillomavirus
+96	Alphapapillomavirus 6	X74482		Alphapapillomavirus
+97	Alphapapillomavirus 6	X74483		Alphapapillomavirus
+98	Alphapapillomavirus 7	AF131950		Alphapapillomavirus
+99	Alphapapillomavirus 7	DQ080079		Alphapapillomavirus
+100	Alphapapillomavirus 7	DQ080080		Alphapapillomavirus
+101	Alphapapillomavirus 7	M62849		Alphapapillomavirus
+102	Alphapapillomavirus 7	U21941		Alphapapillomavirus
+103	Alphapapillomavirus 7	X74479		Alphapapillomavirus
+104	Alphapapillomavirus 7	X77858		Alphapapillomavirus
+105	Alphapapillomavirus 8	AF419318		Alphapapillomavirus
+106	Alphapapillomavirus 8	AJ620205		Alphapapillomavirus
+107	Alphapapillomavirus 8	X74478		Alphapapillomavirus
+108	Alphapapillomavirus 9	D21208		Alphapapillomavirus
+109	Alphapapillomavirus 9	D90400		Alphapapillomavirus
+110	Alphapapillomavirus 9	J04353		Alphapapillomavirus
+111	Alphapapillomavirus 9	M12732		Alphapapillomavirus
+112	Alphapapillomavirus 9	X74477		Alphapapillomavirus
+113	Alphapapillomavirus 9	X74481		Alphapapillomavirus
+114	Betapapillomavirus 1	AY382778		Betapapillomavirus
+115	Betapapillomavirus 1	EF028290		Betapapillomavirus
+116	Betapapillomavirus 1	FM955837		Betapapillomavirus
+117	Betapapillomavirus 1	FM955838		Betapapillomavirus
+118	Betapapillomavirus 1	FM955841		Betapapillomavirus
+119	Betapapillomavirus 1	GQ246951		Betapapillomavirus
+120	Betapapillomavirus 1	GQ845446		Betapapillomavirus
+121	Betapapillomavirus 1	GU014533		Betapapillomavirus
+122	Betapapillomavirus 1	HM999995		Betapapillomavirus
+123	Betapapillomavirus 1	JF304768		Betapapillomavirus
+124	Betapapillomavirus 1	M12737		Betapapillomavirus
+125	Betapapillomavirus 1	M32305		Betapapillomavirus
+126	Betapapillomavirus 1	U31778		Betapapillomavirus
+127	Betapapillomavirus 1	U31779		Betapapillomavirus
+128	Betapapillomavirus 1	U31782		Betapapillomavirus
+129	Betapapillomavirus 1	U31785		Betapapillomavirus
+130	Betapapillomavirus 1	X74466		Betapapillomavirus
+131	Betapapillomavirus 1	X74467		Betapapillomavirus
+132	Betapapillomavirus 1	X74470		Betapapillomavirus
+133	Betapapillomavirus 1	X74471		Betapapillomavirus
+134	Betapapillomavirus 2	EF422221		Betapapillomavirus
+135	Betapapillomavirus 2	EU410348		Betapapillomavirus
+136	Betapapillomavirus 2	EU410349		Betapapillomavirus
+137	Betapapillomavirus 2	FM955839		Betapapillomavirus
+138	Betapapillomavirus 2	FM955840		Betapapillomavirus
+139	Betapapillomavirus 2	FM955842		Betapapillomavirus
+140	Betapapillomavirus 2	FN677756		Betapapillomavirus
+141	Betapapillomavirus 2	GQ845442		Betapapillomavirus
+142	Betapapillomavirus 2	GQ845444		Betapapillomavirus
+143	Betapapillomavirus 2	HE963025		Betapapillomavirus
+144	Betapapillomavirus 2	HF930491		Betapapillomavirus
+145	Betapapillomavirus 2	HM999997		Betapapillomavirus
+146	Betapapillomavirus 2	U31780		Betapapillomavirus
+147	Betapapillomavirus 2	U31781		Betapapillomavirus
+148	Betapapillomavirus 2	U31786		Betapapillomavirus
+149	Betapapillomavirus 2	U31787		Betapapillomavirus
+150	Betapapillomavirus 2	X74468		Betapapillomavirus
+151	Betapapillomavirus 2	X74469		Betapapillomavirus
+152	Betapapillomavirus 2	Y15176		Betapapillomavirus
+153	Betapapillomavirus 3	FJ947080		Betapapillomavirus
+154	Betapapillomavirus 3	Y15173		Betapapillomavirus
+155	Betapapillomavirus 3	Y15174		Betapapillomavirus
+156	Betapapillomavirus 5	FN677755		Betapapillomavirus
+157	Chipapillomavirus 1	FJ492743		Chipapillomavirus
+158	Chipapillomavirus 1	JF800656		Chipapillomavirus
+159	Chipapillomavirus 1	JF800658		Chipapillomavirus
+160	Chipapillomavirus 1	JQ754321		Chipapillomavirus
+161	Chipapillomavirus 1	KT326919		Chipapillomavirus
+162	Chipapillomavirus 1	KT901797		Chipapillomavirus
+163	Chipapillomavirus 2	KP099966		Chipapillomavirus
+164	Chipapillomavirus 3	JF800657		Chipapillomavirus
+165	Chipapillomavirus 3	JQ701802		Chipapillomavirus
+166	Chipapillomavirus 3	JX899359		Chipapillomavirus
+167	Deltapapillomavirus 1	AF443292		Deltapapillomavirus
+168	Deltapapillomavirus 3	U83595		Deltapapillomavirus
+169	Deltapapillomavirus 4	JQ798171		Deltapapillomavirus
+170	Deltapapillomavirus 4	JX174437		Deltapapillomavirus
+171	Deltapapillomavirus 4	KP276343		Deltapapillomavirus
+172	Deltapapillomavirus 4	M20219		Deltapapillomavirus
+173	Deltapapillomavirus 5	KT626573		Deltapapillomavirus
+174	Deltapapillomavirus 6	HQ912791		Deltapapillomavirus
+175	Dyoiotapapillomavirus 1	EU503122		Dyoiotapapillomavirus
+176	Dyoiotapapillomavirus 2	JQ031033		Dyoiotapapillomavirus
+177	Dyoomikronpapillomavirus 1	JF304766		Dyoomikronpapillomavirus
+178	Dyoomikronpapillomavirus 1	JF304767		Dyoomikronpapillomavirus
+179	Dyoomikronpapillomavirus 1	KP861980		Dyoomikronpapillomavirus
+180	Dyopsipapillomavirus 1	KC858265		Dyopsipapillomavirus
+181	Dyorhopapillomavirus 1	JX035935		Dyorhopapillomavirus
+182	Dyoxipapillomavirus 2	KU519396		Dyoxipapillomavirus
+183	Dyozetapapillomavirus 1	EU493091		Dyozetapapillomavirus
+184	Epsilonpapillomavirus 1	DQ098913		Epsilonpapillomavirus
+185	Gammapapillomavirus 1	AJ620210		Gammapapillomavirus
+186	Gammapapillomavirus 1	KF006400		Gammapapillomavirus
+187	Gammapapillomavirus 1	KT698167		Gammapapillomavirus
+188	Gammapapillomavirus 1	X70829		Gammapapillomavirus
+189	Gammapapillomavirus 10	GU117630		Gammapapillomavirus
+190	Gammapapillomavirus 10	GU117633		Gammapapillomavirus
+191	Gammapapillomavirus 10	HM999994		Gammapapillomavirus
+192	Gammapapillomavirus 10	KC108722		Gammapapillomavirus
+193	Gammapapillomavirus 11	HM999988		Gammapapillomavirus
+194	Gammapapillomavirus 11	HM999992		Gammapapillomavirus
+195	Gammapapillomavirus 11	HM999993		Gammapapillomavirus
+196	Gammapapillomavirus 11	JN211193		Gammapapillomavirus
+197	Gammapapillomavirus 11	JX413105		Gammapapillomavirus
+198	Gammapapillomavirus 11	KF006398		Gammapapillomavirus
+199	Gammapapillomavirus 11	KP692116		Gammapapillomavirus
+200	Gammapapillomavirus 12	KT698166		Gammapapillomavirus
+201	Gammapapillomavirus 12	GU117632		Gammapapillomavirus
+202	Gammapapillomavirus 12	GU129016		Gammapapillomavirus
+203	Gammapapillomavirus 12	JX444072		Gammapapillomavirus
+204	Gammapapillomavirus 12	KJ913662		Gammapapillomavirus
+205	Gammapapillomavirus 12	KT698168		Gammapapillomavirus
+206	Gammapapillomavirus 13	JN171845		Gammapapillomavirus
+207	Gammapapillomavirus 15	HG421739		Gammapapillomavirus
+208	Gammapapillomavirus 15	HM999998		Gammapapillomavirus
+209	Gammapapillomavirus 19	JX413104		Gammapapillomavirus
+210	Gammapapillomavirus 19	JX413108		Gammapapillomavirus
+211	Gammapapillomavirus 2	KP692114		Gammapapillomavirus
+212	Gammapapillomavirus 24	KM085343		Gammapapillomavirus
+213	Gammapapillomavirus 6	DQ080078		Gammapapillomavirus
+214	Gammapapillomavirus 6	FM212639		Gammapapillomavirus
+215	Gammapapillomavirus 7	GQ845445		Gammapapillomavirus
+216	Gammapapillomavirus 7	GU117629		Gammapapillomavirus
+217	Gammapapillomavirus 7	GU117634		Gammapapillomavirus
+218	Gammapapillomavirus 7	HM999990		Gammapapillomavirus
+219	Gammapapillomavirus 7	HM999991		Gammapapillomavirus
+220	Gammapapillomavirus 7	JF906559		Gammapapillomavirus
+221	Gammapapillomavirus 7	JX413110		Gammapapillomavirus
+222	Gammapapillomavirus 8	GQ845441		Gammapapillomavirus
+223	Gammapapillomavirus 8	HM999999		Gammapapillomavirus
+224	Gammapapillomavirus 8	JX413106		Gammapapillomavirus
+225	Gammapapillomavirus 8	KC862317		Gammapapillomavirus
+226	Gammapapillomavirus 9	GU233853		Gammapapillomavirus
+227	Iotapapillomavirus 1	HQ625441		Iotapapillomavirus
+228	Iotapapillomavirus 1	KT945134		Iotapapillomavirus
+229	Lambdapapillomavirus 1	AY904722		Lambdapapillomavirus
+230	Lambdapapillomavirus 1	AY904723		Lambdapapillomavirus
+231	Lambdapapillomavirus 1	AY904724		Lambdapapillomavirus
+232	Lambdapapillomavirus 1	DQ180494		Lambdapapillomavirus
+233	Lambdapapillomavirus 4	KJ410351		Lambdapapillomavirus
+234	Omikronpapillomavirus 1	GU117621		Omikronpapillomavirus
+235	Omikronpapillomavirus 1	JN709470		Omikronpapillomavirus
+236	Omikronpapillomavirus 1	JN709471		Omikronpapillomavirus
+237	Pipapillomavirus 1	HG939559		Pipapillomavirus
+238	Pipapillomavirus 2	DQ269468		Pipapillomavirus
+239	Pipapillomavirus 2	GQ180114		Pipapillomavirus
+240	Pipapillomavirus 2	GU808564		Pipapillomavirus
+241	Pipapillomavirus 2	HQ625440		Pipapillomavirus
+242	Rhopapillomavirus 1	JN709473		Rhopapillomavirus
+243	Rhopapillomavirus 2	KP205503		Rhopapillomavirus
+244	Taupapillomavirus 1	FJ492742		Taupapillomavirus
+245	Taupapillomavirus 1	KT272399		Taupapillomavirus
+246	Taupapillomavirus 1	KX599536		Taupapillomavirus
+247	Taupapillomavirus 3	KF147892		Taupapillomavirus
+248	Treisepsilonpapillomavirus 1	MF168943		Treisepsilonpapillomavirus
+249	Upsilonpapillomavirus 1	EU240895		Upsilonpapillomavirus
+250	Upsilonpapillomavirus 1	GU117620		Upsilonpapillomavirus
+251	Upsilonpapillomavirus 1	JN709469		Upsilonpapillomavirus
+252	Upsilonpapillomavirus 1	JN709472		Upsilonpapillomavirus
+253	Xipapillomavirus 1	AB331650		Xipapillomavirus
+254	Xipapillomavirus 1	AB331651		Xipapillomavirus
+255	Xipapillomavirus 1	AB543507		Xipapillomavirus
+256	Xipapillomavirus 1	AJ620208		Xipapillomavirus
+257	Xipapillomavirus 1	KM983393		Xipapillomavirus
+258	Xipapillomavirus 1	KX098515		Xipapillomavirus
+259	Xipapillomavirus 1	X05817		Xipapillomavirus
+260	Abaca bunchy top virus	EF546806	DNA-C	Babuvirus
+261	Abaca bunchy top virus	EF546805	DNA-M	Babuvirus
+262	Abaca bunchy top virus	EF546802	DNA-N	Babuvirus
+263	Abaca bunchy top virus	EF546807	DNA-R	Babuvirus
+264	Abaca bunchy top virus	EF546804	DNA-S	Babuvirus
+265	Abaca bunchy top virus	EF546803	DNA-U3	Babuvirus
+266	Banana bunchy top virus	DQ826395	DNAC	Babuvirus
+267	Banana bunchy top virus	DQ826394	DNA-M	Babuvirus
+268	Banana bunchy top virus	DQ826396	DNA-N	Babuvirus
+269	Banana bunchy top virus	DQ826390	DNA-R	Babuvirus
+270	Banana bunchy top virus	DQ826393	DNA-S	Babuvirus
+271	Banana bunchy top virus	DQ826391	DNA-U3	Babuvirus
+272	Cardamom bushy dwarf virus	KF711227	DNA-C	Babuvirus
+273	Cardamom bushy dwarf virus	KF711064	DNA-M	Babuvirus
+274	Cardamom bushy dwarf virus	KF711390	DNA-N	Babuvirus
+275	Cardamom bushy dwarf virus	KF710575	DNA-R	Babuvirus
+276	Cardamom bushy dwarf virus	KF710901	DNA-S	Babuvirus
+277	Cardamom bushy dwarf virus	KF710738	DNA-U3	Babuvirus
+278	Black medic leaf roll virus	KC978941	DNA-C	Nanovirus
+279	Black medic leaf roll virus	KC978942	DNA-M	Nanovirus
+280	Black medic leaf roll virus	KC978943	DNA-N	Nanovirus
+281	Black medic leaf roll virus	KC978939	DNA-R	Nanovirus
+282	Black medic leaf roll virus	KC978940	DNA-S	Nanovirus
+283	Black medic leaf roll virus	KC978944	DNA-U1	Nanovirus
+284	Black medic leaf roll virus	KC978946	DNA-U2	Nanovirus
+285	Black medic leaf roll virus	KC978947	DNA-U4	Nanovirus
+286	Black medic leaf roll virus	KC978951	DNA-C	Nanovirus
+287	Black medic leaf roll virus	KC978952	DNA-M	Nanovirus
+288	Black medic leaf roll virus	KC978953	DNA-N	Nanovirus
+289	Black medic leaf roll virus	KC978949	DNA-R	Nanovirus
+290	Black medic leaf roll virus	KC978950	DNA-S	Nanovirus
+291	Black medic leaf roll virus	KC978954	DNA-U1	Nanovirus
+292	Black medic leaf roll virus	KC978955	DNA-U2	Nanovirus
+293	Black medic leaf roll virus	KC978956	DNA-U4	Nanovirus
+294	Faba bean necrotic stunt virus	GQ274031	DNA-C	Nanovirus
+295	Faba bean necrotic stunt virus	GQ274035	DNA-M	Nanovirus
+296	Faba bean necrotic stunt virus	GQ274038	DNA-N	Nanovirus
+297	Faba bean necrotic stunt virus	GQ274033	DNA-R	Nanovirus
+298	Faba bean necrotic stunt virus	GQ274036	DNA-S	Nanovirus
+299	Faba bean necrotic stunt virus	GQ274034	DNA-U1	Nanovirus
+300	Faba bean necrotic stunt virus	GQ274037	DNA-U2	Nanovirus
+301	Faba bean necrotic stunt virus	GQ274032	DNA-U4	Nanovirus
+302	Faba bean necrotic yellows virus	GQ274023	DNA-C	Nanovirus
+303	Faba bean necrotic yellows virus	GQ274027	DNA-M	Nanovirus
+304	Faba bean necrotic yellows virus	GQ274030	DNAN	Nanovirus
+305	Faba bean necrotic yellows virus	GQ274025	DNA-R	Nanovirus
+306	Faba bean necrotic yellows virus	GQ274028	DNA-S	Nanovirus
+307	Faba bean necrotic yellows virus	GQ274026	DNA–U1	Nanovirus
+308	Faba bean necrotic yellows virus	GQ274029	DNA-U2	Nanovirus
+309	Faba bean necrotic yellows virus	GQ274024	DNA-U4	Nanovirus
+310	Faba bean necrotic yellows virus	KX431388	DNA-C	Nanovirus
+311	Faba bean necrotic yellows virus	KX431395	DNA-M	Nanovirus
+312	Faba bean necrotic yellows virus	KX431402	DNA-N	Nanovirus
+313	Faba bean necrotic yellows virus	KX431381	DNA-R	Nanovirus
+314	Faba bean necrotic yellows virus	KX431409	DNA-S	Nanovirus
+315	Faba bean necrotic yellows virus	KX431416	DNA-U1	Nanovirus
+316	Faba bean necrotic yellows virus	KX431423	DNA-U2	Nanovirus
+317	Faba bean necrotic yellows virus	KX431430	DNA-U4	Nanovirus
+318	Faba bean necrotic yellows virus	KC979021	DNA-C	Nanovirus
+319	Faba bean necrotic yellows virus	KC979022	DNA-M	Nanovirus
+320	Faba bean necrotic yellows virus	KC979023	DNA-N	Nanovirus
+321	Faba bean necrotic yellows virus	KC979019	DNA-R	Nanovirus
+322	Faba bean necrotic yellows virus	KC979020	DNA-S	Nanovirus
+323	Faba bean necrotic yellows virus	KC979024	DNA-U1	Nanovirus
+324	Faba bean necrotic yellows virus	KC979025	DNA-U2	Nanovirus
+325	Faba bean necrotic yellows virus	KC979026	DNA-U4	Nanovirus
+326	Milk vetch dwarf virus	KY070240	DNA-C	Nanovirus
+327	Milk vetch dwarf virus	KY070244	DNA-M	Nanovirus
+328	Milk vetch dwarf virus	KY070242	DNA-N	Nanovirus
+329	Milk vetch dwarf virus	KY070246	DNA-R	Nanovirus
+330	Milk vetch dwarf virus	KY070245	DNA-S	Nanovirus
+331	Milk vetch dwarf virus	KY070241	DNA-U1	Nanovirus
+332	Milk vetch dwarf virus	KY070243	DNA-U2	Nanovirus
+333	Milk vetch dwarf virus	KY070247	DNA-U4	Nanovirus
+334	Subterranean clover stunt virus	U16732	DNA-C	Nanovirus
+335	Subterranean clover stunt virus	U16730	DNA-M	Nanovirus
+336	Subterranean clover stunt virus	U16733	DNA-N	Nanovirus
+337	Subterranean clover stunt virus	AJ290434	DNA-R	Nanovirus
+338	Subterranean clover stunt virus	U16734	DNA-S	Nanovirus
+339	Subterranean clover stunt virus	U16736	DNA-U1	Nanovirus
+340	Brisavirus	MK059755		Torbevirus
+341	Brisavirus	MK059757		Torbevirus
+342	Brisavirus	MK059754		Torbevirus
+343	Brisavirus	MK059756		Torbevirus
+344	Brisavirus	MK059759		Torbevirus
+345	Brisavirus	MK059758		Torbevirus
+346	Brisavirus	KY349925		Torbevirus
+347	Brisavirus	MH973742		Torbevirus
+348	Vientovirus	MK059761		Torbevirus
+349	Vientovirus	MK059772		Torbevirus
+350	Vientovirus	MK059765		Torbevirus
+351	Vientovirus	MK059762		Torbevirus
+352	Vientovirus	MK059764		Torbevirus
+353	Vientovirus	MK059760		Torbevirus
+354	Vientovirus	MK059766		Torbevirus
+355	Vientovirus	MK059768		Torbevirus
+356	Vientovirus	MK059771		Torbevirus
+357	Vientovirus	MK059767		Torbevirus
+358	Vientovirus	MK059770		Torbevirus
+359	Vientovirus	MK059769		Torbevirus
+360	Vientovirus	KY244146		Torbevirus
+361	Vientovirus	KY328746		Torbevirus
+362	Vientovirus	KY328745		Torbevirus
+363	Vientovirus	KY328744		Torbevirus
+364	Beet curly top Iran virus	JX131633		Becurtovirus
+365	Beet curly top Iran virus	JX458087		Becurtovirus
+366	Beet curly top Iran virus	JX945572		Becurtovirus
+367	Ageratum enation virus	FN543099	DNA-A	Begomovirus
+368	Ageratum enation virus	HM149260	DNA-A	Begomovirus
+369	Ageratum yellow vein Hualian virus	DQ866124	DNA-A	Begomovirus
+370	Ageratum yellow vein virus	AB050781	DNA-A	Begomovirus
+371	Ageratum yellow vein virus	KC172826	DNA-A	Begomovirus
+372	Ageratum yellow vein virus	AB100305	DNA-A	Begomovirus
+373	Ageratum yellow vein virus	JN809816	DNA-A	Begomovirus
+374	Ageratum yellow vein virus	JQ804985	DNA-A	Begomovirus
+375	Ageratum yellow vein virus	EU487045	DNA-A	Begomovirus
+376	Ageratum yellow vein virus	AB306314	DNA-A	Begomovirus
+377	Ageratum yellow vein virus	AF307861	DNA-A	Begomovirus
+378	Ageratum yellow vein virus	JN809820	DNA-A	Begomovirus
+379	Alternanthera yellow vein virus	EF544604	DNA-A	Begomovirus
+380	Alternanthera yellow vein virus	EF544602	DNA-A	Begomovirus
+381	Bean golden mosaic virus	JN419006	DNA-A	Begomovirus
+382	Bhendi yellow vein mosaic virus	EU589392	DNA-A	Begomovirus
+383	Bhendi yellow vein mosaic virus	AJ002451	DNA-A	Begomovirus
+384	Bhendi yellow vein mosaic virus	FJ179372	DNA-A	Begomovirus
+385	Bhendi yellow vein mosaic virus	FJ176235	DNA-A	Begomovirus
+386	Chilli leaf curl virus	GU136803	DNA-A	Begomovirus
+387	Chilli leaf curl virus	AJ875159	DNA-A	Begomovirus
+388	Chilli leaf curl virus	DQ673859	DNA-A	Begomovirus
+389	Chilli leaf curl virus	FJ345402	DNA-A	Begomovirus
+390	Chilli leaf curl virus	DQ116878	DNA-A	Begomovirus
+391	Chino del tomate virus	AY751753	DNA-A	Begomovirus
+392	Chino del tomate virus	DQ347945	DNA-A	Begomovirus
+393	Clerodendrum golden mosaic China virus	FN396962	DNA-A	Begomovirus
+394	Clerodendrum golden mosaic China virus	FN396963	DNA-B	Begomovirus
+395	Corchorus golden mosaic virus	FJ463902	DNA-A	Begomovirus
+396	Corchorus golden mosaic virus	FJ463901	DNA-B	Begomovirus
+397	Cotton leaf crumple virus	AY083351	DNA-A	Begomovirus
+398	Cotton leaf curl Alabad virus	GU112081	DNA-A	Begomovirus
+399	Cotton leaf curl Alabad virus	GU112004	DNA-A	Begomovirus
+400	Cotton leaf curl Alabad virus	FJ210467	DNA-A	Begomovirus
+401	Cotton leaf curl Alabad virus	EU384575	DNA-A	Begomovirus
+402	Cotton leaf curl Gezira virus	FN554540	DNA-A	Begomovirus
+403	Cotton leaf curl Gezira virus	AJ542539	DNA-A	Begomovirus
+404	Cotton leaf curl Gezira virus	FM210276	DNA-A	Begomovirus
+405	Cotton leaf curl Gezira virus	AF155064	DNA-A	Begomovirus
+406	Cotton leaf curl Gezira virus	AF014881	DNA-A	Begomovirus
+407	Cotton leaf curl Gezira virus	FM164726	DNA-A	Begomovirus
+408	Cotton leaf curl Gezira virus	AM701757	DNA-A	Begomovirus
+409	Cotton leaf curl Gezira virus	EU024120	DNA-A	Begomovirus
+410	Cotton leaf curl Gezira virus	EU432373	DNA-A	Begomovirus
+411	Cotton leaf curl Gezira virus	FJ868828	DNA-A	Begomovirus
+412	Cotton leaf curl Kokhran virus	AM421522	DNA-A	Begomovirus
+413	Cotton leaf curl Kokhran virus	HF549182	DNA-A	Begomovirus
+414	Cotton leaf curl Kokhran virus	GU385879	DNA-A	Begomovirus
+415	Cotton leaf curl Kokhran virus	FN552001	DNA-A	Begomovirus
+416	Cotton leaf curl Multan virus	AJ002447	DNA-A	Begomovirus
+417	Cotton leaf curl Multan virus	JN807763	DNA-A	Begomovirus
+418	Cotton leaf curl Multan virus	AJ132430	DNA-A	Begomovirus
+419	Cotton leaf curl Multan virus	EU365616	DNA-A	Begomovirus
+420	Cotton leaf curl Multan virus	AF363011	DNA-A	Begomovirus
+421	East African cassava mosaic virus	AJ717542	DNA-A	Begomovirus
+422	East African cassava mosaic virus	AJ704949	DNA-B	Begomovirus
+423	East African cassava mosaic virus	JX473582	DNA-A	Begomovirus
+424	East African cassava mosaic virus	AY795983	DNA-A	Begomovirus
+425	East African cassava mosaic virus	AY795989	DNA-B	Begomovirus
+426	Eupatorium yellow vein virus	AJ438936	DNA-A	Begomovirus
+427	Eupatorium yellow vein virus	AB079766	DNA-A	Begomovirus
+428	Eupatorium yellow vein virus	AB300463	DNA-A	Begomovirus
+429	Eupatorium yellow vein virus	AB433979	DNA-A	Begomovirus
+430	Euphorbia yellow mosaic virus	JF756676	DNA-A	Begomovirus
+431	Honeysuckle yellow vein virus	JX416174	DNA-A	Begomovirus
+432	Honeysuckle yellow vein virus	AB178945	DNA-A	Begomovirus
+433	Honeysuckle yellow vein virus	AB079765	DNA-A	Begomovirus
+434	Honeysuckle yellow vein virus	AB287441	DNA-A	Begomovirus
+435	Honeysuckle yellow vein virus	AB287440	DNA-A	Begomovirus
+436	Honeysuckle yellow vein virus	AB287439	DNA-A	Begomovirus
+437	Honeysuckle yellow vein virus	AB182261	DNA-A	Begomovirus
+438	Honeysuckle yellow vein virus	HM164545	DNA-A	Begomovirus
+439	Honeysuckle yellow vein virus	AB178946	DNA-A	Begomovirus
+440	Honeysuckle yellow vein virus	AB055009	DNA-A	Begomovirus
+441	Honeysuckle yellow vein virus	AB236325	DNA-A	Begomovirus
+442	Honeysuckle yellow vein virus	AB079689	DNA-A	Begomovirus
+443	Honeysuckle yellow vein virus	FJ434943	DNA-A	Begomovirus
+444	Honeysuckle yellow vein virus	HM164547	DNA-A	Begomovirus
+445	Indian cassava mosaic virus	JF496657	DNA-A	Begomovirus
+446	Indian cassava mosaic virus	JF496656	DNA-B	Begomovirus
+447	Indian cassava mosaic virus	GQ924760	DNA-A	Begomovirus
+448	Indian cassava mosaic virus	GQ924761	DNA-B	Begomovirus
+449	Indian cassava mosaic virus	AJ575819	DNA-A	Begomovirus
+450	Jatropha leaf curl virus	GU451249	DNA-A	Begomovirus
+451	Macroptilium yellow mosaic virus	AJ344452	DNA-A	Begomovirus
+452	Malvastrum yellow vein virus	FN386459	DNA-A	Begomovirus
+453	Malvastrum yellow vein virus	FN806779	DNA-A	Begomovirus
+454	Melon chlorotic leaf curl virus	KC153490	DNA-A	Begomovirus
+455	Melon chlorotic leaf curl virus	AF325497	DNA-A	Begomovirus
+456	Melon chlorotic leaf curl virus	AF325498	DNA-B	Begomovirus
+457	Merremia mosaic virus	AY508991	DNA-A	Begomovirus
+458	Merremia mosaic virus	AY508992	DNA-B	Begomovirus
+459	Okra yellow crinkle virus	FM210275	DNA-A	Begomovirus
+460	Okra yellow crinkle virus	HE793424	DNA-A	Begomovirus
+461	Papaya leaf curl China virus	AJ558125	DNA-A	Begomovirus
+462	Papaya leaf curl China virus	FN256261	DNA-A	Begomovirus
+463	Papaya leaf curl China virus	FN297834	DNA-A	Begomovirus
+464	Papaya leaf curl China virus	AJ558117	DNA-A	Begomovirus
+465	Papaya leaf curl China virus	GQ373254	DNA-A	Begomovirus
+466	Papaya leaf curl virus	JN817517	DNA-A	Begomovirus
+467	Papaya leaf curl virus	JN135233	DNA-A	Begomovirus
+468	Papaya leaf curl virus	JQ954859	DNA-A	Begomovirus
+469	Papaya leaf curl virus	KF307208	DNA-A	Begomovirus
+470	Papaya leaf curl virus	FJ593629	DNA-A	Begomovirus
+471	Papaya leaf curl virus	FN678906	DNA-A	Begomovirus
+472	Papaya leaf curl virus	AJ436992	DNA-A	Begomovirus
+473	Papaya leaf curl virus	FN543112	DNA-A	Begomovirus
+474	Papaya leaf curl virus	FM955601	DNA-A	Begomovirus
+475	Papaya leaf curl virus	JQ407224	DNA-A	Begomovirus
+476	Papaya leaf curl virus	JN807765	DNA-A	Begomovirus
+477	Papaya leaf curl virus	HM143914	DNA-A	Begomovirus
+478	Papaya leaf curl virus	DQ629102	DNA-A	Begomovirus
+479	Pedilanthus leaf curl virus	DQ116884	DNA-A	Begomovirus
+480	Pedilanthus leaf curl virus	AM948961	DNA-A	Begomovirus
+481	Pepper golden mosaic virus	AF149227	DNA-A	Begomovirus
+482	Pepper golden mosaic virus	JQ743486	DNA-A	Begomovirus
+483	Pepper leaf curl Bangladesh virus	AM404179	DNA-A	Begomovirus
+484	Pepper leaf curl Bangladesh virus	HM007096	DNA-A	Begomovirus
+485	Pepper leaf curl Bangladesh virus	DQ116881	DNA-A	Begomovirus
+486	Pepper leaf curl virus	AF414287	DNA-A	Begomovirus
+487	Potato yellow mosaic virus	AF039031	DNA-A	Begomovirus
+488	Potato yellow mosaic virus	AF039032	DNA-B	Begomovirus
+489	Potato yellow mosaic virus	AY965897	DNA-A	Begomovirus
+490	Potato yellow mosaic virus	EU518935	DNA-A	Begomovirus
+491	Rhynchosia golden mosaic virus	AF408199	DNA-A	Begomovirus
+492	Rhynchosia golden mosaic virus	EU339936	DNA-A	Begomovirus
+493	Rhynchosia golden mosaic virus	DQ356429	DNA-B	Begomovirus
+494	Sida golden mosaic Florida virus	U77963	DNA-A	Begomovirus
+495	Sida micrantha mosaic virus	HM585439	DNA-A	Begomovirus
+496	Sida micrantha mosaic virus	HM585440	DNA-B	Begomovirus
+497	Sida micrantha mosaic virus	JX415187	DNA-A	Begomovirus
+498	Sida mottle virus	AY090555	DNA-A	Begomovirus
+499	Squash leaf curl China virus	EU487031	DNA-A	Begomovirus
+500	Squash leaf curl China virus	AM286794	DNA-A	Begomovirus
+501	Squash leaf curl China virus	EU543562	DNA-A	Begomovirus
+502	Sri Lankan cassava mosaic virus	AJ579307	DNA-A	Begomovirus
+503	Sweet potato leaf curl virus	EU253456	DNA-A	Begomovirus
+504	Sweet potato leaf curl virus	AJ132548	DNA-A	Begomovirus
+505	Sweet potato leaf curl virus	FJ969829	DNA-A	Begomovirus
+506	Sweet potato leaf curl virus	FJ515898	DNA-A	Begomovirus
+507	Sweet potato leaf curl virus	AJ586885	DNA-A	Begomovirus
+508	Sweet potato leaf curl virus	AB433786	DNA-A	Begomovirus
+509	Sweet potato leaf curl virus	FJ969830	DNA-A	Begomovirus
+510	Sweet potato leaf curl virus	HQ393456	DNA-A	Begomovirus
+511	Sweet potato leaf curl virus	DQ644562	DNA-A	Begomovirus
+512	Sweet potato leaf curl virus	HQ393447	DNA-A	Begomovirus
+513	Sweet potato leaf curl virus	HQ393473	DNA-A	Begomovirus
+514	Sweet potato leaf curl virus	HQ333138	DNA-A	Begomovirus
+515	Sweet potato leaf curl virus	EF456744	DNA-A	Begomovirus
+516	Tomato chino La Paz virus	JN676150	DNA-A	Begomovirus
+517	Tomato chino La Paz virus	AY339619	DNA-A	Begomovirus
+518	Tomato chlorotic mottle virus	KC706561	DNA-A	Begomovirus
+519	Tomato chlorotic mottle virus	AY090557	DNA-A	Begomovirus
+520	Tomato leaf curl Bangalore virus	KF663698	DNA-A	Begomovirus
+521	Tomato leaf curl Bangalore virus	AF295401	DNA-A	Begomovirus
+522	Tomato leaf curl Bangalore virus	AF165098	DNA-A	Begomovirus
+523	Tomato leaf curl Bangalore virus	DQ852623	DNA-A	Begomovirus
+524	Tomato leaf curl China virus	JF681158	DNA-A	Begomovirus
+525	Tomato leaf curl China virus	AJ558119	DNA-A	Begomovirus
+526	Tomato leaf curl China virus	AJ704603	DNA-A	Begomovirus
+527	Tomato leaf curl Comoros virus	AM701761	DNA-A	Begomovirus
+528	Tomato leaf curl Ghana virus	FR873228	DNA-A	Begomovirus
+529	Tomato leaf curl Java virus	AB162141	DNA-A	Begomovirus
+530	Tomato leaf curl Madagascar virus	AJ865339	DNA-A	Begomovirus
+531	Tomato leaf curl Philippines virus	AB377113	DNA-A	Begomovirus
+532	Tomato leaf curl Philippines virus	AB307731	DNA-A	Begomovirus
+533	Tomato leaf curl Sudan virus	KC763630	DNA-A	Begomovirus
+534	Tomato leaf curl Sudan virus	AY044139	DNA-A	Begomovirus
+535	Tomato leaf curl Sudan virus	EF110891	DNA-A	Begomovirus
+536	Tomato leaf curl Taiwan virus	JQ867093	DNA-A	Begomovirus
+537	Tomato leaf curl Taiwan virus	GU723730	DNA-A	Begomovirus
+538	Tomato leaf curl Taiwan virus	DQ866128	DNA-A	Begomovirus
+539	Tomato leaf curl virus	AF084006	DNA-A	Begomovirus
+540	Tomato leaf curl virus	DQ629101	DNA-A	Begomovirus
+541	Tomato leaf curl virus	FJ514798	DNA-A	Begomovirus
+542	Tomato leaf curl virus	AY754812	DNA-A	Begomovirus
+543	Tomato severe leaf curl virus	JN680352	DNA-A	Begomovirus
+544	Tomato severe leaf curl virus	AJ508784	DNA-A	Begomovirus
+545	Tomato yellow leaf curl China virus	AJ319675	DNA-A	Begomovirus
+546	Tomato yellow leaf curl China virus	AJ457985	DNA-A	Begomovirus
+547	Tomato yellow leaf curl China virus	AM980509	DNA-A	Begomovirus
+548	Tomato yellow leaf curl China virus	DQ256460	DNA-A	Begomovirus
+549	Tomato yellow leaf curl China virus	AJ319674	DNA-A	Begomovirus
+550	Tomato yellow leaf curl China virus	EF011559	DNA-A	Begomovirus
+551	Tomato yellow leaf curl Mali virus	DQ358913	DNA-A	Begomovirus
+552	Tomato yellow leaf curl Mali virus	AY502934	DNA-A	Begomovirus
+553	Tomato yellow leaf curl Thailand virus	AY514630	DNA-A	Begomovirus
+554	Tomato yellow leaf curl Thailand virus	AJ495812	DNA-A	Begomovirus
+555	Tomato yellow leaf curl Thailand virus	AF206674	DNA-A	Begomovirus
+556	Tomato yellow leaf curl Thailand virus	AY514632	DNA-A	Begomovirus
+557	Tomato yellow leaf curl virus	GU076454	DNA-A	Begomovirus
+558	Tomato yellow leaf curl virus	AJ132711	DNA-A	Begomovirus
+559	Tomato yellow leaf curl virus	EU635776	DNA-A	Begomovirus
+560	Tomato yellow leaf curl virus	GU076442	DNA-A	Begomovirus
+561	Tomato yellow leaf curl virus	X76319	DNA-A	Begomovirus
+562	Beet curly top virus	EU193175		Curtovirus
+563	Beet curly top virus	U02311		Curtovirus
+564	Beet curly top virus	FJ545686		Curtovirus
+565	Beet curly top virus	JN817383		Curtovirus
+566	Beet curly top virus	U56975		Curtovirus
+567	Beet curly top virus	AY548948		Curtovirus
+568	Beet curly top virus	EF501977		Curtovirus
+569	Beet curly top virus	EU921828		Curtovirus
+570	Eragrostis curvula streak virus	FJ665630		Eragrovirus
+571	Chickpea chlorosis virus	GU256531		Mastrevirus
+572	Chickpea chlorosis virus	JN989416		Mastrevirus
+573	Chickpea chlorosis virus	JN989426		Mastrevirus
+574	Chickpea chlorotic dwarf virus	FR687959		Mastrevirus
+575	Chickpea chlorotic dwarf virus	AM849097		Mastrevirus
+576	Chickpea chlorotic dwarf virus	FR687960		Mastrevirus
+577	Chickpea chlorotic dwarf virus	AM933135		Mastrevirus
+578	Digitaria ciliaris striate mosaic virus	JQ948091		Mastrevirus
+579	Maize streak virus	EU628597		Mastrevirus
+580	Maize streak virus	AF007881		Mastrevirus
+581	Maize streak virus	AF329889		Mastrevirus
+582	Maize streak virus	EU628626		Mastrevirus
+583	Maize streak virus	EU628629		Mastrevirus
+584	Maize streak virus	EU628631		Mastrevirus
+585	Maize streak virus	EU628638		Mastrevirus
+586	Maize streak virus	EU628639		Mastrevirus
+587	Maize streak virus	EU628641		Mastrevirus
+588	Maize streak virus	EU628643		Mastrevirus
+589	Panicum streak virus	X60168		Mastrevirus
+590	Panicum streak virus	EU224264		Mastrevirus
+591	Panicum streak virus	EU224265		Mastrevirus
+592	Panicum streak virus	GQ415391		Mastrevirus
+593	Panicum streak virus	GQ415392		Mastrevirus
+594	Panicum streak virus	GQ415395		Mastrevirus
+595	Panicum streak virus	GQ415397		Mastrevirus
+596	Panicum streak virus	GQ415399		Mastrevirus
+597	Paspalum striate mosaic virus	JQ948069		Mastrevirus
+598	Sugarcane streak Reunion virus	EU244916		Mastrevirus
+599	Sugarcane streak virus	EU244914		Mastrevirus
+600	Wheat dwarf virus	FJ620684		Mastrevirus
+601	Wheat dwarf virus	JQ647455		Mastrevirus
+602	Wheat dwarf virus	JN791096		Mastrevirus
+603	Wheat dwarf virus	AM040732		Mastrevirus
+604	Turnip curly top virus	KC108896		Turncurtovirus
+605	Turnip curly top virus	KC108905		Turncurtovirus
+606	Turnip curly top virus	KC108902		Turncurtovirus
+607	Alphachrysovirus cerasi	AJ781397	dsRNA1	Alphachrysovirus
+608	Alphachrysovirus cerasi	AJ781398	dsRNA2	Alphachrysovirus
+609	Alphachrysovirus cerasi	AJ781399	dsRNA3	Alphachrysovirus
+610	Alphachrysovirus cerasi	AJ781400	dsRNA4	Alphachrysovirus
+611	Alphachrysovirus helminthosporii	KY489954	dsRNA1	Alphachrysovirus
+612	Alphachrysovirus helminthosporii	KY489955	dsRNA2	Alphachrysovirus
+613	Alphachrysovirus helminthosporii	KY489956	dsRNA3	Alphachrysovirus
+614	Alphachrysovirus helminthosporii	KY489957	dsRNA4	Alphachrysovirus
+615	Alphachrysovirus isariae	MK279433	dsRNA1	Alphachrysovirus
+616	Alphachrysovirus isariae	MK279434	dsRNA2	Alphachrysovirus
+617	Alphachrysovirus isariae	MK279435	dsRNA3	Alphachrysovirus
+618	Alphachrysovirus isariae	MK279436	dsRNA4	Alphachrysovirus
+619	Alphachrysovirus penicillii	MG887760	dsRNA1	Alphachrysovirus
+620	Alphachrysovirus penicillii	MG887761	dsRNA2	Alphachrysovirus
+621	Alphachrysovirus penicillii	MG887762	dsRNA3	Alphachrysovirus
+622	Alphachrysovirus penicillii	MH271211	dsRNA4	Alphachrysovirus
+623	Alphachrysovirus penicillii	MK214380	dsRNA1	Alphachrysovirus
+624	Alphachrysovirus penicillii	MK214381	dsRNA2	Alphachrysovirus
+625	Alphachrysovirus penicillii	MK214382	dsRNA3	Alphachrysovirus
+626	Alphachrysovirus penicillii	MK214383	dsRNA4	Alphachrysovirus
+627	Alphachrysovirus penicillii	MK279429	dsRNA1	Alphachrysovirus
+628	Alphachrysovirus penicillii	MK279430	dsRNA2	Alphachrysovirus
+629	Alphachrysovirus penicillii	MK279431	dsRNA3	Alphachrysovirus
+630	Alphachrysovirus penicillii	MK279432	dsRNA4	Alphachrysovirus
+631	Alphachrysovirus shuangaoense	MF176309	dsRNA1	Alphachrysovirus
+632	Alphachrysovirus shuangaoense	MF176310	dsRNA2	Alphachrysovirus
+633	Alphachrysovirus shuangaoense	MF176311	dsRNA3	Alphachrysovirus
+634	Alphachrysovirus shuangaoense	MF176312	dsRNA4	Alphachrysovirus
+635	Betachrysovirus foxyspori	MN295964	dsRNA1	Betachrysovirus
+636	Betachrysovirus foxyspori	MN295965	dsRNA2	Betachrysovirus
+637	Betachrysovirus foxyspori	MN295966	dsRNA3	Betachrysovirus
+638	Betachrysovirus foxyspori	MN295967	dsRNA4	Betachrysovirus
+639	Betachrysovirus fugramineari	HQ228213	dsRNA1	Betachrysovirus
+640	Betachrysovirus fugramineari	HQ228214	dsRNA2	Betachrysovirus
+641	Betachrysovirus fugramineari	HQ228215	dsRNA3	Betachrysovirus
+642	Betachrysovirus fugramineari	HQ228216	dsRNA4	Betachrysovirus
+643	Betachrysovirus fugramineari	HQ228217	dsRNA5	Betachrysovirus
+644	Betachrysovirus magnaporthis	AB824667	dsRNA1	Betachrysovirus
+645	Betachrysovirus magnaporthis	AB824668	dsRNA2	Betachrysovirus
+646	Betachrysovirus magnaporthis	AB824669	dsRNA3	Betachrysovirus
+647	Betachrysovirus magnaporthis	AB824670	dsRNA4	Betachrysovirus
+648	Betachrysovirus magnaporthis	AB824671	dsRNA5	Betachrysovirus
+649	Rosellinia necatrix quadrivirus 1	AB744677	RNA1	Quadrivirus
+650	Rosellinia necatrix quadrivirus 1	AB744678	RNA2	Quadrivirus
+651	Rosellinia necatrix quadrivirus 1	AB744679	RNA3	Quadrivirus
+652	Rosellinia necatrix quadrivirus 1	AB744680	RNA4	Quadrivirus
+653	Rosellinia necatrix quadrivirus 1	AB771723	RNA3	Quadrivirus
+654	Banna virus	AF168005	Seg1	Seadornavirus
+655	Banna virus	AF134526	Seg2	Seadornavirus
+656	Banna virus	AY549307	Seg3	Seadornavirus
+657	Banna virus	AY549308	Seg4	Seadornavirus
+658	Banna virus	AY549309	Seg5	Seadornavirus
+659	Banna virus	AF168006	Seg6	Seadornavirus
+660	Banna virus	AF052035	Seg7	Seadornavirus
+661	Banna virus	AF052034	Seg8	Seadornavirus
+662	Banna virus	AF052033	Seg9	Seadornavirus
+663	Banna virus	AF052032	Seg10	Seadornavirus
+664	Banna virus	AF052031	Seg11	Seadornavirus
+665	Banna virus	AF052030	Seg12	Seadornavirus
+666	Banna virus	AF134522	Seg1	Seadornavirus
+667	Banna virus	AF134523	Seg6	Seadornavirus
+668	Banna virus	AF052013	Seg7	Seadornavirus
+669	Banna virus	AF052012	Seg8	Seadornavirus
+670	Banna virus	AF052011	Seg9	Seadornavirus
+671	Banna virus	AF052010	Seg10	Seadornavirus
+672	Banna virus	AF052009	Seg11	Seadornavirus
+673	Banna virus	AF052008	Seg12	Seadornavirus
+674	Banna virus	AF134519	Seg1	Seadornavirus
+675	Banna virus	AF134520	Seg2	Seadornavirus
+676	Banna virus	AF134521	Seg6	Seadornavirus
+677	Banna virus	AF052029	Seg7	Seadornavirus
+678	Banna virus	AF052028	Seg8	Seadornavirus
+679	Banna virus	AF052027	Seg9	Seadornavirus
+680	Banna virus	AF052026	Seg10	Seadornavirus
+681	Banna virus	AF052025	Seg11	Seadornavirus
+682	Banna virus	AF052024	Seg12	Seadornavirus
+683	Liao ning virus	AY317099	Seg1	Seadornavirus
+684	Liao ning virus	AY317100	Seg2	Seadornavirus
+685	Liao ning virus	AY317101	Seg3	Seadornavirus
+686	Liao ning virus	AY317102	Seg4	Seadornavirus
+687	Liao ning virus	AY317103	Seg5	Seadornavirus
+688	Liao ning virus	AY317104	Seg6	Seadornavirus
+689	Liao ning virus	AY317105	Seg7	Seadornavirus
+690	Liao ning virus	AY317106	Seg8	Seadornavirus
+691	Liao ning virus	AY317107	Seg9	Seadornavirus
+692	Liao ning virus	AY317108	Seg10	Seadornavirus
+693	Liao ning virus	AY317109	Seg11	Seadornavirus
+694	Liao ning virus	AY317110	Seg12	Seadornavirus
+695	Aquareovirus A	AF450318	Seg2	Aquareovirus
+696	Aquareovirus A	AF450319	Seg3	Aquareovirus
+697	Aquareovirus A	AF450320	Seg4	Aquareovirus
+698	Aquareovirus A	AF450321	Seg8	Aquareovirus
+699	Aquareovirus A	AF450322	Seg10	Aquareovirus
+700	Aquareovirus C	KC201166	Seg1	Aquareovirus
+701	Aquareovirus C	KC201167	Seg2	Aquareovirus
+702	Aquareovirus C	KC201168	Seg3	Aquareovirus
+703	Aquareovirus C	KC201169	Seg4	Aquareovirus
+704	Aquareovirus C	KC201170	Seg5	Aquareovirus
+705	Aquareovirus C	KC201171	Seg6	Aquareovirus
+706	Aquareovirus C	KC201172	Seg7	Aquareovirus
+707	Aquareovirus C	KC201173	Seg8	Aquareovirus
+708	Aquareovirus C	KC201174	Seg9	Aquareovirus
+709	Aquareovirus C	KC201175	Seg10	Aquareovirus
+710	Aquareovirus C	KC201176	Seg11	Aquareovirus
+711	Cypovirus 1	KR704197	Seg1	Cypovirus
+712	Cypovirus 1	KR704195	Seg2	Cypovirus
+713	Cypovirus 1	KR704198	Seg3	Cypovirus
+714	Cypovirus 1	KR704199	Seg4	Cypovirus
+715	Cypovirus 1	KR704200	Seg5	Cypovirus
+716	Cypovirus 1	KR704201	Seg6	Cypovirus
+717	Cypovirus 1	KR815454	Seg7	Cypovirus
+718	Cypovirus 1	KR704202	Seg8	Cypovirus
+719	Cypovirus 1	KR704203	Seg9	Cypovirus
+720	Cypovirus 1	KR704196	Seg10	Cypovirus
+721	Cypovirus 1	AY163247	Seg1	Cypovirus
+722	Cypovirus 1	AY147187	Seg2	Cypovirus
+723	Cypovirus 1	AY167578	Seg3	Cypovirus
+724	Cypovirus 1	AF542082	Seg4	Cypovirus
+725	Cypovirus 1	AY163248	Seg5	Cypovirus
+726	Cypovirus 1	AY177408	Seg6	Cypovirus
+727	Cypovirus 1	AY180906	Seg7	Cypovirus
+728	Cypovirus 1	AY211092	Seg8	Cypovirus
+729	Cypovirus 1	AY211093	Seg9	Cypovirus
+730	Cypovirus 1	AY204878	Seg10	Cypovirus
+731	Cypovirus 4	EF062995	Seg6	Cypovirus
+732	Cypovirus 4	DQ512389	Seg7	Cypovirus
+733	Cypovirus 4	DQ975382	Seg8	Cypovirus
+734	Cypovirus 4	AY212272	Seg10	Cypovirus
+735	Cypovirus 5	KC588356	Seg1	Cypovirus
+736	Cypovirus 5	KC588357	Seg2	Cypovirus
+737	Cypovirus 5	KC588358	Seg3	Cypovirus
+738	Cypovirus 5	KC588359	Seg	Cypovirus
+739	Cypovirus 5	KC588360	Seg5	Cypovirus
+740	Cypovirus 5	KC588361	Seg6	Cypovirus
+741	Cypovirus 5	KC588362	Seg7	Cypovirus
+742	Cypovirus 5	KC588363	Seg8	Cypovirus
+743	Cypovirus 5	KC588364	Seg9	Cypovirus
+744	Cypovirus 5	KC588365	Seg10	Cypovirus
+745	Avian orthoreovirus	AY444910	S3	Orthoreovirus
+746	Avian orthoreovirus	KF809662	L1	Orthoreovirus
+747	Avian orthoreovirus	KF809663	L2	Orthoreovirus
+748	Avian orthoreovirus	KF809664	L3	Orthoreovirus
+749	Avian orthoreovirus	KF809665	M1	Orthoreovirus
+750	Avian orthoreovirus	KF809666	M2	Orthoreovirus
+751	Avian orthoreovirus	KF809667	M3	Orthoreovirus
+752	Avian orthoreovirus	KF809668	S1	Orthoreovirus
+753	Avian orthoreovirus	KF809669	S2	Orthoreovirus
+754	Avian orthoreovirus	KF809670	S3	Orthoreovirus
+755	Avian orthoreovirus	KF809671	S4	Orthoreovirus
+756	Avian orthoreovirus	JX478260	L1	Orthoreovirus
+757	Avian orthoreovirus	JX478261	L2	Orthoreovirus
+758	Avian orthoreovirus	JX478262	L3	Orthoreovirus
+759	Avian orthoreovirus	JX478263	M1	Orthoreovirus
+760	Avian orthoreovirus	JX478264	M2	Orthoreovirus
+761	Avian orthoreovirus	JX478265	M3	Orthoreovirus
+762	Avian orthoreovirus	JX478266	S1	Orthoreovirus
+763	Avian orthoreovirus	JX478267	S2	Orthoreovirus
+764	Avian orthoreovirus	JX478268	S3	Orthoreovirus
+765	Avian orthoreovirus	JX478269	S4	Orthoreovirus
+766	Avian orthoreovirus	JX145328	L1	Orthoreovirus
+767	Avian orthoreovirus	JX145329	L2	Orthoreovirus
+768	Avian orthoreovirus	JX145330	L3	Orthoreovirus
+769	Avian orthoreovirus	JX145331	M1	Orthoreovirus
+770	Avian orthoreovirus	JX145332	M2	Orthoreovirus
+771	Avian orthoreovirus	JX145333	M3	Orthoreovirus
+772	Avian orthoreovirus	JX145334	S1	Orthoreovirus
+773	Avian orthoreovirus	JX145335	S2	Orthoreovirus
+774	Avian orthoreovirus	JX145336	S3	Orthoreovirus
+775	Avian orthoreovirus	JX145337	S4	Orthoreovirus
+776	Mammalian orthoreovirus	KX263307	L1	Orthoreovirus
+777	Mammalian orthoreovirus	KX263308	L2	Orthoreovirus
+778	Mammalian orthoreovirus	KX263309	L3	Orthoreovirus
+779	Mammalian orthoreovirus	KX263310	M1	Orthoreovirus
+780	Mammalian orthoreovirus	KX263311	M2	Orthoreovirus
+781	Mammalian orthoreovirus	KX263312	M3	Orthoreovirus
+782	Mammalian orthoreovirus	KX263313	S1	Orthoreovirus
+783	Mammalian orthoreovirus	KX263314	S2	Orthoreovirus
+784	Mammalian orthoreovirus	KX263315	S3	Orthoreovirus
+785	Mammalian orthoreovirus	KX263316	S4	Orthoreovirus
+786	Mammalian orthoreovirus	JX204738	L1	Orthoreovirus
+787	Mammalian orthoreovirus	JX204739	L2	Orthoreovirus
+788	Mammalian orthoreovirus	JX204740	L3	Orthoreovirus
+789	Mammalian orthoreovirus	JX204741	M1	Orthoreovirus
+790	Mammalian orthoreovirus	JX204742	M2	Orthoreovirus
+791	Mammalian orthoreovirus	JX204743	M3	Orthoreovirus
+792	Mammalian orthoreovirus	JX204737	S1	Orthoreovirus
+793	Mammalian orthoreovirus	JX204744	S2	Orthoreovirus
+794	Mammalian orthoreovirus	JX204745	S3	Orthoreovirus
+795	Mammalian orthoreovirus	JX204746	S4	Orthoreovirus
+796	Mammalian orthoreovirus	AF368033	L1	Orthoreovirus
+797	Mammalian orthoreovirus	AF368034	M2	Orthoreovirus
+798	Mammalian orthoreovirus	AF368035	S1	Orthoreovirus
+799	Mammalian orthoreovirus	AF368036	S2	Orthoreovirus
+800	Mammalian orthoreovirus	AF368037	S4	Orthoreovirus
+801	Nelson Bay orthoreovirus	JF811580	S1	Orthoreovirus
+802	Nelson Bay orthoreovirus	JF811581	S2	Orthoreovirus
+803	Nelson Bay orthoreovirus	JF811582	S3	Orthoreovirus
+804	Nelson Bay orthoreovirus	JF811583	S4	Orthoreovirus
+805	Nelson Bay orthoreovirus	AF218360	S1	Orthoreovirus
+806	Nelson Bay orthoreovirus	AF059718	S2	Orthoreovirus
+807	Nelson Bay orthoreovirus	AF059726	S3	Orthoreovirus
+808	Nelson Bay orthoreovirus	AF059722	S4	Orthoreovirus
+809	Neoavian orthoreovirus	EU252582	S1	Orthoreovirus
+810	Neoavian orthoreovirus	EU189200	S2	Orthoreovirus
+811	Neoavian orthoreovirus	EU189201	S3	Orthoreovirus
+812	Neoavian orthoreovirus	EU189202	S4	Orthoreovirus
+813	Neoavian orthoreovirus	KF692089	L1	Orthoreovirus
+814	Neoavian orthoreovirus	KF692090	L2	Orthoreovirus
+815	Neoavian orthoreovirus	KF692091	L3	Orthoreovirus
+816	Neoavian orthoreovirus	KF692092	M1	Orthoreovirus
+817	Neoavian orthoreovirus	KF692093	M2	Orthoreovirus
+818	Neoavian orthoreovirus	KF692094	M3	Orthoreovirus
+819	Neoavian orthoreovirus	KF692095	S1	Orthoreovirus
+820	Neoavian orthoreovirus	KF692096	S2	Orthoreovirus
+821	Neoavian orthoreovirus	KF692097	S3	Orthoreovirus
+822	Neoavian orthoreovirus	KF692098	S4	Orthoreovirus
+823	Avihepevirus magniiecur	EF206691		Avihepevirus
+824	Avihepevirus magniiecur	GU954430		Avihepevirus
+825	Avihepevirus magniiecur	JN597006		Avihepevirus
+826	Paslahepevirus balayani	L08816		Paslahepevirus
+827	Paslahepevirus balayani	KX578717		Paslahepevirus
+828	Paslahepevirus balayani	AF082843		Paslahepevirus
+829	Paslahepevirus balayani	EF077630		Paslahepevirus
+830	Paslahepevirus balayani	AB573435		Paslahepevirus
+831	Paslahepevirus balayani	AB602441		Paslahepevirus
+832	Paslahepevirus balayani	KJ496143		Paslahepevirus
+833	Paslahepevirus balayani	KX387865		Paslahepevirus
+834	Rocahepevirus ratti	KM516906		Rocahepevirus
+835	Rocahepevirus ratti	LC057247		Rocahepevirus
+836	Rocahepevirus ratti	JN998606		Rocahepevirus
+837	Rubivirus rubellae	M15240		Rubivirus
+838	Anulavirus GLPV	MW888424	RNA1	Anulavirus
+839	Anulavirus GLPV	MW888423	RNA2	Anulavirus
+840	Anulavirus GLPV	MW888422	RNA3	Anulavirus
+841	Chikungunya virus	KP003813		Alphavirus
+842	Fort Morgan virus	HM147986		Alphavirus
+843	Getah virus	AB032553		Alphavirus
+844	Getah virus	EF011023		Alphavirus
+845	Madariaga virus	KJ469640		Alphavirus
+846	Madariaga virus	EF151503		Alphavirus
+847	Middelburg virus	EF536323		Alphavirus
+848	Onyong-nyong virus	M20303		Alphavirus
+849	Onyong-nyong virus	AF079457		Alphavirus
+850	Ross River virus	M20162		Alphavirus
+851	Semliki Forest virus	JF972635		Alphavirus
+852	Sindbis virus	M69205		Alphavirus
+853	Sindbis virus	HM147984		Alphavirus
+854	Sindbis virus	AF103728		Alphavirus
+855	Sindbis virus	AF429428		Alphavirus
+856	Trocara virus	AF252265		Alphavirus
+857	Una virus	U94603		Alphavirus
+858	Venezuelan equine encephalitis virus	AF375051		Alphavirus
+859	Venezuelan equine encephalitis virus	L00930		Alphavirus
+860	Venezuelan equine encephalitis virus	U34999		Alphavirus
+861	Venezuelan equine encephalitis virus	AF075255		Alphavirus
+862	Western equine encephalitis virus	AF214040		Alphavirus
+863	Japanese soil-borne wheat mosaic virus	AJ749657		Furovirus
+864	Japanese soil-borne wheat mosaic virus	AJ749658		Furovirus
+865	Asparagus virus 3	AJ316085		Potexvirus
+866	Hepacivirus hominis	M62321		Hepacivirus
+867	Hepacivirus hominis	D90208		Hepacivirus
+868	Hepacivirus hominis	D00944		Hepacivirus
+869	Hepacivirus hominis	D10988		Hepacivirus
+870	Hepacivirus hominis	D17763		Hepacivirus
+871	Hepacivirus hominis	D63821		Hepacivirus
+872	Hepacivirus hominis	GU814265		Hepacivirus
+873	Hepacivirus hominis	Y13184		Hepacivirus
+874	Hepacivirus hominis	Y12083		Hepacivirus
+875	Hepacivirus hominis	D63822		Hepacivirus
+876	Hepacivirus hominis	EF108306		Hepacivirus
+877	Hepacivirus ratti	KX905133		Hepacivirus
+878	Orthoflavivirus aroaense	AF013362		Orthoflavivirus
+879	Orthoflavivirus aroaense	AF013366		Orthoflavivirus
+880	Orthoflavivirus aroaense	AF013375		Orthoflavivirus
+881	Orthoflavivirus aroaense	AF013390		Orthoflavivirus
+882	Orthoflavivirus denguei	U88536		Orthoflavivirus
+883	Orthoflavivirus denguei	M93130		Orthoflavivirus
+884	Orthoflavivirus denguei	AF326573		Orthoflavivirus
+885	Orthoflavivirus encephalitidis	X07755		Orthoflavivirus
+886	Orthoflavivirus encephalitidis	L40361		Orthoflavivirus
+887	Orthoflavivirus entebbeense	AF013405		Orthoflavivirus
+888	Orthoflavivirus ilheusense	AF013397		Orthoflavivirus
+889	Orthoflavivirus kokoberaorum	AF013407		Orthoflavivirus
+890	Orthoflavivirus kyasanurense	AF331718		Orthoflavivirus
+891	Orthoflavivirus loupingi	D12937		Orthoflavivirus
+892	Orthoflavivirus loupingi	X86784		Orthoflavivirus
+893	Orthoflavivirus loupingi	DQ235152		Orthoflavivirus
+894	Orthoflavivirus loupingi	DQ235151		Orthoflavivirus
+895	Orthoflavivirus loupingi	DQ235153		Orthoflavivirus
+896	Orthoflavivirus murrayense	AF013360		Orthoflavivirus
+897	Orthoflavivirus nilense	D00246		Orthoflavivirus
+898	Orthoflavivirus phnompenhense	AF013369		Orthoflavivirus
+899	Orthoflavivirus powassanense	AF311056		Orthoflavivirus
+900	Orthoflavivirus saboyaense	DQ859067		Orthoflavivirus
+901	Orthoflavivirus zikaense	KY766069		Orthoflavivirus
+902	Orthoflavivirus zikaense	KJ776791		Orthoflavivirus
+903	Orthoflavivirus zikaense	KX377337		Orthoflavivirus
+904	Pegivirus hominis	U63715		Pegivirus
+905	Pegivirus hominis	AB003289		Pegivirus
+906	Pegivirus hominis	U45966		Pegivirus
+907	Pegivirus hominis	AY196904		Pegivirus
+908	Pegivirus hominis	D87713		Pegivirus
+909	Pegivirus hominis	AB021287		Pegivirus
+910	Pegivirus hominis	AY949771		Pegivirus
+911	Pegivirus hominis	AB003292		Pegivirus
+912	Pegivirus hominis	AF070476		Pegivirus
+913	Pegivirus platyrrhini	U94421		Pegivirus
+914	Pegivirus pteropi	GU566735		Pegivirus
+915	Pestivirus bovis	M31182		Pestivirus
+916	Pestivirus tauri	U18059		Pestivirus
+917	Flock House virus	JF461541	RNA1	Alphanodavirus
+918	Flock House virus	JF461542	RNA2	Alphanodavirus
+919	Flock House virus	EF690537	RNA1	Alphanodavirus
+920	Flock House virus	EF690538	RNA2	Alphanodavirus
+921	Flock House virus	GQ342965	RNA1	Alphanodavirus
+922	Flock House virus	GQ342966	RNA2	Alphanodavirus
+923	Nodamura virus	X15961	RNA2	Alphanodavirus
+924	Barfin flounder nervous necrosis virus	EF433472	RNA1	Betanodavirus
+925	Barfin flounder nervous necrosis virus	EF433468	RNA2	Betanodavirus
+926	Barfin flounder nervous necrosis virus	AJ401165	RNA1	Betanodavirus
+927	Barfin flounder nervous necrosis virus	AJ245641	RNA2	Betanodavirus
+928	Redspotted grouper nervous necrosis virus	AY721616	RNA1	Betanodavirus
+929	Redspotted grouper nervous necrosis virus	AY721615	RNA2	Betanodavirus
+930	Redspotted grouper nervous necrosis virus	AF319555	RNA1	Betanodavirus
+931	Redspotted grouper nervous necrosis virus	AF318942	RNA2	Betanodavirus
+932	Redspotted grouper nervous necrosis virus	FJ748760	RNA1	Betanodavirus
+933	Redspotted grouper nervous necrosis virus	D38527	RNA2	Betanodavirus
+934	Redspotted grouper nervous necrosis virus	AF245003	RNA2	Betanodavirus
+935	Redspotted grouper nervous necrosis virus	Y08700	RNA2	Betanodavirus
+936	Redspotted grouper nervous necrosis virus	EF591371	RNA2	Betanodavirus
+937	Striped jack nervous necrosis virus	FJ803911	RNA1	Betanodavirus
+938	Striped jack nervous necrosis virus	FJ803923	RNA2	Betanodavirus
+939	Striped jack nervous necrosis virus	AJ698113	RNA2	Betanodavirus
+940	Tombusvirus melongenae	AY100482		Tombusvirus
+941	Tombusvirus melongenae	DQ011234		Tombusvirus
+942	Tombusvirus melongenae	AM711119		Tombusvirus
+943	Tombusvirus moroccoense	JN700748		Tombusvirus
+944	Botoulivirus gammabotrytidis	MN599068		Botoulivirus
+945	Cladosporium magoulivirus 1	MN532617		Magoulivirus
+946	Cladosporium magoulivirus 1	MN532619		Magoulivirus
+947	Cladosporium magoulivirus 2	MN532615		Magoulivirus
+948	Magoulivirus alphabotrytidis	MN605474		Magoulivirus
+949	Phaeoacremonium magoulivirus	MN532618		Magoulivirus
+950	Phaeoacremonium magoulivirus	MN532620		Magoulivirus
+951	Phaeoacremonium penoulivirus	MN532673		Penoulivirus
+952	Sclerotinia penoulivirus	MN605475		Penoulivirus
+953	Soybean scleroulivirus 2	MN532652		Scleroulivirus
+954	Mivirus dermacentoris	KM817600		Mivirus
+955	Orthobornavirus alphapsittaciforme	JX065207		Orthobornavirus
+956	Orthobornavirus alphapsittaciforme	EU781967		Orthobornavirus
+957	Orthobornavirus alphapsittaciforme	FJ169440		Orthobornavirus
+958	Orthobornavirus alphapsittaciforme	JX065210		Orthobornavirus
+959	Orthobornavirus avisaquaticae	KJ756399		Orthobornavirus
+960	Orthobornavirus bornaense	AJ311524		Orthobornavirus
+961	Orthobornavirus caenophidiae	BK014571		Orthobornavirus
+962	Orthobornavirus serini	KC464478		Orthobornavirus
+963	Orthobornavirus serini	KC595273		Orthobornavirus
+964	Orthomarburgvirus marburgense	DQ447649		Orthomarburgvirus
+965	Botrytimonavirus alphabotrytidis	MT646378		Botrytimonavirus
+966	Botrytimonavirus botrytidis	MT646406		Botrytimonavirus
+967	Botrytimonavirus sclerotiniae	KP900931		Botrytimonavirus
+968	Botrytimonavirus sclerotiniae	MF444282		Botrytimonavirus
+969	Botrytimonavirus sclerotiniae	KP900930		Botrytimonavirus
+970	Penicillimonavirus betaplasmoparae	MN556997		Penicillimonavirus
+971	Sclerotimonavirus alphabotrytidis	MT646386		Sclerotimonavirus
+972	Sclerotimonavirus alphaclarireediae	JW826636		Sclerotimonavirus
+973	Sclerotimonavirus botrytidis	MF444285		Sclerotimonavirus
+974	Sclerotimonavirus fusarii	MF276904		Sclerotimonavirus
+975	Sclerotimonavirus sclerotiniae	MF444277		Sclerotimonavirus
+976	Sclerotimonavirus sclerotiniae	KC601997		Sclerotimonavirus
+977	Sclerotimonavirus sclerotiniae	MF444280		Sclerotimonavirus
+978	Orthorubulavirus hominis	AB543337		Orthorubulavirus
+979	Barhavirus bahia	KM205003		Barhavirus
+980	Ephemerovirus kimberley	JQ941707		Ephemerovirus
+981	Perhabdovirus anguilla	KC608035		Perhabdovirus
+982	Siniperhavirus chuatsi	MH319839		Siniperhavirus
+983	Siniperhavirus chuatsi	KC519324		Siniperhavirus
+984	Siniperhavirus chuatsi	MK397811		Siniperhavirus
+985	Sprivivirus esox	KC113518		Sprivivirus
+986	Sprivivirus esox	KC113517		Sprivivirus
+987	Tibrovirus tibrogargan	KP688373		Tibrovirus
+988	Vesiculovirus rhinolophus	MN607593		Vesiculovirus
+989	Alphanucleorhabdovirus oryzae	AB516283		Alphanucleorhabdovirus
+990	Cytorhabdovirus fragariae	MK159261		Cytorhabdovirus
+991	Antennavirus salmonis	MK611981	L	Antennavirus
+992	Antennavirus salmonis	MK611979	M	Antennavirus
+993	Antennavirus salmonis	MK611980	S	Antennavirus
+994	Hartmanivirus haartmani	MH483042	L	Hartmanivirus
+995	Hartmanivirus haartmani	MH483041	S	Hartmanivirus
+996	Hartmanivirus scholae	MH483030	L	Hartmanivirus
+997	Hartmanivirus scholae	MH483029	S	Hartmanivirus
+998	Hartmanivirus turici	MH483044	L	Hartmanivirus
+999	Hartmanivirus turici	MH483043	S	Hartmanivirus
+1000	Mammarenavirus choriomeningitidis	EU136039	L	Mammarenavirus
+1001	Mammarenavirus choriomeningitidis	EU136038	S	Mammarenavirus
+1002	Mammarenavirus lunaense	AB972431	L	Mammarenavirus
+1003	Mammarenavirus lunaense	AB972430	S	Mammarenavirus
+1004	Mammarenavirus mopeiaense	EU914104	L	Mammarenavirus
+1005	Mammarenavirus mopeiaense	EU914103	S	Mammarenavirus
+1006	Mammarenavirus whitewaterense	EU938665	L	Mammarenavirus
+1007	Mammarenavirus whitewaterense	EF619035	S	Mammarenavirus
+1008	Mammarenavirus whitewaterense	JX237768	S	Mammarenavirus
+1009	Mammarenavirus whitewaterense	EU938659	L	Mammarenavirus
+1010	Mammarenavirus whitewaterense	EU123328	S	Mammarenavirus
+1011	Mammarenavirus whitewaterense	EU938663	L	Mammarenavirus
+1012	Mammarenavirus whitewaterense	EF619034	S	Mammarenavirus
+1013	Reptarenavirus giessenae	KR870029	L	Reptarenavirus
+1014	Reptarenavirus giessenae	KR870015	S	Reptarenavirus
+1015	Reptarenavirus giessenae	KR870023	L	Reptarenavirus
+1016	Reptarenavirus giessenae	KR870013	S	Reptarenavirus
+1017	Reptarenavirus rotterdamense	KF297881	L	Reptarenavirus
+1018	Reptarenavirus rotterdamense	KF297880	S	Reptarenavirus
+1019	Orthodiscovirus coniellae	MN585282		Orthodiscovirus
+1020	Orthodiscovirus coniellae	MT258648		Orthodiscovirus
+1021	Orthodiscovirus coniellae	MT258649		Orthodiscovirus
+1022	Orthohantavirus andesense	KF581136	L	Orthohantavirus
+1023	Orthohantavirus andesense	KF581135	M	Orthohantavirus
+1024	Orthohantavirus andesense	KF581134	S	Orthohantavirus
+1025	Orthohantavirus andesense	AF028022	M	Orthohantavirus
+1026	Orthohantavirus andesense	AF482714	S	Orthohantavirus
+1027	Orthohantavirus andesense	AF028024	M	Orthohantavirus
+1028	Orthohantavirus andesense	AF482715	S	Orthohantavirus
+1029	Orthohantavirus bayoui	FJ858378	L	Orthohantavirus
+1030	Orthohantavirus bayoui	DQ177347	M	Orthohantavirus
+1031	Orthohantavirus bayoui	DQ256126	S	Orthohantavirus
+1032	Orthohantavirus caobangense	JX465377	L	Orthohantavirus
+1033	Orthohantavirus caobangense	JX465395	M	Orthohantavirus
+1034	Orthohantavirus caobangense	JX465411	S	Orthohantavirus
+1035	Orthohantavirus dobravaense	GQ303582	M	Orthohantavirus
+1036	Orthohantavirus dobravaense	AJ410618	L	Orthohantavirus
+1037	Orthohantavirus dobravaense	JF920148	L	Orthohantavirus
+1038	Orthohantavirus dobravaense	JF920149	M	Orthohantavirus
+1039	Orthohantavirus dobravaense	JF920150	S	Orthohantavirus
+1040	Orthohantavirus hantanense	KC136242	L	Orthohantavirus
+1041	Orthohantavirus hantanense	KC136243	M	Orthohantavirus
+1042	Orthohantavirus hantanense	KC136244	S	Orthohantavirus
+1043	Orthohantavirus hantanense	DQ056292	L	Orthohantavirus
+1044	Orthohantavirus hantanense	AY675353	M	Orthohantavirus
+1045	Orthohantavirus hantanense	AY675349	S	Orthohantavirus
+1046	Orthohantavirus khabarovskense	AJ011649	L	Orthohantavirus
+1047	Orthohantavirus khabarovskense	AJ011647	M	Orthohantavirus
+1048	Orthohantavirus khabarovskense	AJ011646	S	Orthohantavirus
+1049	Orthohantavirus moroense	AB620105	L	Orthohantavirus
+1050	Orthohantavirus moroense	AB620104	M	Orthohantavirus
+1051	Orthohantavirus moroense	AB620103	S	Orthohantavirus
+1052	Orthohantavirus moroense	AB620108	L	Orthohantavirus
+1053	Orthohantavirus moroense	AB620107	M	Orthohantavirus
+1054	Orthohantavirus moroense	AB620106	S	Orthohantavirus
+1055	Orthohantavirus negraense	JQ611713	L	Orthohantavirus
+1056	Orthohantavirus negraense	JQ611714	M	Orthohantavirus
+1057	Orthohantavirus negraense	JQ611712	S	Orthohantavirus
+1058	Orthohantavirus negraense	FJ809772	L	Orthohantavirus
+1059	Orthohantavirus negraense	FJ608550	M	Orthohantavirus
+1060	Orthohantavirus negraense	FJ532244	S	Orthohantavirus
+1061	Orthohantavirus puumalaense	AB712372	L	Orthohantavirus
+1062	Orthohantavirus puumalaense	AB676848	M	Orthohantavirus
+1063	Orthohantavirus puumalaense	AB675463	S	Orthohantavirus
+1064	Orthohantavirus puumalaense	JX028271	L	Orthohantavirus
+1065	Orthohantavirus puumalaense	JX028272	M	Orthohantavirus
+1066	Orthohantavirus puumalaense	JX028273	S	Orthohantavirus
+1067	Orthohantavirus seoulense	KC344269	M	Orthohantavirus
+1068	Orthohantavirus seoulense	KC344252	S	Orthohantavirus
+1069	Orthohantavirus sinnombreense	U36801	M	Orthohantavirus
+1070	Orthohantavirus sinnombreense	U09488	S	Orthohantavirus
+1071	Orthohantavirus thailandense	AM998806	L	Orthohantavirus
+1072	Orthohantavirus thailandense	AM998807	M	Orthohantavirus
+1073	Orthohantavirus thailandense	AM998808	S	Orthohantavirus
+1074	Orthohantavirus thailandense	L08756	M	Orthohantavirus
+1075	Orthohantavirus tulaense	KP013556	L	Orthohantavirus
+1076	Orthohantavirus tulaense	KP013579	M	Orthohantavirus
+1077	Orthohantavirus tulaense	KP013568	S	Orthohantavirus
+1078	Orthonairovirus bandiaense	KU925446	L	Orthonairovirus
+1079	Orthonairovirus bandiaense	KU925447	M	Orthonairovirus
+1080	Orthonairovirus bandiaense	KU925448	S	Orthonairovirus
+1081	Orthonairovirus bushkeyense	KP792708	L	Orthonairovirus
+1082	Orthonairovirus bushkeyense	KP792709	M	Orthonairovirus
+1083	Orthonairovirus bushkeyense	KP792710	S	Orthonairovirus
+1084	Orthonairovirus bushkeyense	KU925467	L	Orthonairovirus
+1085	Orthonairovirus bushkeyense	KU925468	M	Orthonairovirus
+1086	Orthonairovirus bushkeyense	KU925469	S	Orthonairovirus
+1087	Orthonairovirus bushkeyense	KU925470	L	Orthonairovirus
+1088	Orthonairovirus bushkeyense	KU925471	M	Orthonairovirus
+1089	Orthonairovirus bushkeyense	KU925472	S	Orthonairovirus
+1090	Orthonairovirus bushkeyense	KU925479	L	Orthonairovirus
+1091	Orthonairovirus bushkeyense	KU925480	M	Orthonairovirus
+1092	Orthonairovirus bushkeyense	KU925481	S	Orthonairovirus
+1093	Orthonairovirus clomorense	KU343139	L	Orthonairovirus
+1094	Orthonairovirus clomorense	KU343140	M	Orthonairovirus
+1095	Orthonairovirus clomorense	KU343141	S	Orthonairovirus
+1096	Orthonairovirus keterehense	KP792741	L	Orthonairovirus
+1097	Orthonairovirus keterehense	KP792742	M	Orthonairovirus
+1098	Orthonairovirus keterehense	KP792743	S	Orthonairovirus
+1099	Orthonairovirus qalyubense	KP792714	L	Orthonairovirus
+1100	Orthonairovirus qalyubense	KP792715	M	Orthonairovirus
+1101	Orthonairovirus qalyubense	KP792716	S	Orthonairovirus
+1102	Orthonairovirus randallense	KU925485	L	Orthonairovirus
+1103	Orthonairovirus randallense	KU925486	M	Orthonairovirus
+1104	Orthonairovirus randallense	KU925487	S	Orthonairovirus
+1105	Orthonairovirus sakhalinense	KU925494	L	Orthonairovirus
+1106	Orthonairovirus sakhalinense	KU925495	M	Orthonairovirus
+1107	Orthonairovirus sakhalinense	KU925496	S	Orthonairovirus
+1108	Orthonairovirus tomdiense	MK757580	L	Orthonairovirus
+1109	Orthonairovirus tomdiense	MK757581	M	Orthonairovirus
+1110	Orthonairovirus tomdiense	MK757582	S	Orthonairovirus
+1111	Orthonairovirus zirkuense	KU925500	L	Orthonairovirus
+1112	Orthobunyavirus acaraense	MK896620	L	Orthobunyavirus
+1113	Orthobunyavirus acaraense	MK896619	M	Orthobunyavirus
+1114	Orthobunyavirus acaraense	MK896618	S	Orthobunyavirus
+1115	Orthobunyavirus achiotei	KY555808	L	Orthobunyavirus
+1116	Orthobunyavirus achiotei	KY555809	M	Orthobunyavirus
+1117	Orthobunyavirus achiotei	KY555810	S	Orthobunyavirus
+1118	Orthobunyavirus akabaneense	MH484339	L	Orthobunyavirus
+1119	Orthobunyavirus akabaneense	MH484340	M	Orthobunyavirus
+1120	Orthobunyavirus akabaneense	MH484341	S	Orthobunyavirus
+1121	Orthobunyavirus bellavistaense	MK896641	L	Orthobunyavirus
+1122	Orthobunyavirus bellavistaense	MK896640	M	Orthobunyavirus
+1123	Orthobunyavirus bellavistaense	MK896639	S	Orthobunyavirus
+1124	Orthobunyavirus bellavistaense	MK896629	L	Orthobunyavirus
+1125	Orthobunyavirus bellavistaense	MK896628	M	Orthobunyavirus
+1126	Orthobunyavirus bellavistaense	MK896627	S	Orthobunyavirus
+1127	Orthobunyavirus bellavistaense	MK896480	L	Orthobunyavirus
+1128	Orthobunyavirus bellavistaense	MK896479	M	Orthobunyavirus
+1129	Orthobunyavirus bellavistaense	MK896478	S	Orthobunyavirus
+1130	Orthobunyavirus bertiogaense	MK896591	L	Orthobunyavirus
+1131	Orthobunyavirus bertiogaense	MK896590	M	Orthobunyavirus
+1132	Orthobunyavirus bertiogaense	MK896589	S	Orthobunyavirus
+1133	Orthobunyavirus buffaloense	KF234253	L	Orthobunyavirus
+1134	Orthobunyavirus buffaloense	KF234254	M	Orthobunyavirus
+1135	Orthobunyavirus buffaloense	KF234255	S	Orthobunyavirus
+1136	Orthobunyavirus buffaloense	KR013235	L	Orthobunyavirus
+1137	Orthobunyavirus buffaloense	KR013236	M	Orthobunyavirus
+1138	Orthobunyavirus buffaloense	KR013237	S	Orthobunyavirus
+1139	Orthobunyavirus bunyamweraense	M21951	M	Orthobunyavirus
+1140	Orthobunyavirus bunyamweraense	M19420	S	Orthobunyavirus
+1141	Orthobunyavirus bunyamweraense	AY593726	L	Orthobunyavirus
+1142	Orthobunyavirus bunyamweraense	AY593731	M	Orthobunyavirus
+1143	Orthobunyavirus bunyamweraense	AY593727	S	Orthobunyavirus
+1144	Orthobunyavirus bunyamweraense	KC608152	L	Orthobunyavirus
+1145	Orthobunyavirus bunyamweraense	KC608153	M	Orthobunyavirus
+1146	Orthobunyavirus bunyamweraense	KC608154	S	Orthobunyavirus
+1147	Orthobunyavirus bunyamweraense	EU564830	S	Orthobunyavirus
+1148	Orthobunyavirus bushbushense	MK896521	L	Orthobunyavirus
+1149	Orthobunyavirus bushbushense	MK896520	M	Orthobunyavirus
+1150	Orthobunyavirus bushbushense	MK896519	S	Orthobunyavirus
+1151	Orthobunyavirus bwambaense	KJ867178	L	Orthobunyavirus
+1152	Orthobunyavirus bwambaense	KJ867177	M	Orthobunyavirus
+1153	Orthobunyavirus bwambaense	EU564828	S	Orthobunyavirus
+1154	Orthobunyavirus cacheense	JN808311	L	Orthobunyavirus
+1155	Orthobunyavirus cacheense	JN808310	M	Orthobunyavirus
+1156	Orthobunyavirus cacheense	EU879062	S	Orthobunyavirus
+1157	Orthobunyavirus cacheense	KX100120	L	Orthobunyavirus
+1158	Orthobunyavirus cacheense	KX100119	M	Orthobunyavirus
+1159	Orthobunyavirus cacheense	KX100118	S	Orthobunyavirus
+1160	Orthobunyavirus cacheense	KX100129	L	Orthobunyavirus
+1161	Orthobunyavirus cacheense	KX100128	M	Orthobunyavirus
+1162	Orthobunyavirus cacheense	KX100127	S	Orthobunyavirus
+1163	Orthobunyavirus caraparuense	KT334540	L	Orthobunyavirus
+1164	Orthobunyavirus caraparuense	KM092512	L	Orthobunyavirus
+1165	Orthobunyavirus caraparuense	KM092513	M	Orthobunyavirus
+1166	Orthobunyavirus caraparuense	KM092514	S	Orthobunyavirus
+1167	Orthobunyavirus caraparuense	DQ188954	S	Orthobunyavirus
+1168	Orthobunyavirus caraparuense	MG029275	L	Orthobunyavirus
+1169	Orthobunyavirus caraparuense	MG029276	M	Orthobunyavirus
+1170	Orthobunyavirus caraparuense	MG029277	S	Orthobunyavirus
+1171	Orthobunyavirus catqueense	JX983194	L	Orthobunyavirus
+1172	Orthobunyavirus catqueense	JX983193	M	Orthobunyavirus
+1173	Orthobunyavirus catqueense	JX983192	S	Orthobunyavirus
+1174	Orthobunyavirus catuense	KP792675	L	Orthobunyavirus
+1175	Orthobunyavirus catuense	KP792674	M	Orthobunyavirus
+1176	Orthobunyavirus catuense	KP792673	S	Orthobunyavirus
+1177	Orthobunyavirus encephalitidis	U31989	S	Orthobunyavirus
+1178	Orthobunyavirus gamboaense	KM272183	L	Orthobunyavirus
+1179	Orthobunyavirus gamboaense	KM272184	M	Orthobunyavirus
+1180	Orthobunyavirus gamboaense	KM272185	S	Orthobunyavirus
+1181	Orthobunyavirus gamboaense	KM272186	L	Orthobunyavirus
+1182	Orthobunyavirus gamboaense	KM272187	M	Orthobunyavirus
+1183	Orthobunyavirus gamboaense	KM272188	S	Orthobunyavirus
+1184	Orthobunyavirus ganganense	KF234256	L	Orthobunyavirus
+1185	Orthobunyavirus ganganense	KF234257	M	Orthobunyavirus
+1186	Orthobunyavirus ganganense	KF234258	S	Orthobunyavirus
+1187	Orthobunyavirus guamaense	KP792657	L	Orthobunyavirus
+1188	Orthobunyavirus guamaense	KP792656	M	Orthobunyavirus
+1189	Orthobunyavirus guamaense	KP792655	S	Orthobunyavirus
+1190	Orthobunyavirus guaratubaense	MK896557	L	Orthobunyavirus
+1191	Orthobunyavirus guaratubaense	MK896556	M	Orthobunyavirus
+1192	Orthobunyavirus guaratubaense	MK896555	S	Orthobunyavirus
+1193	Orthobunyavirus jamestownense	EU789573	L	Orthobunyavirus
+1194	Orthobunyavirus jamestownense	U88059	M	Orthobunyavirus
+1195	Orthobunyavirus jamestownense	U47137	S	Orthobunyavirus
+1196	Orthobunyavirus jamestownense	KX817318	L	Orthobunyavirus
+1197	Orthobunyavirus jamestownense	KX817319	M	Orthobunyavirus
+1198	Orthobunyavirus jamestownense	KX817320	S	Orthobunyavirus
+1199	Orthobunyavirus jamestownense	KX817336	L	Orthobunyavirus
+1200	Orthobunyavirus jamestownense	KX817337	M	Orthobunyavirus
+1201	Orthobunyavirus jamestownense	KX817338	S	Orthobunyavirus
+1202	Orthobunyavirus kernense	MG828823	L	Orthobunyavirus
+1203	Orthobunyavirus kernense	MG820264	M	Orthobunyavirus
+1204	Orthobunyavirus kernense	MG696865	S	Orthobunyavirus
+1205	Orthobunyavirus kernense	MH484324	L	Orthobunyavirus
+1206	Orthobunyavirus kernense	MH484325	M	Orthobunyavirus
+1207	Orthobunyavirus kernense	MH484326	S	Orthobunyavirus
+1208	Orthobunyavirus khatangaense	HQ734817	L	Orthobunyavirus
+1209	Orthobunyavirus khatangaense	HQ734821	M	Orthobunyavirus
+1210	Orthobunyavirus khatangaense	HQ734824	S	Orthobunyavirus
+1211	Orthobunyavirus koongoli	MK896432	L	Orthobunyavirus
+1212	Orthobunyavirus koongoli	MK896431	M	Orthobunyavirus
+1213	Orthobunyavirus koongoli	MK896430	S	Orthobunyavirus
+1214	Orthobunyavirus madridense	MK896441	L	Orthobunyavirus
+1215	Orthobunyavirus madridense	MK896440	M	Orthobunyavirus
+1216	Orthobunyavirus madridense	MK896439	S	Orthobunyavirus
+1217	Orthobunyavirus nyandoense	KJ867202	L	Orthobunyavirus
+1218	Orthobunyavirus nyandoense	KJ867201	M	Orthobunyavirus
+1219	Orthobunyavirus nyandoense	KJ867200	S	Orthobunyavirus
+1220	Orthobunyavirus oribocaense	MK896518	L	Orthobunyavirus
+1221	Orthobunyavirus oribocaense	MK896517	M	Orthobunyavirus
+1222	Orthobunyavirus oribocaense	MK896516	S	Orthobunyavirus
+1223	Orthobunyavirus oribocaense	MK896477	L	Orthobunyavirus
+1224	Orthobunyavirus oribocaense	MK896476	M	Orthobunyavirus
+1225	Orthobunyavirus oribocaense	MK896475	S	Orthobunyavirus
+1226	Orthobunyavirus oropoucheense	KF697142	L	Orthobunyavirus
+1227	Orthobunyavirus oropoucheense	KF697143	M	Orthobunyavirus
+1228	Orthobunyavirus oropoucheense	KF697144	S	Orthobunyavirus
+1229	Orthobunyavirus oropoucheense	KF697147	L	Orthobunyavirus
+1230	Orthobunyavirus oropoucheense	KF697145	M	Orthobunyavirus
+1231	Orthobunyavirus oropoucheense	KF697146	S	Orthobunyavirus
+1232	Orthobunyavirus oropoucheense	KP691627	L	Orthobunyavirus
+1233	Orthobunyavirus oropoucheense	KP691628	M	Orthobunyavirus
+1234	Orthobunyavirus oropoucheense	KP691629	S	Orthobunyavirus
+1235	Orthobunyavirus patoisense	MH017276	L	Orthobunyavirus
+1236	Orthobunyavirus patoisense	MH017282	M	Orthobunyavirus
+1237	Orthobunyavirus patoisense	MH017270	S	Orthobunyavirus
+1238	Orthobunyavirus sanjuanense	MK896486	L	Orthobunyavirus
+1239	Orthobunyavirus sanjuanense	MK896485	M	Orthobunyavirus
+1240	Orthobunyavirus sanjuanense	MK896484	S	Orthobunyavirus
+1241	Orthobunyavirus schmallenbergense	HE795090	L	Orthobunyavirus
+1242	Orthobunyavirus schmallenbergense	HE795091	M	Orthobunyavirus
+1243	Orthobunyavirus schmallenbergense	HE795092	S	Orthobunyavirus
+1244	Orthobunyavirus schmallenbergense	HE795102	L	Orthobunyavirus
+1245	Orthobunyavirus schmallenbergense	HE795103	M	Orthobunyavirus
+1246	Orthobunyavirus schmallenbergense	HE795104	S	Orthobunyavirus
+1247	Orthobunyavirus schmallenbergense	HE795105	L	Orthobunyavirus
+1248	Orthobunyavirus schmallenbergense	HE795106	M	Orthobunyavirus
+1249	Orthobunyavirus schmallenbergense	HE795107	S	Orthobunyavirus
+1250	Orthobunyavirus shermanense	KX100111	L	Orthobunyavirus
+1251	Orthobunyavirus shermanense	KX100110	M	Orthobunyavirus
+1252	Orthobunyavirus shermanense	KX100109	S	Orthobunyavirus
+1253	Orthobunyavirus teteense	KP792654	L	Orthobunyavirus
+1254	Orthobunyavirus teteense	KP792653	M	Orthobunyavirus
+1255	Orthobunyavirus teteense	KP792652	S	Orthobunyavirus
+1256	Orthobunyavirus teteense	EU409297	M	Orthobunyavirus
+1257	Orthobunyavirus wyeomyiae	JN572074	L	Orthobunyavirus
+1258	Orthobunyavirus wyeomyiae	JN572075	M	Orthobunyavirus
+1259	Orthobunyavirus wyeomyiae	JN572076	S	Orthobunyavirus
+1260	Orthobunyavirus wyeomyiae	KX579499	L	Orthobunyavirus
+1261	Orthobunyavirus wyeomyiae	KX579500	M	Orthobunyavirus
+1262	Orthobunyavirus wyeomyiae	KX579501	S	Orthobunyavirus
+1263	Frijoles phlebovirus	KX611391	L	Phlebovirus
+1264	Frijoles phlebovirus	KX611392	M	Phlebovirus
+1265	Frijoles phlebovirus	KX611393	S	Phlebovirus
+1266	Phlebovirus candiruense	HM119404	L	Phlebovirus
+1267	Phlebovirus candiruense	HM119405	M	Phlebovirus
+1268	Phlebovirus candiruense	HM119406	S	Phlebovirus
+1269	Phlebovirus candiruense	HM466934	L	Phlebovirus
+1270	Phlebovirus candiruense	HM466935	M	Phlebovirus
+1271	Phlebovirus candiruense	HM466936	S	Phlebovirus
+1272	Phlebovirus candiruense	HM119422	L	Phlebovirus
+1273	Phlebovirus candiruense	HM119423	M	Phlebovirus
+1274	Phlebovirus candiruense	HM119424	S	Phlebovirus
+1275	Phlebovirus candiruense	HM119419	L	Phlebovirus
+1276	Phlebovirus candiruense	HM119420	M	Phlebovirus
+1277	Phlebovirus candiruense	HM119421	S	Phlebovirus
+1278	Phlebovirus candiruense	HM119428	L	Phlebovirus
+1279	Phlebovirus candiruense	HM119429	M	Phlebovirus
+1280	Phlebovirus candiruense	HM119430	S	Phlebovirus
+1281	Phlebovirus napoliense	KP863799	L	Phlebovirus
+1282	Phlebovirus napoliense	KP863800	M	Phlebovirus
+1283	Phlebovirus napoliense	KP863801	S	Phlebovirus
+1284	Phlebovirus napoliense	KY662287	L	Phlebovirus
+1285	Phlebovirus napoliense	KY662280	S	Phlebovirus
+1286	Phlebovirus napoliense	OU230765	L	Phlebovirus
+1287	Phlebovirus napoliense	OU230766	M	Phlebovirus
+1288	Phlebovirus napoliense	OU230767	S	Phlebovirus
+1289	Phlebovirus napoliense	GU135606	L	Phlebovirus
+1290	Phlebovirus napoliense	GU135607	M	Phlebovirus
+1291	Phlebovirus napoliense	GU135608	S	Phlebovirus
+1292	Phlebovirus napoliense	KY439873	L	Phlebovirus
+1293	Phlebovirus salehabadense	HM043725	L	Phlebovirus
+1294	Phlebovirus salehabadense	MG573144	L	Phlebovirus
+1295	Phlebovirus salehabadense	MG573145	M	Phlebovirus
+1296	Phlebovirus salehabadense	MG573146	S	Phlebovirus
+1297	Phlebovirus salehabadense	GU446656	L	Phlebovirus
+1298	Phlebovirus salehabadense	JX472400	L	Phlebovirus
+1299	Phlebovirus salehabadense	JX472401	M	Phlebovirus
+1300	Phlebovirus salehabadense	JX472402	S	Phlebovirus
+1301	Phlebovirus salehabadense	MG573142	L	Phlebovirus
+1302	Phlebovirus salehabadense	MG573143	M	Phlebovirus
+1303	Phlebovirus salehabadense	MG573147	S	Phlebovirus
+1304	Phlebovirus toroense	KP272043	L	Phlebovirus
+1305	Phlebovirus toroense	KP272045	M	Phlebovirus
+1306	Phlebovirus toroense	KP272044	S	Phlebovirus
+1307	Uukuvirus uukuniemiense	JF838324	L	Uukuvirus
+1308	Uukuvirus uukuniemiense	JF838325	M	Uukuvirus
+1309	Uukuvirus uukuniemiense	JF838326	S	Uukuvirus
+1310	Uukuvirus uukuniemiense	JQ924562	L	Uukuvirus
+1311	Uukuvirus uukuniemiense	JQ924563	M	Uukuvirus
+1312	Uukuvirus uukuniemiense	JQ924564	S	Uukuvirus
+1313	Mykissvirus tructae	KX882069	Seg1	Mykissvirus
+1314	Mykissvirus tructae	KX882070	Seg2	Mykissvirus
+1315	Mykissvirus tructae	KX882071	Seg3	Mykissvirus
+1316	Mykissvirus tructae	KX882072	Seg4	Mykissvirus
+1317	Mykissvirus tructae	KX882073	Seg5	Mykissvirus
+1318	Mykissvirus tructae	KX882074	Seg6	Mykissvirus
+1319	Mykissvirus tructae	KX882075	Seg7	Mykissvirus
+1320	Mykissvirus tructae	KX882076	Seg8	Mykissvirus
+1321	Alphahypovirus macrophominae	KP900893		Alphahypovirus
+1322	Betahypovirus sclerotiniae	MN617170		Betahypovirus
+1323	Epsilonhypovirus entoleucae	LC333733		Epsilonhypovirus
+1324	Epsilonhypovirus japonicum	KP208178		Epsilonhypovirus
+1325	Thetahypovirus sclerotiniae	MT157414		Thetahypovirus
+1326	Cherry chlorotic rusty spot associated partitivirus	AJ781401	RNA1	Alphapartitivirus
+1327	Cherry chlorotic rusty spot associated partitivirus	AJ781402	RNA2	Alphapartitivirus
+1328	Heterobasidion partitivirus 13	KF963179	RNA1	Alphapartitivirus
+1329	Heterobasidion partitivirus 13	KF963180	RNA2	Alphapartitivirus
+1330	Heterobasidion partitivirus 13	KF963181	RNA1	Alphapartitivirus
+1331	Heterobasidion partitivirus 13	KF963182	RNA2	Alphapartitivirus
+1332	Heterobasidion partitivirus 13	KF963183	RNA1	Alphapartitivirus
+1333	Heterobasidion partitivirus 13	KF963184	RNA2	Alphapartitivirus
+1334	Vicia cryptic virus	EU605883	RNA1	Alphapartitivirus
+1335	Vicia cryptic virus	EU605884	RNA2	Alphapartitivirus
+1336	Vicia cryptic virus	EF173392	RNA1	Alphapartitivirus
+1337	Vicia cryptic virus	EF173391	RNA2	Alphapartitivirus
+1338	Vicia cryptic virus	EF173396	RNA1	Alphapartitivirus
+1339	Vicia cryptic virus	EF173395	RNA2	Alphapartitivirus
+1340	Vicia cryptic virus	EF173394	RNA1	Alphapartitivirus
+1341	Vicia cryptic virus	EF173393	RNA2	Alphapartitivirus
+1342	Vicia cryptic virus	EF173389	RNA1	Alphapartitivirus
+1343	Vicia cryptic virus	EF173390	RNA2	Alphapartitivirus
+1344	Cannabis cryptic virus	KX709964	RNA1	Betapartitivirus
+1345	Cannabis cryptic virus	KX709965	RNA2	Betapartitivirus
+1346	Ceratocystis resinifera virus 1	AY247204	RNA1	Betapartitivirus
+1347	Ceratocystis resinifera virus 1	AY247205	RNA2	Betapartitivirus
+1348	Ceratocystis resinifera virus 1	AY260756	RNA1	Betapartitivirus
+1349	Ceratocystis resinifera virus 1	AY260757	RNA2	Betapartitivirus
+1350	Fusarium poae virus 1	LC150606	RNA1	Betapartitivirus
+1351	Fusarium poae virus 1	LC150607	RNA2	Betapartitivirus
+1352	Heterobasidion partitivirus 2	KF551880	RNA1	Betapartitivirus
+1353	Heterobasidion partitivirus 2	KF551881	RNA1	Betapartitivirus
+1354	Heterobasidion partitivirus 2	KF551882	RNA1	Betapartitivirus
+1355	Heterobasidion partitivirus 2	KF551883	RNA1	Betapartitivirus
+1356	Heterobasidion partitivirus 2	KF551884	RNA1	Betapartitivirus
+1357	Heterobasidion partitivirus 2	KF551885	RNA1	Betapartitivirus
+1358	Heterobasidion partitivirus 7	KF551886	RNA1	Betapartitivirus
+1359	Heterobasidion partitivirus 7	KF551887	RNA1	Betapartitivirus
+1360	Cryptosporidium parvum virus 1	U95995	RNA1	Cryspovirus
+1361	Cryptosporidium parvum virus 1	U95996	RNA2	Cryspovirus
+1362	Pepper cryptic virus 2	LC195294	RNA1	Deltapartitivirus
+1363	Pepper cryptic virus 2	LC195295	RNA2	Deltapartitivirus
+1364	Gremmeniella abietina RNA virus MS1	AY615211	RNA1	Gammapartitivirus
+1365	Gremmeniella abietina RNA virus MS1	AY615212	RNA2	Gammapartitivirus
+1366	Gremmeniella abietina RNA virus MS1	AY615213	RNA3	Gammapartitivirus
+1367	Penicillium stoloniferum virus S	AM040148	RNA1	Gammapartitivirus
+1368	Penicillium stoloniferum virus S	AM040149	RNA2	Gammapartitivirus
+1369	Orthopicobirnavirus hominis	AF246939	RNA2	Orthopicobirnavirus
+1370	Orthopicobirnavirus hominis	AF246940	RNA2	Orthopicobirnavirus
+1371	Human coronavirus 229E	JX503061		Alphacoronavirus
+1372	Severe acute respiratory syndrome-related coronavirus	KY352407		Betacoronavirus
+1373	Severe acute respiratory syndrome-related coronavirus	MN908947		Betacoronavirus
+1374	Severe acute respiratory syndrome-related coronavirus	AY613950		Betacoronavirus
+1375	Beluga whale coronavirus SW1	KF793824		Gammacoronavirus
+1376	Newbury 1 virus	AY082891		Nebovirus
+1377	Norwalk virus	X86557		Norovirus
+1378	Norwalk virus	AY032605		Norovirus
+1379	Norwalk virus	AJ011099		Norovirus
+1380	Norwalk virus	AF195847		Norovirus
+1381	Norwalk virus	AY228235		Norovirus
+1382	Norwalk virus	GQ443611		Norovirus
+1383	Norwalk virus	FJ692500		Norovirus
+1384	Norwalk virus	AJ844470		Norovirus
+1385	Norwalk virus	KJ196290		Norovirus
+1386	Norwalk virus	KJ790198		Norovirus
+1387	Sapporo virus	X86560		Sapovirus
+1388	Sapporo virus	AJ249939		Sapovirus
+1389	Sapporo virus	AF182760		Sapovirus
+1390	Sapporo virus	DQ058829		Sapovirus
+1391	Sapporo virus	AY646856		Sapovirus
+1392	Bovine rhinitis A virus	JN936206		Aphthovirus
+1393	Bovine rhinitis B virus	KY432299		Aphthovirus
+1394	Bovine rhinitis B virus	KP264975		Aphthovirus
+1395	Bovine rhinitis B virus	KU168861		Aphthovirus
+1396	Bovine rhinitis B virus	KU159360		Aphthovirus
+1397	Foot-and-mouth disease virus	AY593752		Aphthovirus
+1398	Foot-and-mouth disease virus	AY593805		Aphthovirus
+1399	Foot-and-mouth disease virus	DQ533483		Aphthovirus
+1400	Foot-and-mouth disease virus	AY593840		Aphthovirus
+1401	Foot-and-mouth disease virus	AY593849		Aphthovirus
+1402	Foot-and-mouth disease virus	AY593850		Aphthovirus
+1403	Cardiovirus A	JX257003		Cardiovirus
+1404	Cardiovirus B	JX443418		Cardiovirus
+1405	Cardiovirus B	M16020		Cardiovirus
+1406	Cardiovirus B	M80888		Cardiovirus
+1407	Cardiovirus B	M94868		Cardiovirus
+1408	Cardiovirus B	EU723237		Cardiovirus
+1409	Cardiovirus B	MF172923		Cardiovirus
+1410	Cardiovirus B	AB090161		Cardiovirus
+1411	Cardiovirus B	MF416403		Cardiovirus
+1412	Cardiovirus C	JX683808		Cardiovirus
+1413	Cardiovirus C	MF352424		Cardiovirus
+1414	Cardiovirus D	EU376394		Cardiovirus
+1415	Cardiovirus D	HM181996		Cardiovirus
+1416	Cardiovirus D	AB747251		Cardiovirus
+1417	Cardiovirus D	FJ463615		Cardiovirus
+1418	Cardiovirus D	FJ463617		Cardiovirus
+1419	Cardiovirus D	AB747254		Cardiovirus
+1420	Cardiovirus D	AB747255		Cardiovirus
+1421	Cardiovirus D	AB747256		Cardiovirus
+1422	Cardiovirus D	AB747257		Cardiovirus
+1423	Cardiovirus D	AB747258		Cardiovirus
+1424	Cosavirus A	FJ438903		Cosavirus
+1425	Cosavirus A	FJ438904		Cosavirus
+1426	Cosavirus A	FJ438905		Cosavirus
+1427	Cosavirus A	FJ438906		Cosavirus
+1428	Cosavirus A	JN867771		Cosavirus
+1429	Cosavirus A	JN867790		Cosavirus
+1430	Cosavirus A	JN867768		Cosavirus
+1431	Cosavirus A	JN867776		Cosavirus
+1432	Cosavirus A	JN867763		Cosavirus
+1433	Cosavirus A	JN867772		Cosavirus
+1434	Cosavirus A	JN867760		Cosavirus
+1435	Cosavirus A	JN867774		Cosavirus
+1436	Cosavirus A	JN867764		Cosavirus
+1437	Cosavirus A	JN867773		Cosavirus
+1438	Cosavirus A	JN867780		Cosavirus
+1439	Cosavirus A	JN867767		Cosavirus
+1440	Cosavirus A	JN867769		Cosavirus
+1441	Cosavirus A	JN867775		Cosavirus
+1442	Cosavirus A	JN867759		Cosavirus
+1443	Cosavirus A	JN867756		Cosavirus
+1444	Cosavirus A	JQ811826		Cosavirus
+1445	Cosavirus A	JQ811825		Cosavirus
+1446	Cosavirus A	JQ811821		Cosavirus
+1447	Cosavirus A	JQ811830		Cosavirus
+1448	Cosavirus D	JN867762		Cosavirus
+1449	Cosavirus D	JN867777		Cosavirus
+1450	Cosavirus D	JN867761		Cosavirus
+1451	Cosavirus D	JN867778		Cosavirus
+1452	Erbovirus A	AF361253		Erbovirus
+1453	Erbovirus A	DQ108383		Erbovirus
+1454	Hunnivirus A	HM153767		Hunnivirus
+1455	Hunnivirus A	KJ950971		Hunnivirus
+1456	Hunnivirus A	KT944199		Hunnivirus
+1457	Hunnivirus A	KX156157		Hunnivirus
+1458	Hunnivirus A	KT944214		Hunnivirus
+1459	Hunnivirus A	KT944212		Hunnivirus
+1460	Hunnivirus A	KY432925		Hunnivirus
+1461	Mosavirus A	KF958461		Mosavirus
+1462	Mupivirus A	KY432934		Mupivirus
+1463	Teschovirus A	AF296087		Teschovirus
+1464	Teschovirus A	AF296088		Teschovirus
+1465	Teschovirus A	AF296089		Teschovirus
+1466	Teschovirus A	AF296090		Teschovirus
+1467	Teschovirus A	AF296091		Teschovirus
+1468	Teschovirus A	AF296092		Teschovirus
+1469	Teschovirus A	AF296093		Teschovirus
+1470	Teschovirus A	AF296094		Teschovirus
+1471	Teschovirus A	AF296095		Teschovirus
+1472	Teschovirus A	AF296096		Teschovirus
+1473	Teschovirus A	JF724001		Teschovirus
+1474	Teschovirus A	JQ429405		Teschovirus
+1475	Teschovirus A	LC386160		Teschovirus
+1476	Teschovirus B	LC386157		Teschovirus
+1477	Teschovirus B	MG875516		Teschovirus
+1478	Boosepivirus B	LC036580		Boosepivirus
+1479	Enterovirus A	AY421761		Enterovirus
+1480	Enterovirus A	AY421762		Enterovirus
+1481	Enterovirus A	AY421763		Enterovirus
+1482	Enterovirus A	AY421764		Enterovirus
+1483	Enterovirus A	AY421765		Enterovirus
+1484	Enterovirus A	AY421766		Enterovirus
+1485	Enterovirus A	AY421767		Enterovirus
+1486	Enterovirus A	AY421768		Enterovirus
+1487	Enterovirus A	AY421769		Enterovirus
+1488	Enterovirus A	U05876		Enterovirus
+1489	Enterovirus A	U22521		Enterovirus
+1490	Enterovirus A	AY697458		Enterovirus
+1491	Enterovirus A	AY697459		Enterovirus
+1492	Enterovirus A	AY697460		Enterovirus
+1493	Enterovirus A	AY697461		Enterovirus
+1494	Enterovirus A	EF667344		Enterovirus
+1495	Enterovirus A	KU355876		Enterovirus
+1496	Enterovirus A	KC787153		Enterovirus
+1497	Enterovirus A	LK021688		Enterovirus
+1498	Enterovirus A	KU355877		Enterovirus
+1499	Enterovirus A	AF326754		Enterovirus
+1500	Enterovirus A	AF326761		Enterovirus
+1501	Enterovirus A	AF326764		Enterovirus
+1502	Enterovirus A	AF326750		Enterovirus
+1503	Enterovirus B	M16560		Enterovirus
+1504	Enterovirus B	AF081485		Enterovirus
+1505	Enterovirus B	X05690		Enterovirus
+1506	Enterovirus B	AF114383		Enterovirus
+1507	Enterovirus B	AF039205		Enterovirus
+1508	Enterovirus B	D00627		Enterovirus
+1509	Enterovirus B	AF029859		Enterovirus
+1510	Enterovirus B	AF250874		Enterovirus
+1511	Enterovirus B	AY302545		Enterovirus
+1512	Enterovirus B	AY302553		Enterovirus
+1513	Enterovirus B	AY302557		Enterovirus
+1514	Enterovirus B	AF083069		Enterovirus
+1515	Enterovirus B	AY302558		Enterovirus
+1516	Enterovirus B	AY302559		Enterovirus
+1517	Enterovirus B	X84981		Enterovirus
+1518	Enterovirus B	X80059		Enterovirus
+1519	Enterovirus B	X79047		Enterovirus
+1520	Enterovirus B	AY302539		Enterovirus
+1521	Enterovirus B	AY302540		Enterovirus
+1522	Enterovirus B	AY302541		Enterovirus
+1523	Enterovirus B	AY302542		Enterovirus
+1524	Enterovirus B	AY302543		Enterovirus
+1525	Enterovirus B	AF317694		Enterovirus
+1526	Enterovirus B	AY302544		Enterovirus
+1527	Enterovirus B	AY302546		Enterovirus
+1528	Enterovirus B	AY302547		Enterovirus
+1529	Enterovirus B	AY302548		Enterovirus
+1530	Enterovirus B	AY302549		Enterovirus
+1531	Enterovirus B	AY302550		Enterovirus
+1532	Enterovirus B	AY302551		Enterovirus
+1533	Enterovirus B	AY302552		Enterovirus
+1534	Enterovirus B	AF162711		Enterovirus
+1535	Enterovirus B	AY302554		Enterovirus
+1536	Enterovirus B	AY302555		Enterovirus
+1537	Enterovirus B	AY302556		Enterovirus
+1538	Enterovirus B	AY302560		Enterovirus
+1539	Enterovirus B	AF241359		Enterovirus
+1540	Enterovirus B	AY556057		Enterovirus
+1541	Enterovirus B	AY556070		Enterovirus
+1542	Enterovirus B	AJ493062		Enterovirus
+1543	Enterovirus B	AY208120		Enterovirus
+1544	Enterovirus B	AY843297		Enterovirus
+1545	Enterovirus B	AY843298		Enterovirus
+1546	Enterovirus B	AY843299		Enterovirus
+1547	Enterovirus B	AY843300		Enterovirus
+1548	Enterovirus B	AY843301		Enterovirus
+1549	Enterovirus B	DQ902712		Enterovirus
+1550	Enterovirus B	AY843303		Enterovirus
+1551	Enterovirus B	AY843304		Enterovirus
+1552	Enterovirus B	AY843305		Enterovirus
+1553	Enterovirus B	AY843306		Enterovirus
+1554	Enterovirus B	KM273013		Enterovirus
+1555	Enterovirus B	AY843307		Enterovirus
+1556	Enterovirus B	AB426608		Enterovirus
+1557	Enterovirus B	DQ902713		Enterovirus
+1558	Enterovirus B	AY843308		Enterovirus
+1559	Enterovirus B	KF990476		Enterovirus
+1560	Enterovirus B	AB426609		Enterovirus
+1561	Enterovirus B	JF416928		Enterovirus
+1562	Enterovirus B	JF416931		Enterovirus
+1563	Enterovirus B	JF416934		Enterovirus
+1564	Enterovirus B	JF416937		Enterovirus
+1565	Enterovirus B	KF312882		Enterovirus
+1566	Enterovirus B	KJ418244		Enterovirus
+1567	Enterovirus B	KJ701249		Enterovirus
+1568	Enterovirus B	AF326751		Enterovirus
+1569	Enterovirus C	V01150		Enterovirus
+1570	Enterovirus C	M12197		Enterovirus
+1571	Enterovirus C	X00595		Enterovirus
+1572	Enterovirus C	K01392		Enterovirus
+1573	Enterovirus C	X00925		Enterovirus
+1574	Enterovirus C	AF499635		Enterovirus
+1575	Enterovirus C	AF499636		Enterovirus
+1576	Enterovirus C	AF499637		Enterovirus
+1577	Enterovirus C	AF499640		Enterovirus
+1578	Enterovirus C	AF499639		Enterovirus
+1579	Enterovirus C	AF499641		Enterovirus
+1580	Enterovirus C	AF499642		Enterovirus
+1581	Enterovirus C	AF546702		Enterovirus
+1582	Enterovirus C	AF499643		Enterovirus
+1583	Enterovirus C	EF026081		Enterovirus
+1584	Enterovirus C	JX417822		Enterovirus
+1585	Enterovirus C	EF015886		Enterovirus
+1586	Enterovirus C	EF555644		Enterovirus
+1587	Enterovirus C	EF555645		Enterovirus
+1588	Enterovirus C	EU840733		Enterovirus
+1589	Enterovirus C	JX393302		Enterovirus
+1590	Enterovirus C	GQ865517		Enterovirus
+1591	Enterovirus C	KC344833		Enterovirus
+1592	Enterovirus C	JX514942		Enterovirus
+1593	Enterovirus C	JX262382		Enterovirus
+1594	Enterovirus C	JX961708		Enterovirus
+1595	Enterovirus D	AY355268		Enterovirus
+1596	Enterovirus D	D00820		Enterovirus
+1597	Enterovirus D	DQ916376		Enterovirus
+1598	Enterovirus D	JF416929		Enterovirus
+1599	Enterovirus D	JF416932		Enterovirus
+1600	Enterovirus D	JF416935		Enterovirus
+1601	Enterovirus D	JF416938		Enterovirus
+1602	Enterovirus D	KF040080		Enterovirus
+1603	Enterovirus E	DQ092792		Enterovirus
+1604	Enterovirus E	DQ092786		Enterovirus
+1605	Enterovirus E	JQ690748		Enterovirus
+1606	Enterovirus E	JQ690741		Enterovirus
+1607	Enterovirus E	KU172420		Enterovirus
+1608	Enterovirus F	DQ092795		Enterovirus
+1609	Enterovirus F	DQ092794		Enterovirus
+1610	Enterovirus F	AY462106		Enterovirus
+1611	Enterovirus F	LC038188		Enterovirus
+1612	Enterovirus G	AF363455		Enterovirus
+1613	Enterovirus G	HQ702854		Enterovirus
+1614	Enterovirus G	JN807387		Enterovirus
+1615	Enterovirus G	JQ277724		Enterovirus
+1616	Enterovirus G	JQ818253		Enterovirus
+1617	Enterovirus G	MG958646		Enterovirus
+1618	Enterovirus G	KT265911		Enterovirus
+1619	Enterovirus G	KT265961		Enterovirus
+1620	Enterovirus G	KP982873		Enterovirus
+1621	Enterovirus G	KJ156451		Enterovirus
+1622	Enterovirus G	KT265900		Enterovirus
+1623	Enterovirus G	KT265903		Enterovirus
+1624	Enterovirus G	KT265909		Enterovirus
+1625	Enterovirus G	KT265941		Enterovirus
+1626	Enterovirus G	KT266010		Enterovirus
+1627	Enterovirus G	KY761948		Enterovirus
+1628	Enterovirus G	MF113370		Enterovirus
+1629	Enterovirus G	MF113372		Enterovirus
+1630	Enterovirus G	KU297674		Enterovirus
+1631	Enterovirus I	KP345888		Enterovirus
+1632	Enterovirus J	FJ007373		Enterovirus
+1633	Enterovirus J	AF414372		Enterovirus
+1634	Enterovirus J	JX537981		Enterovirus
+1635	Enterovirus J	JX537991		Enterovirus
+1636	Enterovirus J	KF541639		Enterovirus
+1637	Enterovirus J	KF648606		Enterovirus
+1638	Enterovirus K	KX156159		Enterovirus
+1639	Rhinovirus A	D00239		Enterovirus
+1640	Rhinovirus A	X02316		Enterovirus
+1641	Rhinovirus A	DQ473503		Enterovirus
+1642	Rhinovirus A	FJ445113		Enterovirus
+1643	Rhinovirus A	FJ445177		Enterovirus
+1644	Rhinovirus A	DQ473498		Enterovirus
+1645	Rhinovirus A	EF173414		Enterovirus
+1646	Rhinovirus A	EF173415		Enterovirus
+1647	Rhinovirus A	FJ445116		Enterovirus
+1648	Rhinovirus A	DQ473493		Enterovirus
+1649	Rhinovirus A	L24917		Enterovirus
+1650	Rhinovirus A	FJ445118		Enterovirus
+1651	Rhinovirus A	FJ445119		Enterovirus
+1652	Rhinovirus A	FJ445120		Enterovirus
+1653	Rhinovirus A	FJ445121		Enterovirus
+1654	Rhinovirus A	FJ445122		Enterovirus
+1655	Rhinovirus A	DQ473497		Enterovirus
+1656	Rhinovirus A	EF173416		Enterovirus
+1657	Rhinovirus A	FJ445123		Enterovirus
+1658	Rhinovirus A	DQ473508		Enterovirus
+1659	Rhinovirus A	FJ445125		Enterovirus
+1660	Rhinovirus A	DQ473512		Enterovirus
+1661	Rhinovirus A	FJ445126		Enterovirus
+1662	Rhinovirus A	FJ445127		Enterovirus
+1663	Rhinovirus A	FJ445128		Enterovirus
+1664	Rhinovirus A	DQ473501		Enterovirus
+1665	Rhinovirus A	DQ473505		Enterovirus
+1666	Rhinovirus A	DQ473495		Enterovirus
+1667	Rhinovirus A	AY751783		Enterovirus
+1668	Rhinovirus A	FJ445129		Enterovirus
+1669	Rhinovirus A	DQ473491		Enterovirus
+1670	Rhinovirus A	FJ445131		Enterovirus
+1671	Rhinovirus A	FJ445132		Enterovirus
+1672	Rhinovirus A	DQ473506		Enterovirus
+1673	Rhinovirus A	FJ445133		Enterovirus
+1674	Rhinovirus A	DQ473496		Enterovirus
+1675	Rhinovirus A	FJ445135		Enterovirus
+1676	Rhinovirus A	FJ445136		Enterovirus
+1677	Rhinovirus A	DQ473507		Enterovirus
+1678	Rhinovirus A	FJ445138		Enterovirus
+1679	Rhinovirus A	DQ473511		Enterovirus
+1680	Rhinovirus A	FJ445140		Enterovirus
+1681	Rhinovirus A	FJ445141		Enterovirus
+1682	Rhinovirus A	FJ445142		Enterovirus
+1683	Rhinovirus A	DQ473500		Enterovirus
+1684	Rhinovirus A	FJ445143		Enterovirus
+1685	Rhinovirus A	FJ445144		Enterovirus
+1686	Rhinovirus A	FJ445145		Enterovirus
+1687	Rhinovirus A	FJ445146		Enterovirus
+1688	Rhinovirus A	EF173417		Enterovirus
+1689	Rhinovirus A	FJ445147		Enterovirus
+1690	Rhinovirus A	FJ445148		Enterovirus
+1691	Rhinovirus A	FJ445149		Enterovirus
+1692	Rhinovirus A	FJ445150		Enterovirus
+1693	Rhinovirus A	FJ445152		Enterovirus
+1694	Rhinovirus A	DQ473492		Enterovirus
+1695	Rhinovirus A	DQ473494		Enterovirus
+1696	Rhinovirus A	DQ473510		Enterovirus
+1697	Rhinovirus A	DQ473502		Enterovirus
+1698	Rhinovirus A	FJ445154		Enterovirus
+1699	Rhinovirus A	EF173418		Enterovirus
+1700	Rhinovirus A	FJ445156		Enterovirus
+1701	Rhinovirus A	FJ445157		Enterovirus
+1702	Rhinovirus A	DQ473509		Enterovirus
+1703	Rhinovirus A	FJ445163		Enterovirus
+1704	Rhinovirus A	DQ473504		Enterovirus
+1705	Rhinovirus A	M16248		Enterovirus
+1706	Rhinovirus A	FJ445167		Enterovirus
+1707	Rhinovirus A	EF173419		Enterovirus
+1708	Rhinovirus A	FJ445171		Enterovirus
+1709	Rhinovirus A	FJ445175		Enterovirus
+1710	Rhinovirus A	GQ415051		Enterovirus
+1711	Rhinovirus A	EF155421		Enterovirus
+1712	Rhinovirus A	JF965515		Enterovirus
+1713	Rhinovirus A	JN562727		Enterovirus
+1714	Rhinovirus A	JN614995		Enterovirus
+1715	Rhinovirus A	JQ245971		Enterovirus
+1716	Rhinovirus A	KC859319		Enterovirus
+1717	Rhinovirus A	KC859318		Enterovirus
+1718	Rhinovirus B	DQ473490		Enterovirus
+1719	Rhinovirus B	FJ445112		Enterovirus
+1720	Rhinovirus B	DQ473486		Enterovirus
+1721	Rhinovirus B	K02121		Enterovirus
+1722	Rhinovirus B	EF173420		Enterovirus
+1723	Rhinovirus B	FJ445124		Enterovirus
+1724	Rhinovirus B	FJ445186		Enterovirus
+1725	Rhinovirus B	DQ473487		Enterovirus
+1726	Rhinovirus B	EF173423		Enterovirus
+1727	Rhinovirus B	FJ445130		Enterovirus
+1728	Rhinovirus B	DQ473488		Enterovirus
+1729	Rhinovirus B	FJ445188		Enterovirus
+1730	Rhinovirus B	FJ445151		Enterovirus
+1731	Rhinovirus B	DQ473489		Enterovirus
+1732	Rhinovirus B	FJ445153		Enterovirus
+1733	Rhinovirus B	FJ445155		Enterovirus
+1734	Rhinovirus B	FJ445161		Enterovirus
+1735	Rhinovirus B	FJ445162		Enterovirus
+1736	Rhinovirus B	FJ445164		Enterovirus
+1737	Rhinovirus B	FJ445168		Enterovirus
+1738	Rhinovirus B	FJ445169		Enterovirus
+1739	Rhinovirus B	EF173425		Enterovirus
+1740	Rhinovirus B	FJ445172		Enterovirus
+1741	Rhinovirus B	FJ445174		Enterovirus
+1742	Rhinovirus B	HQ123444		Enterovirus
+1743	Rhinovirus B	JF781500		Enterovirus
+1744	Rhinovirus B	JX074053		Enterovirus
+1745	Rhinovirus B	JN614996		Enterovirus
+1746	Rhinovirus B	FJ445137		Enterovirus
+1747	Rhinovirus C	EF077280		Enterovirus
+1748	Rhinovirus C	EF186077		Enterovirus
+1749	Rhinovirus C	EF582385		Enterovirus
+1750	Rhinovirus C	EF582386		Enterovirus
+1751	Rhinovirus C	EF582387		Enterovirus
+1752	Rhinovirus C	DQ875932		Enterovirus
+1753	Rhinovirus C	GQ223227		Enterovirus
+1754	Rhinovirus C	GQ223228		Enterovirus
+1755	Rhinovirus C	GQ323774		Enterovirus
+1756	Rhinovirus C	EU840952		Enterovirus
+1757	Rhinovirus C	HM236958		Enterovirus
+1758	Rhinovirus C	HM236908		Enterovirus
+1759	Rhinovirus C	HM236911		Enterovirus
+1760	Rhinovirus C	GU219984		Enterovirus
+1761	Rhinovirus C	KR997882		Enterovirus
+1762	Rhinovirus C	HM236936		Enterovirus
+1763	Rhinovirus C	HM236918		Enterovirus
+1764	Rhinovirus C	EU840728		Enterovirus
+1765	Rhinovirus C	HM236923		Enterovirus
+1766	Rhinovirus C	HM236903		Enterovirus
+1767	Rhinovirus C	KJ675507		Enterovirus
+1768	Rhinovirus C	KJ675506		Enterovirus
+1769	Rhinovirus C	HM236939		Enterovirus
+1770	Rhinovirus C	HM236952		Enterovirus
+1771	Rhinovirus C	HM236904		Enterovirus
+1772	Rhinovirus C	HM236906		Enterovirus
+1773	Rhinovirus C	HM236954		Enterovirus
+1774	Rhinovirus C	HM236949		Enterovirus
+1775	Rhinovirus C	HM236968		Enterovirus
+1776	Rhinovirus C	HM236964		Enterovirus
+1777	Rhinovirus C	HM236897		Enterovirus
+1778	Rhinovirus C	HM236934		Enterovirus
+1779	Rhinovirus C	KM486097		Enterovirus
+1780	Rhinovirus C	JF436925		Enterovirus
+1781	Rhinovirus C	JF416311		Enterovirus
+1782	Rhinovirus C	JF416321		Enterovirus
+1783	Rhinovirus C	JF416322		Enterovirus
+1784	Rhinovirus C	JN205461		Enterovirus
+1785	Rhinovirus C	JN815251		Enterovirus
+1786	Rhinovirus C	KF958311		Enterovirus
+1787	Rhinovirus C	KJ675505		Enterovirus
+1788	Rhinovirus C	JN815249		Enterovirus
+1789	Rhinovirus C	JF416310		Enterovirus
+1790	Rhinovirus C	KY624849		Enterovirus
+1791	Rhinovirus C	JF416318		Enterovirus
+1792	Rhinovirus C	JF519760		Enterovirus
+1793	Rhinovirus C	JF519762		Enterovirus
+1794	Rhinovirus C	JN798566		Enterovirus
+1795	Rhinovirus C	KF688606		Enterovirus
+1796	Rhinovirus C	JF317015		Enterovirus
+1797	Rhinovirus C	KP282614		Enterovirus
+1798	Rhinovirus C	KR997885		Enterovirus
+1799	Rhinovirus C	LC004772		Enterovirus
+1800	Rhinovirus C	KP890662		Enterovirus
+1801	Felipivirus A	JN572116		Felipivirus
+1802	Parabovirus A	MF352414		Parabovirus
+1803	Parabovirus A	KY432935		Parabovirus
+1804	Parabovirus A	KY432932		Parabovirus
+1805	Rabovirus A	MF352425		Rabovirus
+1806	Rabovirus A	KJ950883		Rabovirus
+1807	Rabovirus A	MF352417		Rabovirus
+1808	Rabovirus A	MF352408		Rabovirus
+1809	Sapelovirus B	EU789367		Sapelovirus
+1810	Sapelovirus B	JX627573		Sapelovirus
+1811	Hepatovirus D	KT452644		Hepatovirus
+1812	Hepatovirus F	KT229611		Hepatovirus
+1813	Hepatovirus G	KT452729		Hepatovirus
+1814	Hepatovirus H	KT452714		Hepatovirus
+1815	Hepatovirus H	KT877158		Hepatovirus
+1816	Rohelivirus A	KX156155		Rohelivirus
+1817	Tremovirus B	MG600110		Tremovirus
+1818	Gallivirus A	KF979337		Gallivirus
+1819	Aichivirus A	JN387133		Kobuvirus
+1820	Aichivirus A	JF755427		Kobuvirus
+1821	Aichivirus A	KF831027		Kobuvirus
+1822	Aichivirus A	KJ934637		Kobuvirus
+1823	Aichivirus A	MF947444		Kobuvirus
+1824	Aichivirus A	KY432931		Kobuvirus
+1825	Aichivirus A	MF175074		Kobuvirus
+1826	Aichivirus A	MF352432		Kobuvirus
+1827	Aichivirus A	MF947429		Kobuvirus
+1828	Aichivirus B	KF006985		Kobuvirus
+1829	Aichivirus B	GU245693		Kobuvirus
+1830	Aichivirus C	KF793927		Kobuvirus
+1831	Aichivirus D	LC055960		Kobuvirus
+1832	Aichivirus F	KJ641691		Kobuvirus
+1833	Megrivirus A	KY369299		Megrivirus
+1834	Megrivirus A	KY369300		Megrivirus
+1835	Megrivirus B	KC811837		Megrivirus
+1836	Megrivirus C	KF979336		Megrivirus
+1837	Megrivirus C	MG846465		Megrivirus
+1838	Megrivirus C	HM751199		Megrivirus
+1839	Oscivirus A	GU182410		Oscivirus
+1840	Rosavirus A	KJ158169		Rosavirus
+1841	Rosavirus B	KJ950906		Rosavirus
+1842	Rosavirus B	KJ950911		Rosavirus
+1843	Rosavirus C	KX783425		Rosavirus
+1844	Rosavirus C	KX783432		Rosavirus
+1845	Rosavirus C	KX156156		Rosavirus
+1846	Salivirus A	KM023140		Salivirus
+1847	Sicinivirus A	KT880665		Sicinivirus
+1848	Sicinivirus A	KP779642		Sicinivirus
+1849	Sicinivirus A	KY069113		Sicinivirus
+1850	Sicinivirus A	KF979332		Sicinivirus
+1851	Sicinivirus A	KY069112		Sicinivirus
+1852	Sicinivirus A	MG846481		Sicinivirus
+1853	Sicinivirus A	MG846484		Sicinivirus
+1854	Sicinivirus A	MG846482		Sicinivirus
+1855	Aquamavirus A	MH760796		Aquamavirus
+1856	Avihepatovirus A	EF067924		Avihepatovirus
+1857	Avihepatovirus A	DQ256132		Avihepatovirus
+1858	Orivirus A	KT880667		Orivirus
+1859	Parechovirus A	AJ005695		Parechovirus
+1860	Parechovirus A	AB084913		Parechovirus
+1861	Parechovirus A	DQ315670		Parechovirus
+1862	Parechovirus A	AF055846		Parechovirus
+1863	Parechovirus A	AB252582		Parechovirus
+1864	Parechovirus A	EU556224		Parechovirus
+1865	Parechovirus A	EU716175		Parechovirus
+1866	Parechovirus A	JX219575		Parechovirus
+1867	Parechovirus A	JX219568		Parechovirus
+1868	Parechovirus A	JX219574		Parechovirus
+1869	Parechovirus A	JX219567		Parechovirus
+1870	Parechovirus A	JX219579		Parechovirus
+1871	Parechovirus A	FJ373179		Parechovirus
+1872	Parechovirus A	JX219573		Parechovirus
+1873	Parechovirus A	JX219580		Parechovirus
+1874	Parechovirus A	KT319121		Parechovirus
+1875	Parechovirus A	KY931659		Parechovirus
+1876	Parechovirus B	AF020541		Parechovirus
+1877	Parechovirus B	AF538689		Parechovirus
+1878	Parechovirus B	EU854568		Parechovirus
+1879	Parechovirus B	LC133331		Parechovirus
+1880	Parechovirus B	KY432929		Parechovirus
+1881	Pasivirus A	JX491648		Pasivirus
+1882	Pasivirus A	KM259923		Pasivirus
+1883	Pasivirus A	LT898422		Pasivirus
+1884	Nepovirus betasolani	MT521733	RNA1	Nepovirus
+1885	Cheravirus arracaciae	JQ437415	RNA1	Cheravirus
+1886	Cheravirus arracaciae	JQ581051	RNA2	Cheravirus
+1887	Grapevine enamovirus 1	MT536978		Enamovirus
+1888	Grapevine enamovirus 1	KY820716		Enamovirus
+1889	Pea enation mosaic virus 1	L04573		Enamovirus
+1890	Maize yellow mosaic virus	KT992824		Polerovirus
+1891	Turnip yellows virus	HQ388348		Polerovirus
+1892	Cocksfoot mottle virus	DQ680848		Sobemovirus
+1893	Wheat spindle streak mosaic virus	MN046368	RNA1	Bymovirus
+1894	Wheat spindle streak mosaic virus	MN046369	RNA2	Bymovirus
+1895	Tomato mild mottle virus	HQ840786		Ipomovirus
+1896	Ugandan cassava brown streak virus	FJ185044		Ipomovirus
+1897	Artichoke latent virus	DQ152193		Macluravirus
+1898	Basella rugose mosaic virus	DQ851494		Potyvirus
+1899	Bean common mosaic virus	U34972		Potyvirus
+1900	Bean common mosaic virus	AY112735		Potyvirus
+1901	Bean yellow mosaic virus	DQ641248		Potyvirus
+1902	Dasheen mosaic virus	KX505964		Potyvirus
+1903	Euphorbia ringspot virus	AY697300		Potyvirus
+1904	Papaya ringspot virus	AY027810		Potyvirus
+1905	Plum pox virus	AJ243957		Potyvirus
+1906	Plum pox virus	X16415		Potyvirus
+1907	Plum pox virus	JQ794501		Potyvirus
+1908	Plum pox virus	AY912055		Potyvirus
+1909	Plum pox virus	AM157175		Potyvirus
+1910	Plum pox virus	KJ787006		Potyvirus
+1911	Pokeweed mosaic virus	JX291161		Potyvirus
+1912	Potato virus A	AJ131403		Potyvirus
+1913	Potato virus Y	U09509		Potyvirus
+1914	Potato virus Y	X97895		Potyvirus
+1915	Potato virus Y	AY166866		Potyvirus
+1916	Potato virus Y	AJ890348		Potyvirus
+1917	Potato virus Y	AJ889867		Potyvirus
+1918	Soybean mosaic virus	AJ507388		Potyvirus
+1919	Zea mosaic virus	AF228693		Potyvirus
+1920	Alphayadokarivirus nibani	MK279487		Alphayadokarivirus
+1921	Betayadokarivirus nibani	MF375888		Betayadokarivirus
+1922	Betayadokarivirus yonbani	LC333741		Betayadokarivirus
+1923	Hadakavirus nanga	LC592214	RNA1	Hadakavirus
+1924	Hadakavirus nanga	LC592215	RNA2	Hadakavirus
+1925	Hadakavirus nanga	LC592216	RNA3	Hadakavirus
+1926	Hadakavirus nanga	LC592217	RNA4	Hadakavirus
+1927	Hadakavirus nanga	LC592218	RNA5	Hadakavirus
+1928	Hadakavirus nanga	LC592219	RNA6	Hadakavirus
+1929	Hadakavirus nanga	LC592220	RNA7	Hadakavirus
+1930	Hadakavirus nanga	LC592221	RNA8	Hadakavirus
+1931	Hadakavirus nanga	LC592222	RNA9	Hadakavirus
+1932	Hadakavirus nanga	LC592223	RNA10	Hadakavirus
+1933	Aquabirnavirus salmonidae	AF078668	SegA	Aquabirnavirus
+1934	Aquabirnavirus salmonidae	AF078669	SegB	Aquabirnavirus
+1935	Aquabirnavirus salmonidae	AJ622822	SegA	Aquabirnavirus
+1936	Aquabirnavirus salmonidae	AJ622823	SegB	Aquabirnavirus
+1937	Aquabirnavirus salmonidae	AY780919	SegA	Aquabirnavirus
+1938	Aquabirnavirus salmonidae	AY780926	SegB	Aquabirnavirus
+1939	Aquabirnavirus salmonidae	KY548509	SegA	Aquabirnavirus
+1940	Aquabirnavirus salmonidae	KY548520	SegB	Aquabirnavirus
+1941	Aquabirnavirus salmonidae	KY548508	SegA	Aquabirnavirus
+1942	Aquabirnavirus salmonidae	KY548519	SegB	Aquabirnavirus
+1943	Avibirnavirus gumboroense	X92760	SegA	Avibirnavirus
+1944	Avibirnavirus gumboroense	X92761	SegB	Avibirnavirus
+1945	Duck hepatitis B virus	AY494853		Avihepadnavirus
+1946	Duck hepatitis B virus	AF111000		Avihepadnavirus
+1947	Duck hepatitis B virus	AJ441111		Avihepadnavirus
+1948	Duck hepatitis B virus	M95589		Avihepadnavirus
+1949	Heron hepatitis B virus	AJ251937		Avihepadnavirus
+1950	Hepatitis B virus	X02763		Orthohepadnavirus
+1951	Hepatitis B virus	D00330		Orthohepadnavirus
+1952	Hepatitis B virus	AY123041		Orthohepadnavirus
+1953	Hepatitis B virus	X75657		Orthohepadnavirus
+1954	Hepatitis B virus	X75658		Orthohepadnavirus
+1955	Hepatitis B virus	AF160501		Orthohepadnavirus
+1956	Hepatitis B virus	AY090454		Orthohepadnavirus
+1957	Hepatitis B virus	AF241411		Orthohepadnavirus
+1958	Hepatitis B virus	AB486012		Orthohepadnavirus
+1959	Hepatitis B virus	AJ131569		Orthohepadnavirus
+1960	Hepatitis B virus	AJ131571		Orthohepadnavirus
+1961	Hepatitis B virus	AJ131572		Orthohepadnavirus
+1962	Hepatitis B virus	AJ131573		Orthohepadnavirus
+1963	Hepatitis B virus	AJ131574		Orthohepadnavirus
+1964	Hepatitis B virus	AF193864		Orthohepadnavirus
+1965	Hepatitis B virus	D00220		Orthohepadnavirus
+1966	Hepatitis B virus	AJ131567		Orthohepadnavirus
+1967	Roundleaf bat hepatitis B virus	KC790377		Orthohepadnavirus
+1968	Aspergillus fumigatus polymycovirus 1	MH192993	dsRNA1	Polymycovirus
+1969	Aspergillus fumigatus polymycovirus 1	MH192994	dsRNA2	Polymycovirus
+1970	Aspergillus fumigatus polymycovirus 1	MH192995	dsRNA3	Polymycovirus
+1971	Aspergillus fumigatus polymycovirus 1	MH192996	dsRNA4	Polymycovirus
+1972	Aspergillus fumigatus polymycovirus 1	LC517041	dsRNA1	Polymycovirus
+1973	Aspergillus fumigatus polymycovirus 1	LC517042	dsRNA2	Polymycovirus
+1974	Aspergillus fumigatus polymycovirus 1	LC517043	dsRNA3	Polymycovirus
+1975	Aspergillus fumigatus polymycovirus 1	LC517044	dsRNA4	Polymycovirus
+1976	Aspergillus fumigatus polymycovirus 1	LC517045	dsRNA5	Polymycovirus
+1977	Aspergillus fumigatus polymycovirus 1	LC553675	dsRNA1	Polymycovirus
+1978	Aspergillus fumigatus polymycovirus 1	LC553676	dsRNA2	Polymycovirus
+1979	Aspergillus fumigatus polymycovirus 1	LC553677	dsRNA3	Polymycovirus
+1980	Aspergillus fumigatus polymycovirus 1	LC553678	dsRNA4	Polymycovirus
+1981	Botryoshaeria dothidea polymycovirus 1	KT372135	dsRNA1	Polymycovirus
+1982	Botryoshaeria dothidea polymycovirus 1	KT372136	dsRNA2	Polymycovirus
+1983	Botryoshaeria dothidea polymycovirus 1	KT372137	dsRNA3	Polymycovirus
+1984	Botryoshaeria dothidea polymycovirus 1	KT372138	dsRNA4	Polymycovirus
+1985	Botryoshaeria dothidea polymycovirus 1	KT372139	dsRNA5	Polymycovirus
+1986	Macrobrachium satellite virus 1	DQ174318		Macronovirus
+1987	Macrobrachium satellite virus 1	EU150132		Macronovirus
+1988	Macrobrachium satellite virus 1	EU150131		Macronovirus
+1989	Macrobrachium satellite virus 1	EU150130		Macronovirus
+1990	Macrobrachium satellite virus 1	EU150133		Macronovirus
+1991	Macrobrachium satellite virus 1	DQ521573		Macronovirus
+1992	Macrobrachium satellite virus 1	EF159731		Macronovirus
+1993	Ascovirus hvav3a	KJ755191		Ascovirus
+1994	Ascovirus hvav3a	JX491653		Ascovirus
+1995	Infectious spleen and kidney necrosis virus	AY894343		Megalocytivirus
+1996	Infectious spleen and kidney necrosis virus	KT804738		Megalocytivirus
+1997	Infectious spleen and kidney necrosis virus	AY532606		Megalocytivirus
+1998	Infectious spleen and kidney necrosis virus	GQ273492		Megalocytivirus
+1999	Infectious spleen and kidney necrosis virus	AY779031		Megalocytivirus
+2000	Infectious spleen and kidney necrosis virus	MK098185		Megalocytivirus
+2001	Infectious spleen and kidney necrosis virus	BD143114		Megalocytivirus
+2002	Common midwife toad virus	JQ231222		Ranavirus
+2003	Common midwife toad virus	KC865735		Ranavirus
+2004	Common midwife toad virus	KP266741		Ranavirus
+2005	Common midwife toad virus	KX574341		Ranavirus
+2006	Common midwife toad virus	MF538627		Ranavirus
+2007	Common midwife toad virus	MF538628		Ranavirus
+2008	Epizootic haematopoietic necrosis virus	KT989885		Ranavirus
+2009	Epizootic haematopoietic necrosis virus	JQ724856		Ranavirus
+2010	Frog virus 3	KJ175144		Ranavirus
+2011	Frog virus 3	JQ654586		Ranavirus
+2012	Frog virus 3	EU627010		Ranavirus
+2013	Frog virus 3	AF389451		Ranavirus
+2014	Frog virus 3	KP266742		Ranavirus
+2015	Frog virus 3	KP266743		Ranavirus
+2016	Frog virus 3	KX185156		Ranavirus
+2017	Frog virus 3	MK227779		Ranavirus
+2018	Frog virus 3	KX353311		Ranavirus
+2019	Frog virus 3	KX574342		Ranavirus
+2020	Frog virus 3	KX574343		Ranavirus
+2021	Santee-Cooper ranavirus	FR677325		Ranavirus
+2022	Santee-Cooper ranavirus	FR677324		Ranavirus
+2023	Singapore grouper iridovirus	AY666015		Ranavirus
+2024	Invertebrate iridescent virus 22	HF920634		Chloriridovirus
+2025	Invertebrate iridescent virus 22	HF920636		Chloriridovirus
+2026	Decapod iridescent virus 1	MF197913		Decapodiridovirus
+2027	African swine fever virus	FN557520		Asfivirus
+2028	African swine fever virus	KM262844		Asfivirus
+2029	African swine fever virus	AM712239		Asfivirus
+2030	African swine fever virus	FR682468		Asfivirus
+2031	African swine fever virus	KP055815		Asfivirus
+2032	African swine fever virus	AM712240		Asfivirus
+2033	African swine fever virus	KM262845		Asfivirus
+2034	African swine fever virus	AY261360		Asfivirus
+2035	African swine fever virus	KM111294		Asfivirus
+2036	African swine fever virus	KM111295		Asfivirus
+2037	African swine fever virus	KM102979		Asfivirus
+2038	African swine fever virus	KP843857		Asfivirus
+2039	African swine fever virus	AY261366		Asfivirus
+2040	African swine fever virus	AY261365		Asfivirus
+2041	African swine fever virus	AY261364		Asfivirus
+2042	African swine fever virus	AY261363		Asfivirus
+2043	African swine fever virus	AY261362		Asfivirus
+2044	African swine fever virus	AY261361		Asfivirus
+2045	African swine fever virus	KX354450		Asfivirus
+2046	Tanapox virus	EF420156		Yatapoxvirus
+2047	Bovine atadenovirus D	AF207658		Atadenovirus
+2048	Bovine atadenovirus D	AF238233		Atadenovirus
+2049	Duck aviadenovirus B	MH777395		Aviadenovirus
+2050	Fowl aviadenovirus C	MK572851		Aviadenovirus
+2051	Fowl aviadenovirus D	KT862806		Aviadenovirus
+2052	Fowl aviadenovirus D	KT862807		Aviadenovirus
+2053	Fowl aviadenovirus D	KT862812		Aviadenovirus
+2054	Fowl aviadenovirus E	KT862809		Aviadenovirus
+2055	Fowl aviadenovirus E	KT862810		Aviadenovirus
+2056	Fowl aviadenovirus E	KT862811		Aviadenovirus
+2057	Bat mastadenovirus A	LC385828		Mastadenovirus
+2058	Bat mastadenovirus F	KX961096		Mastadenovirus
+2059	Canine mastadenovirus A	U77082		Mastadenovirus
+2060	Canine mastadenovirus A	KM043107		Mastadenovirus
+2061	Human mastadenovirus A	GU191019		Mastadenovirus
+2062	Human mastadenovirus A	AM749299		Mastadenovirus
+2063	Human mastadenovirus A	KF360047		Mastadenovirus
+2064	Human mastadenovirus B	AY495969		Mastadenovirus
+2065	Human mastadenovirus B	AY163756		Mastadenovirus
+2066	Human mastadenovirus B	AY803294		Mastadenovirus
+2067	Human mastadenovirus B	AY601636		Mastadenovirus
+2068	Human mastadenovirus B	AY601633		Mastadenovirus
+2069	Human mastadenovirus B	AY737797		Mastadenovirus
+2070	Human mastadenovirus B	AY128640		Mastadenovirus
+2071	Human mastadenovirus B	AY737798		Mastadenovirus
+2072	Human mastadenovirus B	FJ643676		Mastadenovirus
+2073	Human mastadenovirus B	AR101858		Mastadenovirus
+2074	Human mastadenovirus B	HC084988		Mastadenovirus
+2075	Human mastadenovirus B	FJ025915		Mastadenovirus
+2076	Human mastadenovirus B	HC085020		Mastadenovirus
+2077	Human mastadenovirus B	HC085052		Mastadenovirus
+2078	Human mastadenovirus B	HC085083		Mastadenovirus
+2079	Human mastadenovirus B	FJ025910		Mastadenovirus
+2080	Human mastadenovirus B	HI964271		Mastadenovirus
+2081	Human mastadenovirus B	FJ025930		Mastadenovirus
+2082	Human mastadenovirus B	FJ025929		Mastadenovirus
+2083	Human mastadenovirus C	AF534906		Mastadenovirus
+2084	Human mastadenovirus C	M73260		Mastadenovirus
+2085	Human mastadenovirus C	FJ349096		Mastadenovirus
+2086	Human mastadenovirus C	HC000816		Mastadenovirus
+2087	Human mastadenovirus C	HC000847		Mastadenovirus
+2088	Human mastadenovirus C	HC000785		Mastadenovirus
+2089	Human mastadenovirus C	HC191035		Mastadenovirus
+2090	Human mastadenovirus C	FJ025900		Mastadenovirus
+2091	Human mastadenovirus C	FJ025899		Mastadenovirus
+2092	Human mastadenovirus C	FJ025901		Mastadenovirus
+2093	Human mastadenovirus C	CS138463		Mastadenovirus
+2094	Human mastadenovirus D	AB448767		Mastadenovirus
+2095	Human mastadenovirus D	JN226746		Mastadenovirus
+2096	Human mastadenovirus D	JN226747		Mastadenovirus
+2097	Human mastadenovirus D	AB562586		Mastadenovirus
+2098	Human mastadenovirus D	AF108105		Mastadenovirus
+2099	Human mastadenovirus D	JQ326209		Mastadenovirus
+2100	Human mastadenovirus D	JN226749		Mastadenovirus
+2101	Human mastadenovirus D	FJ404771		Mastadenovirus
+2102	Human mastadenovirus D	JN226750		Mastadenovirus
+2103	Human mastadenovirus D	JN226751		Mastadenovirus
+2104	Human mastadenovirus D	JN226752		Mastadenovirus
+2105	Human mastadenovirus D	EF153474		Mastadenovirus
+2106	Human mastadenovirus D	JN226753		Mastadenovirus
+2107	Human mastadenovirus D	FJ824826		Mastadenovirus
+2108	Human mastadenovirus D	JN226754		Mastadenovirus
+2109	Human mastadenovirus D	JN226755		Mastadenovirus
+2110	Human mastadenovirus D	JN226756		Mastadenovirus
+2111	Human mastadenovirus D	JN226758		Mastadenovirus
+2112	Human mastadenovirus D	GQ384080		Mastadenovirus
+2113	Human mastadenovirus D	DQ900900		Mastadenovirus
+2114	Human mastadenovirus D	JN226759		Mastadenovirus
+2115	Human mastadenovirus D	JN226760		Mastadenovirus
+2116	Human mastadenovirus D	JN226761		Mastadenovirus
+2117	Human mastadenovirus D	JN226762		Mastadenovirus
+2118	Human mastadenovirus D	JN226763		Mastadenovirus
+2119	Human mastadenovirus D	JN226764		Mastadenovirus
+2120	Human mastadenovirus D	AY875648		Mastadenovirus
+2121	Human mastadenovirus D	JN226757		Mastadenovirus
+2122	Human mastadenovirus D	EF153473		Mastadenovirus
+2123	Human mastadenovirus D	DQ393829		Mastadenovirus
+2124	Human mastadenovirus D	JN226765		Mastadenovirus
+2125	Human mastadenovirus D	FJ169625		Mastadenovirus
+2126	Human mastadenovirus D	AB333801		Mastadenovirus
+2127	Human mastadenovirus D	HM770721		Mastadenovirus
+2128	Human mastadenovirus E	AY530876		Mastadenovirus
+2129	Human mastadenovirus E	AY530877		Mastadenovirus
+2130	Human mastadenovirus E	AY530878		Mastadenovirus
+2131	Human mastadenovirus E	AF394196		Mastadenovirus
+2132	Human mastadenovirus E	HB426768		Mastadenovirus
+2133	Human mastadenovirus E	FJ025920		Mastadenovirus
+2134	Human mastadenovirus E	HC191003		Mastadenovirus
+2135	Human mastadenovirus E	FJ025919		Mastadenovirus
+2136	Human mastadenovirus E	HB426671		Mastadenovirus
+2137	Human mastadenovirus E	HB426607		Mastadenovirus
+2138	Human mastadenovirus E	CS138464		Mastadenovirus
+2139	Human mastadenovirus E	JN254802		Mastadenovirus
+2140	Human mastadenovirus F	DQ315364		Mastadenovirus
+2141	Human mastadenovirus G	DQ923122		Mastadenovirus
+2142	Human mastadenovirus G	MG969551		Mastadenovirus
+2143	Human mastadenovirus G	DQ792570		Mastadenovirus
+2144	Human mastadenovirus G	KP329562		Mastadenovirus
+2145	Human mastadenovirus G	KP853123		Mastadenovirus
+2146	Human mastadenovirus G	KP853109		Mastadenovirus
+2147	Human mastadenovirus G	KM591901		Mastadenovirus
+2148	Human mastadenovirus G	KM591902		Mastadenovirus
+2149	Human mastadenovirus G	KM591903		Mastadenovirus
+2150	Human mastadenovirus G	MF198452		Mastadenovirus
+2151	Ovine mastadenovirus A	DQ630755		Mastadenovirus
+2152	Ovine mastadenovirus A	DQ630756		Mastadenovirus
+2153	Ovine mastadenovirus A	DQ630757		Mastadenovirus
+2154	Ovine mastadenovirus A	DQ630758		Mastadenovirus
+2155	Porcine mastadenovirus A	L43364		Mastadenovirus
+2156	Simian mastadenovirus A	KP853121		Mastadenovirus
+2157	Simian mastadenovirus A	JQ776547		Mastadenovirus
+2158	Simian mastadenovirus A	KP853122		Mastadenovirus
+2159	Simian mastadenovirus A	KP853110		Mastadenovirus
+2160	Simian mastadenovirus A	KP853124		Mastadenovirus
+2161	Simian mastadenovirus A	HQ241818		Mastadenovirus
+2162	Simian mastadenovirus B	KP853111		Mastadenovirus
+2163	Simian mastadenovirus B	KP329561		Mastadenovirus
+2164	Simian mastadenovirus B	HQ241820		Mastadenovirus
+2165	Simian mastadenovirus B	JN880448		Mastadenovirus
+2166	Simian mastadenovirus B	KC693021		Mastadenovirus
+2167	Simian mastadenovirus B	KT013209		Mastadenovirus
+2168	Simian mastadenovirus C	KC693022		Mastadenovirus
+2169	Simian mastadenovirus C	KC693023		Mastadenovirus
+2170	Simian mastadenovirus F	KP329566		Mastadenovirus
+2171	Psittacine siadenovirus D	MN687905		Siadenovirus
+2172	Alphabaculovirus angemmatalis	KR815466		Alphabaculovirus
+2173	Alphabaculovirus aucalifornicae	DQ457003		Alphabaculovirus
+2174	Alphabaculovirus bomori	FJ882854		Alphabaculovirus
+2175	Alphabaculovirus helarmigerae	AF303045		Alphabaculovirus
+2176	Alphabaculovirus helarmigerae	AP010907		Alphabaculovirus
+2177	Alphabaculovirus maconfiguratae	AF539999		Alphabaculovirus
+2178	Betanudivirus hezeae	JN418988		Betanudivirus
+2179	White spot syndrome virus	AF440570		Whispovirus
+2180	White spot syndrome virus	AF369029		Whispovirus
+2181	White spot syndrome virus	JX515788		Whispovirus
+2182	White spot syndrome virus	KT995472		Whispovirus
+2183	White spot syndrome virus	KT995470		Whispovirus
+2184	White spot syndrome virus	KT995471		Whispovirus
+2185	White spot syndrome virus	KY827813		Whispovirus
+2186	White spot syndrome virus	KU216744		Whispovirus
+2187	White spot syndrome virus	KX686117		Whispovirus
+2188	White spot syndrome virus	MF768985		Whispovirus
+2189	White spot syndrome virus	MG702567		Whispovirus
+2190	White spot syndrome virus	MH090824		Whispovirus
+2191	Nitmarvirus NSV1	MK570054		Nitmarvirus
+2192	Nitmarvirus NSV1	MK570055		Nitmarvirus

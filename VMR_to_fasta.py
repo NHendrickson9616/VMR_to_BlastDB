@@ -23,23 +23,24 @@ parser.add_argument('-file',help="optional argument. Name of the file to get arg
 parser.add_argument("-email",help="email for Entrez to use when fetching Fasta files")
 parser.add_argument("-mode",help="what function to do. Options: VMR,fasta,db")
 parser.add_argument("-ea",help="Fetch E or A records (Exemplars or AdditionalIsolates)", default="E")
-parser.add_argument("-fasta_file_name",help="Name of the fasta file to output",default="./fasta/all_alt.fa")
 parser.add_argument("-VMR_file_name",help="name of the VMR file to load.",default="VMR_E_data.xlsx")
 parser.add_argument("-query",help="Name of the fasta file to query the database")
 args = parser.parse_args()
-mode = args.mode
-if mode != 'fasta' and mode != "VMR" and mode != "db":
+if args.mode != 'fasta' and args.mode != "VMR" and args.mode != "db":
     print("Valid mode not selected. Options: VMR,fasta,db",file=sys.stderr)
 #Takes forever to import so only imports if it's going to be needed
-if mode == 'fasta':
+if args.mode == 'fasta':
     from Bio import Entrez
-query = args.query
-fasta_file_name = args.fasta_file_name
-VMR_file_name = args.VMR_file_name
 #Catching error
-if mode == "db":
+if args.mode == "db":
     if args.query == None:
         print("Database Query mode is selected but no fasta file was specified! Please set the '-fasta_file_name' or change mode.",file=sys.stderr)
+
+VMR_file_name_tsv = './vmr.tsv'
+VMR_hack_file_name = "./fixed_vmr_"+args.ea.lower()+".tsv"
+processed_accession_file_name ="./processed_accessions_"+args.ea.lower()+".tsv"
+
+
 ###############################################################################################################
 # Loads excel from https://talk.ictvonline.org/taxonomy/vmr/m/vmr-file-repository/ and puts it into a DataFrame
 # NOTE: URL is incorrect. 
@@ -50,39 +51,59 @@ if mode == "db":
 #
 def load_VMR_data():
     if args.verbose: print("load_VMR_data()")
-    if args.verbose: print("  opening", VMR_file_name)
+    if args.verbose: print("  opening", args.VMR_file_name)
 
     # Importing excel sheet as a DataFrame. Requires xlrd and openpyxl package
     try:
-        raw_vmr_data = pandas.read_excel(VMR_file_name,engine='openpyxl')
+        raw_vmr_data = pandas.read_excel(args.VMR_file_name,engine='openpyxl')
+        if args.verbose: print("VMR data loaded: {0} rows, {1} columns.".format(*raw_vmr_data.shape))
 
-    # list of the columns to extract from raw_vmr_data
+        # list of the columns to extract from raw_vmr_data
         vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage','Genus']
 
-        if args.verbose: print("VMR data loaded.")
+        for col_name in list(raw_vmr_data.columns):
+            if col_name in vmr_cols_needed:
+                print("    "+col_name+" [NEEDED]")
+            else:
+                print("    "+col_name)
+        for col_name in vmr_cols_needed:
+            if not col_name in list(raw_vmr_data.columns):
+                print("    "+col_name+" [!MISSING!]")
+
     except(FileNotFoundError):
         print("The VMR file specified does not exist! Make sure the path set by '-VMR_file_name' is correct.",file=sys.stderr)
     
 
+    # save As TSV for diff'ing
+    if os.path.exists(VMR_file_name_tsv) and os.path.getmtime(VMR_file_name_tsv) > os.path.getmtime(args.VMR_file_name):
+        if args.verbose: print("  SKIP writing", VMR_file_name_tsv)
+    else:
+        if args.verbose: print("  writing", VMR_file_name_tsv)
+        raw_vmr_data.to_csv(VMR_file_name_tsv,sep='\t', index=False)
+
     # compiling new dataframe from vmr_cols_needed
-    truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
+    #truncated_vmr_data = raw_vmr_data[vmr_cols_needed]
+
     # DataFrame.loc is helpful for indexing by row. Allows expression as an argument. Here, 
     # it finds every row where 'E' is in column 'Exemplar or additional isolate' and returns 
     # only the columns specified. 
-    vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
+    #vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
+    vmr_data = raw_vmr_data.loc[raw_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
 
     # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
-    VMR_hack_file_name = "fixed_vmr_"+args.ea+".xlsx"
     if args.verbose: print("Writing"+VMR_hack_file_name,": workaround - filters VMR down to "+args.ea.upper()+" records only")
-    vmr_data.to_excel(VMR_hack_file_name)
+    vmr_data.to_csv(VMR_hack_file_name, sep='\t')
     if args.verbose: print("Loading",VMR_hack_file_name)
-    raw_vmr_data = pandas.read_excel(VMR_hack_file_name,engine='openpyxl')
-    # Removing Genome Coverage column from the returned value. 
-    vmr_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
-    truncated_vmr_data = pandas.DataFrame(raw_vmr_data[[col_name for col_name in vmr_cols_needed]])
+    narrow_vmr_data = pandas.read_csv(VMR_hack_file_name,sep='\t')
+    if args.verbose: print("   Read {0} rows, {1} columns.".format(*narrow_vmr_data.shape))
+    if args.verbose: print("   columns:", list(narrow_vmr_data.columns))
 
+    # Removing Genome Coverage column from the returned value. 
+    narrow_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
+    truncated_vmr_data = narrow_vmr_data[narrow_cols_needed]
     
     #truncated_vmr_data = truncated_vmr_data.drop(columns=['Exemplar or additional isolate'])
+    if args.verbose: print("   Truncated: {0} rows, {1} columns.".format(*truncated_vmr_data.shape))
     
     return truncated_vmr_data
 
@@ -98,7 +119,7 @@ def test_accession_IDs(df):
 ##############################################################################################################
     # defining new DataFrame before hand
     processed_accession_IDs = pandas.DataFrame(columns=['Species','Accession_IDs','segment',"Genus"])
-    # for loop for every entry in given processed_accession_IDs
+    # for loop for every entry in given processed_accessionIDs
     for entry_count in range(0,len(df.index)):
         # Find current species in this row
         Species=df['Species'][entry_count]
@@ -146,7 +167,8 @@ def test_accession_IDs(df):
                 else:
                     segment = accession_part
     return processed_accession_IDs               
-#test_accession_IDs(truncated_vmr_data).to_excel('processed_accessions.xlsx')
+
+
 #######################################################################################################################################
 # Utilizes Biopython's Entrez API to fetch FASTA data from Accession numbers. 
 # Prints Accession Numbers that failed to 'clean' correctly
@@ -169,7 +191,7 @@ def fetch_fasta(processed_accession_file_name):
     bad_accessions = []
 
     if args.verbose: print("  loading:", processed_accession_file_name)
-    Accessions = pandas.read_excel(processed_accession_file_name,engine='openpyxl')
+    Accessions = pandas.read_csv(processed_accession_file_name,sep='\t')
 
     all_reads = []
 
@@ -204,7 +226,8 @@ def fetch_fasta(processed_accession_file_name):
             genus_dir = fasta_dir+"/"+genus_name
             if genus_name == "":
                 genus_dir = fasta_dir+"/"+"no_genus"
-            accession_file_name = genus_dir+"/"+str(accession_ID)+".fa"
+            accession_raw_file_name = genus_dir+"/"+str(accession_ID)+".raw"
+            accession_fa_file_name = genus_dir+"/"+str(accession_ID)+".fa"
             
             # make sure dir exists
             if not os.path.exists(genus_dir):
@@ -212,13 +235,12 @@ def fetch_fasta(processed_accession_file_name):
                 os.makedirs(genus_dir)
                 if args.verbose: print(f"Directory '{genus_dir}' created successfully.")
     
-            try:
-                fa_file = open(accession_file_name,'r')
-                fa_file.close()
-                print("file found for "+genus_name+"/"+str(accession_ID),"[SKIP]")
-            except(FileNotFoundError):
-                fa_file = open(accession_file_name,'w')
-                print("fetching fasta file for "+genus_name+"/"+str(accession_ID))
+            # check if the raw file exists
+            if os.path.exists(accession_raw_file_name):
+                print("[FETCH]  SKIP NCBI fetch for {accession_raw_file_name}".format(**locals()))
+            else:
+                raw_file = open(accession_raw_file_name,'w')
+                print("[FETCH]  EXEC NCBI fetch for {accession_raw_file_name}".format(**locals()))
                 try:
                     # fetch FASTA from NCBI
                     handle = Entrez.efetch(db="nuccore", id=accession_ID, rettype="fasta", retmode="text")
@@ -226,23 +248,53 @@ def fetch_fasta(processed_accession_file_name):
                     # limit requests: 3/second with email, 10/second with API_KEY
                     time.sleep(entrez_sleep)
 
-                    print('fasta for '+accession_ID+ ' obtained.')
+                    # prints out accession that got though cleaning
+                    print('    fasta for '+accession_ID+ ' obtained.')
 
                     # prints out accession that got though cleaning
-                
-                    read = handle.read()
-                    desc_line = read.split("\n")[0].split(" ",1)[1]
-                    if str(segment).lower() == "":
-                        desc_line = ">"+""+str(Species.replace(" ","_"))                 +" "+str(accession_ID)+" "+desc_line.replace(">","")
-                    else:
-                        desc_line = ">"+""+str(Species.replace(" ","_"))+"#"+str(segment)+" "+str(accession_ID)+" "+desc_line.replace(">","")
-                    print(desc_line)
-                    fa_file.write(desc_line+"\n"+read.split("\n",1)[1])
-                
-                    fa_file.close()
+                    raw_fa = handle.read()
+                    raw_file.write(raw_fa);
+                    raw_file.close()
+                    print('    wrote: '+accession_raw_file_name)
+
                 except:
-                    print("Accession ID"+"'"+str(accession_ID)+"'"+"did not get properly cleaned. Accession Cleaning Heuristic needs editing.",file=sys.stderr)
+                    print("    [ERR] Accession ID"+"'"+str(accession_ID)+"'"+"did not get properly cleaned. Accession Cleaning Heuristic needs editing.",file=sys.stderr)
                     bad_accessions = bad_accessions+[accession_ID]
+
+            # check if processed fasta is out of date
+            if os.path.getsize(accession_raw_file_name) == 0:
+                print("[FORMAT] SKIP/ERROR raw files is empty for {accession_fa_file_name}".format(**locals()))
+            elif os.path.exists(accession_fa_file_name) and os.path.getmtime(accession_fa_file_name) > os.path.getmtime(accession_raw_file_name):
+                print("[FORMAT] SKIP reformat header for {accession_fa_file_name}".format(**locals()))
+            else:
+                print("[FORMAT] EXEC reformat header for {accession_fa_file_name}".format(**locals()))
+                
+                # open local raw genbank fasta
+                raw_file = open(accession_raw_file_name,'r')
+                raw_fa = raw_file.read()
+                raw_file.close()
+
+                # open local (header modified) version
+                fa_file  = open(accession_fa_file_name,'w')
+
+                # parse out header and seq
+                fa_desc = raw_fa.split("\n")[0].replace(">","")
+                ncbi_accession = fa_desc.split(" ",1)[0]
+                fa_seq =    raw_fa.split("\n",1)[1]
+
+                # build ICTV-modified header
+                #  ACCESSION#VMR_SPECIES[#VMR_SEG] NCBI_HEADER
+                if str(segment).lower() == "":
+                    desc_line = ">"+str(ncbi_accession)+"#"+str(Species.replace(" ","_"))                 +" "+fa_desc
+                else:
+                    desc_line = ">"+str(ncbi_accession)+"#"+str(Species.replace(" ","_"))+"#"+str(segment)+" "+fa_desc
+                print("    ", desc_line)
+
+                # write ICTV formated header to fasta
+                fa_file.write(desc_line+"\n"+fa_seq)
+                fa_file.close()
+                print('    wrote: '+accession_fa_file_name)
+                
             count=count+1
 
 
@@ -267,8 +319,11 @@ def query_database(path_to_query):
     results_dir="./results/e"
     results_file=results_dir+"/"+pathlib.Path(path_to_query).stem+".csv"
 
+    if args.verbose: print("query_database("+path_to_query+")")
+    if args.verbose: print("   run(query_database.sh "+path_to_query+" "+results_file)
     p1 = subprocess.run(["bash","query_database.sh",path_to_query,results_file])
     """
+    if args.verbose: print("   reading: "+results_file")
     results = open(results_file,"r")
     result_text = results.readlines()
     results.close()
@@ -285,7 +340,8 @@ def query_database(path_to_query):
         if "." in current_line and ">" not in current_line:
             Accession_Number = current_line.split(" ")[0]
             Accession_Number = Accession_Number.split(".")[0]
-            Isolates = pandas.read_excel('processed_accessions.xlsx')
+            if args.verbose: print("  reading: "+processed_accesion_file_name)
+            Isolates = pandas.read_csv(processed_accession_file_name,sep='\t')
            
             hits = hits+[Isolates.loc[Isolates["Accession_IDs"] == Accession_Number]]
         elif ">" in current_line:
@@ -296,11 +352,7 @@ def query_database(path_to_query):
 def main():
     if args.verbose: print("main()")
 
-    processed_accession_file_name ="processed_accessions.xlsx"
-    if args.ea == "a": 
-        processed_accession_file_name ="processed_accessions_a.xlsx"        
-
-    if mode == "VMR" or None:
+    if args.mode == "VMR" or None:
         print("# load VMR")
         vmr_data = load_VMR_data()
 
@@ -308,13 +360,13 @@ def main():
         tested_accessions_ids = test_accession_IDs(vmr_data)
         
         if args.verbose: print("Writing", processed_accession_file_name)
-        pandas.DataFrame.to_excel(tested_accessions_ids,processed_accession_file_name)
+        pandas.DataFrame.to_csv(tested_accessions_ids,processed_accession_file_name,sep='\t')
 
-    if mode == "fasta" or None:
+    if args.mode == "fasta" or None:
         print("# pull FASTAs from NCBI")
         fetch_fasta(processed_accession_file_name)
 
-    if mode == "db" or None:
+    if args.mode == "db" or None:
         print("# Query local VMR-E BLASTdb")
         query_database(args.query)
 

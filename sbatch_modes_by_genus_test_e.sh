@@ -6,9 +6,16 @@
 #
 #
 MODES="blastn10 blastn11 blastn13 blastn16 blastn20 blastn24 blastn13 blastn15   blastn16 blastn17  blastn18 blastn22 blastn28 blastn9 "
-#MODES="blastn13 blastn28"
+MODES="blastn10 blastn11 blastn13"
 #MODES="short"
+if [ ! -z "$*" ]; then
+    MODES="$*"
+fi
+echo MODES=$MODES
+
 GENERA=$(cd fasta_new_vmr_a/;ls -ls|grep drwx|sed 's/.* //g')
+echo GENERA N=$(echo $GENERA|wc -w)
+
 for MODE in $MODES; do
     echo "MODE=$MODE"
     for GENUS in $GENERA; do
