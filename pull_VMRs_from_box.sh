@@ -1,7 +1,14 @@
 #!/usr/bin/bash
 #
 #
-module load rclone
+if [ -z "$(which rclone 2>/dev/null)" ]; then
+    echo module load rclone
+    module load rclone
+fi
 
-rclone --verbose copy "box:/Virus Knowledgebase/VMR-blast/VMRs" ./VMRs/
+SRC_URL="box:/Virus Knowledgebase/VMR-blast/VMRs"
+DEST_URL="./VMRs/"
+
+echo rclone --verbose copy "$SRC_URL" "$DEST_URL"
+     rclone --verbose copy "$SRC_URL" "$DEST_URL"
 

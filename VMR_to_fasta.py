@@ -237,10 +237,10 @@ def fetch_fasta(processed_accession_file_name):
     
             # check if the raw file exists
             if os.path.exists(accession_raw_file_name):
-                print("[FETCH]  SKIP NCBI fetch for {accession_raw_file_name}".format(**locals()))
+                if args.verbose: print("[FETCH]  SKIP NCBI fetch for {accession_raw_file_name}".format(**locals()))
             else:
                 raw_file = open(accession_raw_file_name,'w')
-                print("[FETCH]  EXEC NCBI fetch for {accession_raw_file_name}".format(**locals()))
+                if args.verbose: print("[FETCH]  EXEC NCBI fetch for {accession_raw_file_name}".format(**locals()))
                 try:
                     # fetch FASTA from NCBI
                     handle = Entrez.efetch(db="nuccore", id=accession_ID, rettype="fasta", retmode="text")
@@ -249,13 +249,13 @@ def fetch_fasta(processed_accession_file_name):
                     time.sleep(entrez_sleep)
 
                     # prints out accession that got though cleaning
-                    print('    fasta for '+accession_ID+ ' obtained.')
+                    if args.verbose: print('    fasta for '+accession_ID+ ' obtained.')
 
                     # prints out accession that got though cleaning
                     raw_fa = handle.read()
                     raw_file.write(raw_fa);
                     raw_file.close()
-                    print('    wrote: '+accession_raw_file_name)
+                    if args.verbose: print('    wrote: '+accession_raw_file_name)
 
                 except:
                     print("    [ERR] Accession ID"+"'"+str(accession_ID)+"'"+"did not get properly cleaned. Accession Cleaning Heuristic needs editing.",file=sys.stderr)
@@ -263,11 +263,11 @@ def fetch_fasta(processed_accession_file_name):
 
             # check if processed fasta is out of date
             if os.path.getsize(accession_raw_file_name) == 0:
-                print("[FORMAT] SKIP/ERROR raw files is empty for {accession_fa_file_name}".format(**locals()))
+                if args.verbose: print("[FORMAT] SKIP/ERROR raw files is empty for {accession_fa_file_name}".format(**locals()))
             elif os.path.exists(accession_fa_file_name) and os.path.getmtime(accession_fa_file_name) > os.path.getmtime(accession_raw_file_name):
-                print("[FORMAT] SKIP reformat header for {accession_fa_file_name}".format(**locals()))
+                if args.verbose: print("[FORMAT] SKIP reformat header for {accession_fa_file_name}".format(**locals()))
             else:
-                print("[FORMAT] EXEC reformat header for {accession_fa_file_name}".format(**locals()))
+                if args.verbose: print("[FORMAT] EXEC reformat header for {accession_fa_file_name}".format(**locals()))
                 
                 # open local raw genbank fasta
                 raw_file = open(accession_raw_file_name,'r')
@@ -288,12 +288,12 @@ def fetch_fasta(processed_accession_file_name):
                     desc_line = ">"+str(ncbi_accession)+"#"+str(Species.replace(" ","_"))                 +" "+fa_desc
                 else:
                     desc_line = ">"+str(ncbi_accession)+"#"+str(Species.replace(" ","_"))+"#"+str(segment)+" "+fa_desc
-                print("    ", desc_line)
+                if args.verbose: print("    ", desc_line)
 
                 # write ICTV formated header to fasta
                 fa_file.write(desc_line+"\n"+fa_seq)
                 fa_file.close()
-                print('    wrote: '+accession_fa_file_name)
+                if args.verbose: print('    wrote: '+accession_fa_file_name)
                 
             count=count+1
 

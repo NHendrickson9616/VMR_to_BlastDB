@@ -29,9 +29,15 @@ fi
 echo MSL_XLSX=$MSL_XLSX
 
 #Set your environment here
-
-module load Anaconda3/2023.07-2
-conda activate conda/vmr_openpyxl3
+#Set your environment here
+if [ -z "$(which conda 2>/dev/null)" ]; then
+    echo module load Anaconda3
+    module load Anaconda3
+fi
+if [[ "$(which python 2>/dev/null)" != *$PWD/conda* ]]; then
+    echo conda activate conda/vmr_openpyxl3
+    conda activate conda/vmr_openpyxl3
+fi
 
 echo "### parse VMR ###"
 echo ./VMR_to_fasta.py -verbose -mode VMR   -ea a -email $USER@uab.edu -VMR_file_name $VMR_XLSX
