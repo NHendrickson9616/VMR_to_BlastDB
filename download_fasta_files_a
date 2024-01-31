@@ -21,11 +21,22 @@
 #SBATCH --mem-per-cpu=1000
 #
 
+# parse args
+MSL_XLSX=$(ls -rt VMRs/VMR_MSL*.xlsx | tail -1)
+if [ ! -z "$1" ]; then 
+    MSL_XLSX=$1
+fi
+echo MSL_XLSX=$MSL_XLSX
+
 #Set your environment here
 
 module load Anaconda3/2023.07-2
 conda activate conda/vmr_openpyxl3
+
 echo "### parse VMR ###"
-./VMR_to_fasta.py -verbose -mode VMR   -ea a -email $USER@uab.edu -VMR_file_name ../VMR_MSL38_v3.26012024.xlsx
+echo ./VMR_to_fasta.py -verbose -mode VMR   -ea a -email $USER@uab.edu -VMR_file_name $VMR_XLSX
+./VMR_to_fasta.py -verbose -mode VMR   -ea a -email $USER@uab.edu -VMR_file_name $VMR_XLSX
+
 echo "### fetch FASTA ###"
+echo ./VMR_to_fasta.py -verbose -mode fasta -ea a -email $USER@uab.edu -VMR_file_name processed_accessions_a.xlsx
 ./VMR_to_fasta.py -verbose -mode fasta -ea a -email $USER@uab.edu -VMR_file_name processed_accessions_a.xlsx

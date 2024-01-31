@@ -31,6 +31,10 @@ BEGIN {
     SEQ_SPECIES=2
     SEQ_SEG=3
 }
+# classify each result line based QUERY_SPECIES, QUERY_SEG vs SUBJECT_SPECICES, SUBJECT_SEG
+# 
+# error strings generated here must match code in "extract_results.summarize.awk"
+#
 { 
     if(NF==3) { 
         print "no_hits\t"$GENUS"\t"$ACCESSION;
@@ -43,7 +47,7 @@ BEGIN {
 	# extract species_name and segment_name (split by #)
 	split($QUERY,q_arr,"#")
 	split($SUBJECT,s_arr,"#")
-	print "# QUERY=" q_arr[SEQ_SPECIES] " [" q_arr[SEQ_SEG] "]; SUBJECT=" s_arr[SEQ_SPECIES] " [" s_arr[SEQ_SEG]"]"
+	#print "# QUERY=" q_arr[SEQ_SPECIES] " [" q_arr[SEQ_SEG] "]; SUBJECT=" s_arr[SEQ_SPECIES] " [" s_arr[SEQ_SEG]"]"
 	if( q_arr[SEQ_SPECIES] == s_arr[SEQ_SPECIES] ) {
 	    # species names match
 	    if( q_arr[SEQ_SEG] == "" && s_arr[SEQ_SEG] == "" ) {
