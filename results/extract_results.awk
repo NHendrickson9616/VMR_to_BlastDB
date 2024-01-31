@@ -43,7 +43,7 @@ BEGIN {
 	# extract species_name and segment_name (split by #)
 	split($QUERY,q_arr,"#")
 	split($SUBJECT,s_arr,"#")
-	#print "QUERY=" q_arr[SEQ_SPECIES] " [" q_arr[SEQ_SEG] "]; SUBJECT=" s_arr[SEQ_SPECIES] " [" s_arr[SEQ_SEG]"]"
+	print "# QUERY=" q_arr[SEQ_SPECIES] " [" q_arr[SEQ_SEG] "]; SUBJECT=" s_arr[SEQ_SPECIES] " [" s_arr[SEQ_SEG]"]"
 	if( q_arr[SEQ_SPECIES] == s_arr[SEQ_SPECIES] ) {
 	    # species names match
 	    if( q_arr[SEQ_SEG] == "" && s_arr[SEQ_SEG] == "" ) {
@@ -52,10 +52,10 @@ BEGIN {
 	    } else if( q_arr[SEQ_SEG] == s_arr[SEQ_SEG] ) {
 		# species names are the same, and segment names a the same
 		print "match_seg",$0
-	    } else if( q_arr[SEQ_SEG] == "" || s_arr[SEQ_SEG] != "" ) {
+	    } else if( q_arr[SEQ_SEG] == "" && s_arr[SEQ_SEG] != "" ) {
 		# species names are the same, but only QUERY does NOT have a segment name
 		print "match_noQseg",$0
-	    } else if( q_arr[SEQ_SEG] != "" || s_arr[SEQ_SEG] == "" ) {
+	    } else if( q_arr[SEQ_SEG] != "" && s_arr[SEQ_SEG] == "" ) {
 		# species names are the same, but only SUBJECT does NOT have a segment name
 		print "match_noSseg",$0
 	    } else {
