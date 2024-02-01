@@ -7,6 +7,21 @@
 #  build E record blastdb
 #  blast A records against E-blastdb
 #  tabulate results
+#
+#SBATCH --job-name=ICTV_VMR_pipeline
+#SBATCH --output=logs/log.%J.%x.out
+#SBATCH --error=logs/log.%J.%x.err
+#
+# Number of tasks needed for this job. Generally, used with MPI jobs
+# Time format = HH:MM:SS, DD-HH:MM:SS
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=10000  # in Megabytes
+# 
+# partition and time
+#SBATCH --partition=amd-hdr100 --time=06-06:00:00
+##SBATCH --partition=amd-hdr100 --time=00-12:00:00
+##SBATCH --partition=medium --time=40:00:00
 
 # ---------------------------------------------------------------------- 
 # default settings / arg parsing
@@ -24,6 +39,8 @@ if [ ! -z "$SLURM_JOB_ID" ]; then
     echo "seff $SLURM_JOB_ID"
     echo "sacctx -j $SLURM_JOB_ID"
 fi
+#SRUN="echo DEBUGGING: "
+echo "SRUN='$SRUN'"
 
 # ---------------------------------------------------------------------- 
 # environment
@@ -45,7 +62,7 @@ echo "#"
 echo "# download VMRs from box into ./VMRs/"
 echo "#"
 echo  ./pull_VMRs_from_box.sh
-$SRUN ./pull_VMRs_from_box.sh
+#DB$SRUN ./pull_VMRs_from_box.sh
 
 echo "#"
 echo "# get most recent MSL.xlsx file"
@@ -53,7 +70,7 @@ echo "#"
 
 VMR_XLSX=$(ls -rt VMRs/VMR_MSL*.xlsx | tail -1)
 if [ ! -z "$1" ]; then 
-    VRM_XLSX=$1
+    VMR_XLSX=$1
 fi
 echo VMR_XLSX=$VMR_XLSX
 
@@ -77,7 +94,7 @@ echo "# downlaod and format A fastas - in serial"
 $SRUN ./download_fasta_files_a  $VMR_XLSX
 
 echo "#"
-echo "# build blast db: 3-4 minutes""
+echo "# build blast db: 3-4 minutes"
 echo "#"
 echo "makedatabase.sh"
 $SRUN makedatabase.sh
@@ -113,19 +130,12 @@ echo "#"
     echo "run in $PWD"
     echo " "
     echo "SUMMARY (table):"
-    (
-	for BLAST_MODE in $BLAST_MODES; do
-	    echo -e "$VMR_XLSX,$BLAST_MODE,$(cat ./$BLAST_MODE/a/summary.bitscore.mismatch_totals.tsv)"
-	done
-    ) | column -t -s , 
+    (for BLAST_MODE in $BLAST_MODES; do echo -e "$VMR_XLSX,$BLAST_MODE,$(cat ./$BLAST_MODE/a/summary.bitscore.mismatch_totals.tsv)"; done) | column -t -s , 
     echo " "
     echo "SUMMARY (CSV):"
-    (
-	for BLAST_MODE in $BLAST_MODES; do
-	    echo -e "$VMR_XLSX,$BLAST_MODE,$(cat ./$BLAST_MODE/a/summary.bitscore.mismatch_totals.tsv)"
-	done
-    )
-
-) | tee .run_pipeline_for_new_msl.email.txt | mail -s "$0 $* COMPLETED" $USER@uab.edu
+    (for BLAST_MODE in $BLAST_MODES; do echo -e "$VMR_XLSX,$BLAST_MODE,$(cat ./$BLAST_MODE/a/summary.bitscore.mismatch_totals.tsv)"; done ) 
+) \
+| tee ../.run_pipeline_for_new_msl.email.txt \
+| mail -s "$0 $* COMPLETED" $USER@uab.edu
 
 

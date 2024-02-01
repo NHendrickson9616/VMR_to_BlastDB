@@ -265,7 +265,7 @@
 263	Abaca bunchy top virus	EF546807	DNA-R	Babuvirus
 264	Abaca bunchy top virus	EF546804	DNA-S	Babuvirus
 265	Abaca bunchy top virus	EF546803	DNA-U3	Babuvirus
-266	Banana bunchy top virus	DQ826395	DNAC	Babuvirus
+266	Banana bunchy top virus	DQ826395	DNA-C	Babuvirus
 267	Banana bunchy top virus	DQ826394	DNA-M	Babuvirus
 268	Banana bunchy top virus	DQ826396	DNA-N	Babuvirus
 269	Banana bunchy top virus	DQ826390	DNA-R	Babuvirus
@@ -303,10 +303,10 @@
 301	Faba bean necrotic stunt virus	GQ274032	DNA-U4	Nanovirus
 302	Faba bean necrotic yellows virus	GQ274023	DNA-C	Nanovirus
 303	Faba bean necrotic yellows virus	GQ274027	DNA-M	Nanovirus
-304	Faba bean necrotic yellows virus	GQ274030	DNAN	Nanovirus
+304	Faba bean necrotic yellows virus	GQ274030	DNA-N	Nanovirus
 305	Faba bean necrotic yellows virus	GQ274025	DNA-R	Nanovirus
 306	Faba bean necrotic yellows virus	GQ274028	DNA-S	Nanovirus
-307	Faba bean necrotic yellows virus	GQ274026	DNA–U1	Nanovirus
+307	Faba bean necrotic yellows virus	GQ274026	DNA-U1	Nanovirus
 308	Faba bean necrotic yellows virus	GQ274029	DNA-U2	Nanovirus
 309	Faba bean necrotic yellows virus	GQ274024	DNA-U4	Nanovirus
 310	Faba bean necrotic yellows virus	KX431388	DNA-C	Nanovirus
@@ -666,7 +666,7 @@
 664	Banna virus	AF052031	Seg11	Seadornavirus
 665	Banna virus	AF052030	Seg12	Seadornavirus
 666	Banna virus	AF134522	Seg1	Seadornavirus
-667	Banna virus	AF134523	Seg6	Seadornavirus
+667	Banna virus	AF134523	Seg2	Seadornavirus
 668	Banna virus	AF052013	Seg7	Seadornavirus
 669	Banna virus	AF052012	Seg8	Seadornavirus
 670	Banna virus	AF052011	Seg9	Seadornavirus
@@ -737,7 +737,7 @@
 735	Cypovirus 5	KC588356	Seg1	Cypovirus
 736	Cypovirus 5	KC588357	Seg2	Cypovirus
 737	Cypovirus 5	KC588358	Seg3	Cypovirus
-738	Cypovirus 5	KC588359	Seg	Cypovirus
+738	Cypovirus 5	KC588359	Seg4	Cypovirus
 739	Cypovirus 5	KC588360	Seg5	Cypovirus
 740	Cypovirus 5	KC588361	Seg6	Cypovirus
 741	Cypovirus 5	KC588362	Seg7	Cypovirus
@@ -862,8 +862,8 @@
 860	Venezuelan equine encephalitis virus	U34999		Alphavirus
 861	Venezuelan equine encephalitis virus	AF075255		Alphavirus
 862	Western equine encephalitis virus	AF214040		Alphavirus
-863	Japanese soil-borne wheat mosaic virus	AJ749657		Furovirus
-864	Japanese soil-borne wheat mosaic virus	AJ749658		Furovirus
+863	Japanese soil-borne wheat mosaic virus	AJ749658	RNA1	Furovirus
+864	Japanese soil-borne wheat mosaic virus	AJ749657	RNA2	Furovirus
 865	Asparagus virus 3	AJ316085		Potexvirus
 866	Hepacivirus hominis	M62321		Hepacivirus
 867	Hepacivirus hominis	D90208		Hepacivirus
@@ -1974,8 +1974,8 @@
 1972	Aspergillus fumigatus polymycovirus 1	LC517041	dsRNA1	Polymycovirus
 1973	Aspergillus fumigatus polymycovirus 1	LC517042	dsRNA2	Polymycovirus
 1974	Aspergillus fumigatus polymycovirus 1	LC517043	dsRNA3	Polymycovirus
-1975	Aspergillus fumigatus polymycovirus 1	LC517044	dsRNA4	Polymycovirus
-1976	Aspergillus fumigatus polymycovirus 1	LC517045	dsRNA5	Polymycovirus
+1975	Aspergillus fumigatus polymycovirus 1	LC517045	dsRNA4	Polymycovirus
+1976	Aspergillus fumigatus polymycovirus 1	LC517044	dsRNA5	Polymycovirus
 1977	Aspergillus fumigatus polymycovirus 1	LC553675	dsRNA1	Polymycovirus
 1978	Aspergillus fumigatus polymycovirus 1	LC553676	dsRNA2	Polymycovirus
 1979	Aspergillus fumigatus polymycovirus 1	LC553677	dsRNA3	Polymycovirus

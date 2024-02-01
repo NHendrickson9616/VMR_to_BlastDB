@@ -261,12 +261,12 @@
 4821	Xipapillomavirus 1	KX098515	Complete genome	Xipapillomavirus
 4822	Xipapillomavirus 1	X05817	Complete genome	Xipapillomavirus
 5281	Abaca bunchy top virus	DNA-C: EF546806; DNA-M: EF546805; DNA-N: EF546802; DNA-R: EF546807; DNA-S: EF546804; DNA-U3: EF546803	Complete genome	Babuvirus
-5283	Banana bunchy top virus	DNA C: DQ826395; DNA-M: DQ826394; DNA-N: DQ826396; DNA-R: DQ826390; DNA-S: DQ826393; DNA-U3: DQ826391	Complete genome	Babuvirus
+5283	Banana bunchy top virus	DNA-C: DQ826395; DNA-M: DQ826394; DNA-N: DQ826396; DNA-R: DQ826390; DNA-S: DQ826393; DNA-U3: DQ826391	Complete genome	Babuvirus
 5285	Cardamom bushy dwarf virus	DNA-C: KF711227; DNA-M: KF711064; DNA-N: KF711390; DNA-R: KF710575; DNA-S: KF710901; DNA-U3: KF710738	Complete genome	Babuvirus
 5287	Black medic leaf roll virus	DNA-C: KC978941; DNA-M: KC978942; DNA-N: KC978943; DNA-R: KC978939; DNA-S: KC978940; DNA-U1: KC978944; DNA-U2: KC978946; DNA-U4: KC978947	Complete genome	Nanovirus
 5288	Black medic leaf roll virus	DNA-C: KC978951; DNA-M: KC978952; DNA-N: KC978953; DNA-R: KC978949; DNA-S: KC978950; DNA-U1: KC978954; DNA-U2: KC978955; DNA-U4: KC978956	Complete genome	Nanovirus
 5291	Faba bean necrotic stunt virus	DNA-C: GQ274031; DNA-M: GQ274035; DNA-N: GQ274038; DNA-R: GQ274033; DNA-S: GQ274036; DNA-U1: GQ274034; DNA-U2: GQ274037; DNA-U4: GQ274032	Complete genome	Nanovirus
-5293	Faba bean necrotic yellows virus	DNA-C: GQ274023; DNA-M: GQ274027; DNA N: GQ274030; DNA-R: GQ274025; DNA-S: GQ274028; DNA–U1: GQ274026; DNA-U2: GQ274029; DNA-U4: GQ274024	Complete genome	Nanovirus
+5293	Faba bean necrotic yellows virus	DNA-C: GQ274023; DNA-M: GQ274027; DNA-N: GQ274030; DNA-R: GQ274025; DNA-S: GQ274028; DNA-U1: GQ274026; DNA-U2: GQ274029; DNA-U4: GQ274024	Complete genome	Nanovirus
 5294	Faba bean necrotic yellows virus	DNA-C: KX431388; DNA-M: KX431395; DNA-N: KX431402; DNA-R: KX431381; DNA-S: KX431409; DNA-U1: KX431416; DNA-U2: KX431423; DNA-U4: KX431430	Complete genome	Nanovirus
 5295	Faba bean necrotic yellows virus	DNA-C: KC979021; DNA-M: KC979022; DNA-N: KC979023; DNA-R: KC979019; DNA-S: KC979020; DNA-U1: KC979024; DNA-U2: KC979025; DNA-U4: KC979026	Complete genome	Nanovirus
 5298	Milk vetch dwarf virus	DNA-C: KY070240; DNA-M: KY070244; DNA-N: KY070242; DNA-R: KY070246; DNA-S: KY070245; DNA-U1: KY070241; DNA-U2: KY070243; DNA-U4: KY070247	Complete genome	Nanovirus
@@ -540,7 +540,7 @@
 6395	Rosellinia necatrix quadrivirus 1	RNA1: AB744677; RNA2: AB744678; RNA3: AB744679; RNA4: AB744680	Complete genome	Quadrivirus
 6396	Rosellinia necatrix quadrivirus 1	RNA3: AB771723	Partial genome	Quadrivirus
 6462	Banna virus	Seg1: AF168005; Seg2: AF134526; Seg3: AY549307; Seg4: AY549308; Seg5: AY549309; Seg6: AF168006; Seg7: AF052035; Seg8: AF052034; Seg9: AF052033; Seg10: AF052032; Seg11: AF052031; Seg12: AF052030	Complete genome	Seadornavirus
-6463	Banna virus	Seg1: AF134522; Seg6: AF134523; Seg7: AF052013; Seg8: AF052012; Seg9: AF052011; Seg10: AF052010; Seg11: AF052009;Seg12: AF052008	Partial genome	Seadornavirus
+6463	Banna virus	Seg1: AF134522; Seg2: AF134523; Seg7: AF052013; Seg8: AF052012; Seg9: AF052011; Seg10: AF052010; Seg11: AF052009;Seg12: AF052008	Partial genome	Seadornavirus
 6464	Banna virus	Seg1: AF134519; Seg2: AF134520; Seg6: AF134521; Seg7: AF052029; Seg8: AF052028; Seg9: AF052027; Seg10: AF052026; Seg11: AF052025; Seg12: AF052024	Partial genome	Seadornavirus
 6467	Liao ning virus	Seg1: AY317099; Seg2: AY317100; Seg3: AY317101; Seg4: AY317102; Seg5: AY317103; Seg6: AY317104; Seg7: AY317105; Seg8: AY317106; Seg9: AY317107; Seg10: AY317108; Seg11: AY317109; Seg12: AY317110	Complete genome	Seadornavirus
 6469	Aquareovirus A	Seg2: AF450318; Seg3: AF450319; Seg4: AF450320; Seg8: AF450321; Seg10: AF450322	Partial genome	Aquareovirus
@@ -549,7 +549,7 @@
 6484	Cypovirus 1	Seg1: AY163247; Seg2: AY147187; Seg3: AY167578; Seg4: AF542082; Seg5: AY163248; Seg6: AY177408; Seg7: AY180906; Seg8: AY211092; Seg9: AY211093; Seg10: AY204878	Complete genome	Cypovirus
 6495	Cypovirus 4		No entry in Genbank	Cypovirus
 6496	Cypovirus 4	Seg6: EF062995; Seg7: DQ512389; Seg8: DQ975382; Seg10: AY212272	Partial genome	Cypovirus
-6498	Cypovirus 5	Seg1: KC588356; Seg2: KC588357; Seg3: KC588358; Seg: KC588359; Seg5: KC588360; Seg6: KC588361; Seg7: KC588362; Seg8: KC588363; Seg9: KC588364; Seg10: KC588365	Complete genome	Cypovirus
+6498	Cypovirus 5	Seg1: KC588356; Seg2: KC588357; Seg3: KC588358; Seg4: KC588359; Seg5: KC588360; Seg6: KC588361; Seg7: KC588362; Seg8: KC588363; Seg9: KC588364; Seg10: KC588365	Complete genome	Cypovirus
 6518	Idnoreovirus 5		No entry in Genbank	Idnoreovirus
 6523	Avian orthoreovirus	S3: AY444910	Partial genome	Orthoreovirus
 6524	Avian orthoreovirus	L1: KF809662; L2: KF809663; L3: KF809664; M1: KF809665; M2: KF809666; M3: KF809667; S1: KF809668; S2: KF809669; S3: KF809670; S4: KF809671	Complete genome	Orthoreovirus
@@ -600,7 +600,7 @@
 6785	Venezuelan equine encephalitis virus	U34999	Complete genome	Alphavirus
 6786	Venezuelan equine encephalitis virus	AF075255	Complete genome	Alphavirus
 6788	Western equine encephalitis virus	AF214040	Complete genome	Alphavirus
-6792	Japanese soil-borne wheat mosaic virus	AJ749657; AJ749658	Partial genome	Furovirus
+6792	Japanese soil-borne wheat mosaic virus	RNA1: AJ749658; RNA2: AJ749657 	Partial genome	Furovirus
 6874	Asparagus virus 3	AJ316085	Complete genome	Potexvirus
 7113	Hepacivirus hominis	M62321	Complete genome	Hepacivirus
 7114	Hepacivirus hominis	D90208	Coding-complete genome	Hepacivirus
@@ -1474,7 +1474,7 @@
 11544	Hepatitis B virus	AJ131567	Complete genome	Orthohepadnavirus
 11548	Roundleaf bat hepatitis B virus	KC790377	Complete genome	Orthohepadnavirus
 11798	Aspergillus fumigatus polymycovirus 1	dsRNA 1: MH192993; dsRNA 2: MH192994; dsRNA 3: MH192995; dsRNA 4: MH192996	Complete genome	Polymycovirus
-11799	Aspergillus fumigatus polymycovirus 1	dsRNA 1: LC517041; dsRNA 2: LC517042; dsRNA 3: LC517043; dsRNA 4: LC517044; dsRNA 5: LC517045	Complete genome	Polymycovirus
+11799	Aspergillus fumigatus polymycovirus 1	dsRNA 1: LC517041; dsRNA 2: LC517042; dsRNA 3: LC517043; dsRNA 4: LC517045; dsRNA 5: LC517044	Complete genome	Polymycovirus
 11800	Aspergillus fumigatus polymycovirus 1	dsRNA 1: LC553675; dsRNA 2: LC553676; dsRNA 3: LC553677; dsRNA 4: LC553678	Complete genome	Polymycovirus
 11804	Botryoshaeria dothidea polymycovirus 1	dsRNA 1: KT372135; dsRNA 2: KT372136; dsRNA 3: KT372137; dsRNA 4: KT372138; dsRNA 5: KT372139	Complete genome	Polymycovirus
 11812	Macrobrachium satellite virus 1	DQ174318	Coding-complete genome	Macronovirus

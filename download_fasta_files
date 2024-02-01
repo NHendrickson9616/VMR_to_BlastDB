@@ -22,11 +22,11 @@
 #
 
 # parse args
-MSL_XLSX=$(ls -rt VMRs/VMR_MSL*.xlsx | tail -1)
+VMR_XLSX=$(ls -rt VMRs/VMR_MSL*.xlsx | tail -1)
 if [ ! -z "$1" ]; then 
-    MSL_XLSX=$1
+    VMR_XLSX=$1
 fi
-echo MSL_XLSX=$MSL_XLSX
+echo VMR_XLSX=$VMR_XLSX
 
 
 #Set your environment here
