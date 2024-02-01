@@ -135,7 +135,7 @@ echo "#"
     echo "SUMMARY (CSV):"
     (for BLAST_MODE in $BLAST_MODES; do echo -e "$VMR_XLSX,$BLAST_MODE,$(cat ./$BLAST_MODE/a/summary.bitscore.mismatch_totals.tsv)"; done ) 
 ) \
-| tee ../.run_pipeline_for_new_msl.email.txt \
-| mail -s "$0 $* COMPLETED" $USER@uab.edu
+| tee ../run_pipeline_for_new_msl.email.txt \
+| $SRUN mail -s "$0 $* COMPLETED" $USER@uab.edu
 
 
