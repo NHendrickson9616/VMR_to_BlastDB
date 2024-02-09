@@ -1,6 +1,6 @@
 BLAST_MODES=blastn10 blastn11 blastn13
-SLURM_JOB_ID=26181100
-sacctx -j 26181100
+SLURM_JOB_ID=26181967
+sacctx -j 26181967
 run in /scratch/curtish/ictv/VMR/VMR_to_BlastDB/results
  
 SUMMARY (table):
