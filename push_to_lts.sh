@@ -5,7 +5,7 @@
 # IE, most everything that's NOT in git
 #
 
-DEST=lts:/lefkowitz-ictv-vmr
+BUCKET=lts:/lefkowitz-ictv-vmr
 
 if [ -z "$(which rclone 2>/dev/null)" ]; then 
     echo module load rclone
@@ -19,8 +19,8 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* fasta_new_vmr   ${DEST}/fasta_new_vmr
-rclone copy $* fasta_new_vmr   ${DEST}/fasta_new_vmr
+echo rclone copy $* fasta_new_vmr   ${BUCKET}/fasta_new_vmr
+rclone copy $* fasta_new_vmr   ${BUCKET}/fasta_new_vmr
 
 cat <<EOF 
 # ----------------------------------------------------------------------
@@ -29,8 +29,8 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* fasta_new_vmr_a ${DEST}/fasta_new_vmr_a
-rclone copy $* fasta_new_vmr_a ${DEST}/fasta_new_vmr_a
+echo rclone copy $* fasta_new_vmr_a ${BUCKET}/fasta_new_vmr_a
+rclone copy $* fasta_new_vmr_a ${BUCKET}/fasta_new_vmr_a
 
 cat <<EOF 
 # ----------------------------------------------------------------------
@@ -39,8 +39,8 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* blast ${DEST}/blast
-rclone copy $* blast ${DEST}/blast
+echo rclone copy $* blast ${BUCKET}/blast
+rclone copy $* blast ${BUCKET}/blast
 
 cat <<EOF 
 # ----------------------------------------------------------------------
@@ -49,8 +49,8 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* results ${DEST}/results
-rclone copy $* results ${DEST}/results
+echo rclone copy $* results ${BUCKET}/results
+rclone copy $* results ${BUCKET}/results
 
 cat <<EOF
 # ----------------------------------------------------------------------
@@ -60,6 +60,6 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* $0 ${DEST}/$0
-rclone copy $* $0 ${DEST}/$0
+echo rclone copy $* $0 ${BUCKET}/$0
+rclone copy $* $0 ${BUCKET}/$0
 
