@@ -19,8 +19,9 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* fasta_new_vmr   ${BUCKET}/fasta_new_vmr
-rclone copy $* fasta_new_vmr   ${BUCKET}/fasta_new_vmr
+DIR=fasta_new_vmr
+echo rclone copy $* ${DIR} ${BUCKET}/${DIR}
+     rclone copy $* ${DIR} ${BUCKET}/${DIR}
 
 cat <<EOF 
 # ----------------------------------------------------------------------
@@ -29,8 +30,9 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* fasta_new_vmr_a ${BUCKET}/fasta_new_vmr_a
-rclone copy $* fasta_new_vmr_a ${BUCKET}/fasta_new_vmr_a
+DIR=fasta_new_vmr_a
+echo rclone copy $* ${DIR} ${BUCKET}/${DIR}
+     rclone copy $* ${DIR} ${BUCKET}/${DIR}
 
 cat <<EOF 
 # ----------------------------------------------------------------------
@@ -39,8 +41,9 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* blast ${BUCKET}/blast
-rclone copy $* blast ${BUCKET}/blast
+DIR=blast
+echo rclone copy $* ${DIR} ${BUCKET}/${DIR}
+     rclone copy $* ${DIR} ${BUCKET}/${DIR}
 
 cat <<EOF 
 # ----------------------------------------------------------------------
@@ -49,8 +52,9 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* results ${BUCKET}/results
-rclone copy $* results ${BUCKET}/results
+DIR=results
+echo rclone copy $* ${DIR} ${BUCKET}/${DIR}
+     rclone copy $* ${DIR} ${BUCKET}/${DIR}
 
 cat <<EOF
 # ----------------------------------------------------------------------
@@ -60,6 +64,13 @@ cat <<EOF
 #
 # ----------------------------------------------------------------------
 EOF
-echo rclone copy $* $0 ${BUCKET}/$0
-rclone copy $* $0 ${BUCKET}/$0
+DIR=$0
+echo rclone copy $* ${DIR} ${BUCKET}/${DIR}
+     rclone copy $* ${DIR} ${BUCKET}/${DIR}
 
+
+cat <<EOF
+# ----------------------------------------------------------------------
+# DONE
+# ----------------------------------------------------------------------
+EOF
