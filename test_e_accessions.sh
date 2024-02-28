@@ -33,7 +33,10 @@ if [[ "$1" == "-g" && ! -z "$2" ]]; then QUERY_DIR=./fasta_new_vmr_a/$2; shift 2
 echo "QUERY_DIR:   $QUERY_DIR"
 BLAST_DB=./blast/ICTV_VMR_e
 echo "BLAST_DB:    $BLAST_DB"
-
+BLAST_OUT_FMT="-outfmt '7 delim=,'"; BLAST_OUT_SUFFIX="raw.txt"  # scot original
+BLAST_OUT_FMT="-outfmt 5 -max_target_seqs 10 -max_hsps 10"; BLAST_OUT_SUFFIX=".hit10hsp10.xml"
+BLAST_OUT_FMT="-outfmt 5"; BLAST_OUT_SUFFIX=".full.xml"
+BLAST_OUT_FMT="-outfmt 5 -max_target_seqs 10"; BLAST_OUT_SUFFIX=".hit10.xml"
 # 
 # BLAST_ARGS
 # 
@@ -64,7 +67,9 @@ mkdir -p $RESULTS_DIR
 
 if [ -z "$(which blastn 2>/dev/null)" ]; then
     echo "#module load BLAST"
+    echo module load BLAST
     module load BLAST
+    echo "which blastn: " $(which blastn)
 fi
 
 
@@ -84,7 +89,7 @@ for QUERY in $A_FASTAS; do
     GENUS=$(basename $(dirname $QUERY))
     ACCESS=$(basename $QUERY .fa)
     RESULT_DIR=$RESULTS_DIR/$GENUS
-    RESULTS_FILE_RAW="$RESULT_DIR/$ACCESS.raw.txt"
+    RESULTS_FILE_RAW="$RESULT_DIR/$ACCESS.$BLAST_OUT_SUFFIX"
     RESULTS_FILE_SORT_BIT="$RESULT_DIR/$ACCESS.bitscore.csv"
     RESULTS_FILE_SORT_EV="$RESULT_DIR/$ACCESS.evalue.csv"
 
@@ -96,35 +101,35 @@ for QUERY in $A_FASTAS; do
     else
 	echo -n "${GENUS}/${ACCESS}: blast " 
 	mkdir -p $RESULT_DIR
-	blastn $BLAST_ARGS -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE_RAW} -outfmt '7 delim=,'    
+	blastn $BLAST_ARGS -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE_RAW} ${BLAST_OUT_FMT}   
 	echo -n $(grep "hits found" $RESULTS_FILE_RAW)
-	echo " # blastn $BLAST_ARGS -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE_RAW} -outfmt '7 delim=,'"
+	echo " # blastn $BLAST_ARGS -db $BLAST_DB -query $QUERY -out ${RESULTS_FILE_RAW} ${BLAST_OUT_FMT}"
     fi
 
-    #
-    # SORT blast output: BITSCORE
-    # 
-    if [[ -e $RESULTS_FILE_SORT_BIT && $RESULTS_FILE_SORT_BIT -nt $RESULTS_FILE_RAW ]]; then
-	echo "${GENUS}/${ACCESS}: SKIP SORT bitscore"
-    else
-	echo "${GENUS}/${ACCESS}: sort by bitscore " 
-	(head -n 5 $RESULTS_FILE_RAW; \
-         grep -v "^#" $RESULTS_FILE_RAW | sort -t , -k12,12nr; \
-	 tail -n 1 $RESULTS_FILE_RAW ) \
-         > $RESULTS_FILE_SORT_BIT
-    fi
+    # #
+    # # SORT blast output: BITSCORE
+    # # 
+    # if [[ -e $RESULTS_FILE_SORT_BIT && $RESULTS_FILE_SORT_BIT -nt $RESULTS_FILE_RAW ]]; then
+    # 	echo "${GENUS}/${ACCESS}: SKIP SORT bitscore"
+    # else
+    # 	echo "${GENUS}/${ACCESS}: sort by bitscore " 
+    # 	(head -n 5 $RESULTS_FILE_RAW; \
+    #      grep -v "^#" $RESULTS_FILE_RAW | sort -t , -k12,12nr; \
+    # 	 tail -n 1 $RESULTS_FILE_RAW ) \
+    #      > $RESULTS_FILE_SORT_BIT
+    # fi
 
-    #
-    # SORT blast output: EVALUE
-    # 
-    if [[ -e $RESULTS_FILE_SORT_EV && $RESULTS_FILE_SORT_EV -nt $RESULTS_FILE_RAW ]]; then
-	echo "${GENUS}/${ACCESS}: SKIP SORT evalue"
-    else
-	echo "${GENUS}/${ACCESS}: sort by evalue " 
-	(head -n 5 $RESULTS_FILE_RAW; \
-         grep -v "^#" $RESULTS_FILE_RAW | sort -t , -k11,11n -k12,12rn; \
-	 tail -n 1 $RESULTS_FILE_RAW ) \
-         > $RESULTS_FILE_SORT_EV
-    fi
+    # #
+    # # SORT blast output: EVALUE
+    # # 
+    # if [[ -e $RESULTS_FILE_SORT_EV && $RESULTS_FILE_SORT_EV -nt $RESULTS_FILE_RAW ]]; then
+    # 	echo "${GENUS}/${ACCESS}: SKIP SORT evalue"
+    # else
+    # 	echo "${GENUS}/${ACCESS}: sort by evalue " 
+    # 	(head -n 5 $RESULTS_FILE_RAW; \
+    #      grep -v "^#" $RESULTS_FILE_RAW | sort -t , -k11,11n -k12,12rn; \
+    # 	 tail -n 1 $RESULTS_FILE_RAW ) \
+    #      > $RESULTS_FILE_SORT_EV
+    # fi
 
 done
