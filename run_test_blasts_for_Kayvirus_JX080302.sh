@@ -30,6 +30,8 @@ fi
 
 mkdir -p $OUT_DIR
 
+# F="results/blastn10_test/a/Keyvirus/JX080302.5.maxtargetseqs10.maxhsps10.xml"; if [ ! -s "$F" ]; then echo "empty/non-exist"; elif [ ! -z "$(grep '</BlastOutput>' $F)" ]; then echo "full"; else echo "partial"; fi
+
 for FMT in 0 1 2 3 4 5 6 7 "7 qseqid qlen sseqid slen bitscore length" "7 qseqid qlen sseqid slen bitscore length qcovs" 8 9 10 11 ; do
     FMT_SAFE=$(echo -n $FMT | sed 's/ /_/g')
     echo "#"
@@ -39,8 +41,8 @@ for FMT in 0 1 2 3 4 5 6 7 "7 qseqid qlen sseqid slen bitscore length" "7 qseqid
     LOG=logs/test_Kayvirus_JX080302_${FMT_SAFE}.txt
     OUT=$OUT_DIR/JX080302.${FMT_SAFE}.txt
 
-    if [ -e "$OUT" ]; then
-	echo "FMT=$FMT  SKIP: exists($OUT)"
+    if [ -s "$OUT" ]; then
+	echo "FMT=$FMT  SKIP: exists & non-empty ($OUT)"
     else
 	echo blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT -outfmt "$FMT" 2\>\&1 \| tee $LOG
              blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT -outfmt "$FMT" 2>&1    | tee $LOG
@@ -56,10 +58,45 @@ for FMT in 0 7 "7 qseqid qlen sseqid slen length"; do
     LOG=logs/test_Kayvirus_JX080302_${FMT_SAFE}.txt
     OUT=$OUT_DIR/JX080302.${FMT_SAFE}.txt
 
-    if [ -e "$OUT" ]; then
-	echo "FMT=$FMT  SKIP: exists($OUT)"
+    if [ -s "$OUT" ]; then
+	echo "FMT=$FMT  SKIP: exists & non-empty ($OUT)"
     else
 	echo blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT -max_hsps 1 -outfmt "$FMT" 2\>\&1 \| tee $LOG
              blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT -max_hsps 1 -outfmt "$FMT" 2>&1    | tee $LOG
     fi
 done
+
+FMT_ARGS="-outfmt 5  -max_target_seqs 10 -max_hsps 10"
+for FMT_SAFE in 5.maxtargetseqs10.maxhsps10; do
+    echo "#"
+    echo "# FMT=$FMT"
+    echo "# FMT_SAFE==$FMT_SAFE"
+    echo "#"
+    LOG=logs/test_Kayvirus_JX080302_${FMT_SAFE}.txt
+    OUT=$OUT_DIR/JX080302.${FMT_SAFE}.xml
+
+    if [ -s "$OUT" ]; then
+	echo "FMT=$FMT  SKIP: exists & non-empty ($OUT)"
+    else
+	echo blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT $FMT_ARGS 2\>\&1 \| tee $LOG
+             blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT $FMT_ARGS 2>&1    | tee $LOG
+    fi
+done
+
+FMT_ARGS="-outfmt 5  -max_target_seqs 10"
+for FMT_SAFE in 5.hit10; do
+    echo "#"
+    echo "# FMT=$FMT"
+    echo "# FMT_SAFE==$FMT_SAFE"
+    echo "#"
+    LOG=logs/test_Kayvirus_JX080302_${FMT_SAFE}.txt
+    OUT=$OUT_DIR/JX080302.${FMT_SAFE}.xml
+
+    if [ -s "$OUT" ]; then
+	echo "FMT=$FMT  SKIP: exists & non-empty ($OUT)"
+    else
+	echo blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT $FMT_ARGS 2\>\&1 \| tee $LOG
+             blastn -task blastn -word_size 10 -db ./blast/ICTV_VMR_e -query $QUERY_FA -out $OUT $FMT_ARGS 2>&1    | tee $LOG
+    fi
+done
+
