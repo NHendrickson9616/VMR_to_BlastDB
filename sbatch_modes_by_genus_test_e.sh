@@ -7,7 +7,7 @@
 #
 MODES="blastn10 blastn11 blastn13 blastn16 blastn20 blastn24 blastn13 blastn15   blastn16 blastn17  blastn18 blastn22 blastn28 blastn9 "
 MODES="blastn10 blastn11 blastn13"
-#MODES="short"
+MODES="blastn10"
 if [ ! -z "$*" ]; then
     MODES="$*"
 fi
