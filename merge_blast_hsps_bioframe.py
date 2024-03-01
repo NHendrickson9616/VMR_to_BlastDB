@@ -1,88 +1,164 @@
 #!/usr/bin/env python3
 #
 #
-# merge HSPs into subject-specific summary statistics
+# ChatGPT prompt: please write python code that will load NCBI blasts
+# output in XML format, using BioPython, and integrate through the
+# HSPs for each hit, adding the query start to end intervals defined
+# by each HSP to a hit-specific BioFrame, using the hit_def as the
+# chromosome name, then use BioFrame::merge to compute that actual
+# coverage from all merged HSPs for each hit.
 #
-# INPUT: output from blastn -fmt 5 (XML)
-#
-# Written by ChatGPT v4 
-#
-# Prompt1: 
-#
-# please write a short python program using biopython that can read
-# the output from command-line blastn and merge all the HSP results
-# into a set of per-hit (query, subject pairs), just as the website does. 
-# Use existing packages to keep the code concise. 
-# 
-# Prompt2 
-#
-# Very good. Instead of just summing the hsp.align_length and
-# hsp.identities, do correct overlap calculations to compute what
-# percentage of the query sequence is covered by the any hsp. When
-# processing and HSP, compute how much of that HSP covers query
-# sequence that has not yet been overlapped by an HSP, and only add in
-# the percentage of the hsp's identity score that matches the
-# percentage of the hsp's length that is not already covered by
-# previous hsps.
-#
+
+from pprint import pprint
+
 from Bio.Blast import NCBIXML
 
-verbose=False
+#from Bio import SearchIO
+#from Bio import SeqIO
+#from Bio.SeqRecord import SeqRecord
+#from Bio.SeqFeature import FeatureLocation
+#from Bio.Graphics import GenomeDiagram
+#from Bio.Graphics.GenomeDiagram import FeatureSet, GraphSet, Diagram
 
-def parse_blast_output(xml_file):
-    print(f"align_summary\tblast_record.id\talignment.hit_id\teffective_length\teffective_identities\tidentity_percentage\tcoverage_percentage")
-    with open(xml_file, 'r') as result_handle:
-        blast_records = NCBIXML.parse(result_handle)
+import bioframe as bf
+import bioframe.vis
 
-        for blast_record in blast_records:
-            query_length = blast_record.query_length
-            covered_segments = []  # List to keep track of covered segments of the query
+import itertools
 
-            for alignment in blast_record.alignments:
-                print(f"# alignment: {alignment.hit_id} len: {alignment.length}" )
-                effective_length = 0
-                effective_identities = 0
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import pandas as pd
 
-                for hsp in alignment.hsps:
-                    # Calculate non-overlapping part of the current HSP
-                    hsp_start, hsp_end = hsp.query_start, hsp.query_end
-                    hsp_length = hsp.align_length
-                    hsp_identities = hsp.identities
 
-                    # Adjust for overlaps
-                    non_overlapping_length = hsp_length
-                    for covered_start, covered_end in covered_segments:
-                        if hsp_end <= covered_start or hsp_start >= covered_end:
-                            continue  # No overlap
-                        # Calculate overlap and adjust non_overlapping_length
-                        overlap = min(hsp_end, covered_end) - max(hsp_start, covered_start)
-                        non_overlapping_length -= overlap
+def load_blast_xml(xml_file):
+    """
+    Load NCBI BLAST XML output.
+    """
+    blast_records = NCBIXML.parse(open(xml_file, 'r'))
+    return blast_records
 
-                    # Update effective_length and identities based on non-overlapping portion
-                    if non_overlapping_length > 0:
-                        percentage_of_hsp_non_overlapped = non_overlapping_length / hsp_length
-                        effective_length += non_overlapping_length
-                        effective_identities += hsp_identities * percentage_of_hsp_non_overlapped
-                        # Add this HSP's range to covered_segments
-                        covered_segments.append((hsp_start, hsp_end))
+def integrate_hsp_to_frame(blast_record):
+    """
+    Integrate HSPs for each hit and add query start to end intervals defined by each HSP to a hit-specific BioFrame.
+    """
+    print("integrate_hsp_to_frame()")
+    frames = []
+    for hit in blast_record.alignments:
+        hit_def = hit.hit_def
+        hit_parts = hit_def.split(" ")
+        hit_name = hit_parts[0]
+        for hsp in hit.hsps:
+            frames.append([hit_name, hsp.query_start, hsp.query_end])
 
-                # Sort covered_segments for future overlap checks
-                covered_segments.sort()
+    #print(frames)
 
-                identity_percentage = (effective_identities / effective_length) * 100 if effective_length > 0 else 0
-                coverage_percentage = (effective_length / query_length) * 100 if query_length > 0 else 0
+    return pd.DataFrame(frames,columns=['chrom','start','end'])
 
-                if verbose: 
-                    print(f"Query: {blast_record.query}")
-                    print(f"Subject: {alignment.hit_def}")
-                    print(f"Effective Length (non-overlapping): {effective_length}")
-                    print(f"Identity: {effective_identities:.0f}/{effective_length} ({identity_percentage:.2f}%)")
-                    print(f"Coverage of Query Sequence: {coverage_percentage:.2f}%")
-                    print('-' * 20)
+def compute_coverage(query_name, query_length, frames):
+    print("# compute_coverage(frames)")
+    """
+    Compute actual coverage from all merged HSPs for each hit using BioFrame::merge.
+    """
+    hit_defs = set(frames["chrom"])
+    #print("hit_defs:", hit_defs)
+    scale = 100/query_length
 
-                print(f"align_summary\t{blast_record.query_id}\t{alignment.hit_id}\t{effective_length}\t{effective_identities}\t{identity_percentage}\t{coverage_percentage}")
+    hit_stats = pd.DataFrame(columns=['pcov'])
 
-if __name__ == "__main__":
-    xml_file = 'blast_output.xml'  # Path to your BLAST XML output
-    xml_file = 'results/blastn10_test/a/Keyvirus/JX080302.5.txt'
-    parse_blast_output(xml_file)
+    
+    print("shape(frames):", frames.shape)
+    for hit_def in hit_defs:
+        print("# Hit Def:",hit_def, "######################################################################")
+
+        ref_df = pd.DataFrame([[hit_def,1,query_length]],columns=['chrom','start','end'])
+        #print("# ref_df = ",ref_df)
+        
+        hit_intervals = frames[frames["chrom"]==hit_def]
+        print("# pre-merge ----------------------------------------------------------------------")
+        #print(hit_intervals )
+    
+        scaled_hits = hit_intervals.copy()
+        scaled_hits.start *= scale
+        scaled_hits.end *= scale
+        
+        #print("scaled:", scaled_hits)
+        bf.vis.plot_intervals(scaled_hits, show_coords=True, xlim=(0,100))
+        plt.title('PRE-MERGE: ['+query_name+'] vs ['+hit_def+']');
+        fname ='figures/'+hit_def+'.pre.pdf'
+        plt.savefig(fname)
+        print("wrote: ", fname)
+        #plt.show()
+    
+        print("# post-merge ----------------------------------------------------------------------")
+        hits_merged =  bf.merge(hit_intervals, min_dist=0)
+
+        scaled_hits_merged = hits_merged.copy()
+        scaled_hits_merged.start *= scale
+        scaled_hits_merged.end *= scale
+
+        bf.vis.plot_intervals(scaled_hits_merged, show_coords=True, xlim=(0,100))
+        plt.title('POST-MERGE: ['+query_name+'] vs ['+hit_def+']');
+        fname ='figures/'+hit_def+'.post.pdf'
+        plt.savefig(fname)
+        print("wrote: ", fname)
+        #plt.show()
+
+        print("# post-merge coverage---------------------------------------------------------------")
+        hit_cov_df = bf.coverage(ref_df,hits_merged)
+        print("# hit_cov_df: ", hit_cov_df)
+        hit_cov = hit_cov_df.coverage[0]
+        print("# hit_cov: ", hit_cov)
+        hit_pcov = hit_cov/query_length
+        print("# hit_pcov: ", hit_pcov)
+
+        hit_stats.loc[hit_def] = hit_pcov
+    print("hit_stats: ")
+    pprint(hit_stats.sort_values(by='pcov',ascending=False))
+# test
+if 1==0:
+    df1 = pd.DataFrame([
+        ['chr1', 10000, 50000],
+        ['chr1', 30000, 80000],
+        ['chr1', 80000, 100000],
+        ['chr1', 120000, 140000]],
+                       columns=['chrom', 'start', 'end']
+                       )
+
+    scale = 100/max(df1.end)
+    sdf1 = df1.copy()
+    sdf1.start *= scale
+    sdf1.end *= scale
+    bf.vis.plot_intervals(sdf1, show_coords=True, xlim=(0,100))
+    plt.title('bedFrame1 intervals');
+    plt.show()
+
+    df1m = bf.merge(df1, min_dist=0)
+    print(df1m)
+    sdf1m =df1m.copy()
+    sdf1m.start *= scale
+    sdf1m.end *= scale
+    bf.vis.plot_intervals(sdf1m, show_coords=True, xlim=(0,100))
+    plt.title('bedFrame1 MERGED intervals');
+    plt.show()
+
+# Example usage
+#blast_xml_file = "your_blast_output.xml"
+blast_xml_file = 'results/blastn10_test/a/Keyvirus/JX080302.5.xml'
+#blast_xml_file = 'results/blastn10_test/a/Keyvirus/JX080302.5.maxtargetseqs10.maxhsps10.xml'
+blast_xml_file = 'results/blastn10_test/a/Keyvirus/JX080302.5.hit10.xml'
+blast_records = load_blast_xml(blast_xml_file)
+for blast_record in blast_records:
+    query_length=blast_record.query_length
+    query_def = blast_record.query
+    query_parts = query_def.split(" ")
+    query_name = query_parts[0]
+    
+    print("#########################################################################")
+    print("### RECORD: query-len=",blast_record.query_length, " query-ID:", blast_record.query_id," query-def:", blast_record.query)
+    print("###")
+    frames = integrate_hsp_to_frame(blast_record)
+    #print("# FRAMES ----------------------------------------------------------------------")
+    #pprint(frames)
+    merged_frames = compute_coverage(query_name, query_length,frames)
+
