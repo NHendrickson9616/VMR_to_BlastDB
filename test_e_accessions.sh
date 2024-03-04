@@ -29,14 +29,16 @@
 #
 
 QUERY_DIR=./fasta_new_vmr_a
-if [[ "$1" == "-g" && ! -z "$2" ]]; then QUERY_DIR=./fasta_new_vmr_a/$2; shift 2; fi
-echo "QUERY_DIR:   $QUERY_DIR"
+GENUS="*"
+if [[ "$1" == "-g" && ! -z "$2" ]]; then GENUS=$2; shift 2; fi
+echo "GENUS:       $GENUS"
 BLAST_DB=./blast/ICTV_VMR_e
 echo "BLAST_DB:    $BLAST_DB"
 BLAST_OUT_FMT="-outfmt '7 delim=,'"; BLAST_OUT_SUFFIX="raw.txt"  # scot original
 BLAST_OUT_FMT="-outfmt 5 -max_target_seqs 10 -max_hsps 10"; BLAST_OUT_SUFFIX=".hit10hsp10.xml"
 BLAST_OUT_FMT="-outfmt 5"; BLAST_OUT_SUFFIX=".full.xml"
 BLAST_OUT_FMT="-outfmt 5 -max_target_seqs 10"; BLAST_OUT_SUFFIX=".hit10.xml"
+BLAST_OUT_FMT="-outfmt 5 -max_target_seqs 20"; BLAST_OUT_SUFFIX=".hit20.xml"
 # 
 # BLAST_ARGS
 # 
@@ -73,12 +75,15 @@ if [ -z "$(which blastn 2>/dev/null)" ]; then
 fi
 
 
+ACCESSION_TSV=./processed_accessions_a.tsv
 echo "#"
 echo "# enumerate A seqs"
 echo "# "
-echo '# find $QUERY_DIR -name "*.fa"'
-A_FASTAS=$(find $QUERY_DIR -name "*.fa")
-echo '# found ' $(find $QUERY_DIR -name "*.fa"|wc -l) " A fastas"
+echo "# scan ACCESSION_TSV=$ACCESSION_TSV"
+echo "# "
+A_FASTAS=$(awk -v DIR=$QUERY_DIR -v TARGET_GENUS="$GENUS" 'BEGIN{FS="\t";GENUS=5;ACC=3}(NR>1&&(TARGET_GENUS="*"||TARGET_GENUS=$GENUS)){print DIR "/" $GENUS "/" $ACC ".raw"}' $ACCESSION_TSV)
+#A_FASTAS=$(find $QUERY_DIR -name "*.fa")
+echo '# found ' $(wc -l $ACCESSION_TSV) " A accessions"
 
 
 echo "#"
