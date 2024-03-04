@@ -81,7 +81,7 @@ echo "# enumerate A seqs"
 echo "# "
 echo "# scan ACCESSION_TSV=$ACCESSION_TSV"
 echo "# "
-A_FASTAS=$(awk -v DIR=$QUERY_DIR -v TARGET_GENUS="$GENUS" 'BEGIN{FS="\t";GENUS=5;ACC=3}(NR>1&&(TARGET_GENUS="*"||TARGET_GENUS=$GENUS)){print DIR "/" $GENUS "/" $ACC ".raw"}' $ACCESSION_TSV)
+A_FASTAS=$(awk -v DIR=$QUERY_DIR -v TARGET_GENUS="$GENUS" 'BEGIN{FS="\t";GENUS=5;ACC=3}(NR>1&&(TARGET_GENUS="*"||TARGET_GENUS=$GENUS)){print DIR "/" $GENUS "/" $ACC ".fa"}' $ACCESSION_TSV)
 #A_FASTAS=$(find $QUERY_DIR -name "*.fa")
 echo '# found ' $(wc -l $ACCESSION_TSV) " A accessions"
 
