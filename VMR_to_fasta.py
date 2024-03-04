@@ -59,7 +59,7 @@ def load_VMR_data():
         if args.verbose: print("VMR data loaded: {0} rows, {1} columns.".format(*raw_vmr_data.shape))
 
         # list of the columns to extract from raw_vmr_data
-        vmr_cols_needed = ['Virus GENBANK accession','Species','Exemplar or additional isolate','Genome coverage','Genus']
+        vmr_cols_needed = ['Exemplar or additional isolate','Sort','Isolate Sort','Virus GENBANK accession','Species','Genome coverage','Genus']
 
         for col_name in list(raw_vmr_data.columns):
             if col_name in vmr_cols_needed:
@@ -87,11 +87,13 @@ def load_VMR_data():
     # DataFrame.loc is helpful for indexing by row. Allows expression as an argument. Here, 
     # it finds every row where 'E' is in column 'Exemplar or additional isolate' and returns 
     # only the columns specified. 
-    #vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
-    vmr_data = raw_vmr_data.loc[raw_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Species','Virus GENBANK accession',"Genome coverage","Genus"]]
+    #vmr_data = truncated_vmr_data.loc[truncated_vmr_data['Exemplar or additional isolate']==args.ea.upper(),['Sort','Isolate Sort','Species','Virus GENBANK accession',"Genome coverage","Genus"]]
+    vmr_data = raw_vmr_data.loc[raw_vmr_data['Exemplar or additional isolate']==args.ea.upper(),vmr_cols_needed[1:]]
 
     # only works when I reload the vmr_data, probably not necessary. have to look into why it's doing this. 
     if args.verbose: print("Writing"+VMR_hack_file_name,": workaround - filters VMR down to "+args.ea.upper()+" records only")
+    if args.verbose: print("\tcolumns: ",vmr_data.columns)
+    
     vmr_data.to_csv(VMR_hack_file_name, sep='\t')
     if args.verbose: print("Loading",VMR_hack_file_name)
     narrow_vmr_data = pandas.read_csv(VMR_hack_file_name,sep='\t')
@@ -99,8 +101,7 @@ def load_VMR_data():
     if args.verbose: print("   columns:", list(narrow_vmr_data.columns))
 
     # Removing Genome Coverage column from the returned value. 
-    narrow_cols_needed = ['Virus GENBANK accession','Species',"Genus"]
-    truncated_vmr_data = narrow_vmr_data[narrow_cols_needed]
+    truncated_vmr_data = narrow_vmr_data[vmr_cols_needed[1:]]
     
     #truncated_vmr_data = truncated_vmr_data.drop(columns=['Exemplar or additional isolate'])
     if args.verbose: print("   Truncated: {0} rows, {1} columns.".format(*truncated_vmr_data.shape))
@@ -110,6 +111,7 @@ def load_VMR_data():
 
 def test_accession_IDs(df):
     if args.verbose: print("test_accession_IDs()")
+    if args.verbose: print("\tcolumns: ",df.columns)
 ##############################################################################################################
 # Cleans Accession numbers assuming the following about the accession numbers:
 # 1. Each Accession Number is 6-8 characters long
@@ -118,7 +120,7 @@ def test_accession_IDs(df):
 # 4. Accession Numbers in the same block are seperated by a ; or a , or a :
 ##############################################################################################################
     # defining new DataFrame before hand
-    processed_accession_IDs = pandas.DataFrame(columns=['Species','Accession_IDs','segment',"Genus"])
+    processed_accession_IDs = pandas.DataFrame(columns=['Species','Accession_IDs','segment',"Genus","Sort","Isolate Sort","Original_Accession_String","Errors"])
     # for loop for every entry in given processed_accessionIDs
     for entry_count in range(0,len(df.index)):
         # Find current species in this row
@@ -126,28 +128,26 @@ def test_accession_IDs(df):
         # Find current Genus in this row
         Genus=df['Genus'][entry_count]
         #initial processing of raw accession numbers.
-        accession_ID = df['Virus GENBANK accession'][entry_count]
+        orig_accession_str = df['Virus GENBANK accession'][entry_count]
         #removing whitespace.
-        accession_ID = str(accession_ID).replace(" ","")
+        accession_ID = str(orig_accession_str).replace(" ","")
         # instead of trying to split by commas and semicolons, I just replace the commas with semicolons. 
         accession_ID.replace(",",";")
         accession_ID = accession_ID.split(';')
         
-        
         #split by colons too
-
         accession_ID = [accession_part.split(':') for accession_part in accession_ID]
     
-        for accession_part in accession_ID:
-            #flag long strings as being suspect. Most aren't 10 characters long. 
-            if len(accession_part) > 10:
-                print('suspiciously long accession number or segment name. Please verify its correct:'+str(accession_part),file=sys.stderr)
-
-
         # for loop for every ";" split done
         for accession_seg in accession_ID:
             segment = None
-            # for loop for every ":" split done
+            errors= ""
+            #flag long strings as being suspect. Most aren't 10 characters long. 
+            if len(accession_seg) > 10:
+                errors = 'suspiciously long accession number or segment name. Please verify its correct:'+str(accession_seg)
+                print(errors,file=sys.stderr)
+
+                # for loop for every ":" split done
             for accession_part in accession_seg:
                 
                 number_count = 0
@@ -162,7 +162,11 @@ def test_accession_IDs(df):
                 #checks if current selection fits what an accession number should be
                 if len(str(accession_part)) == 8 or 6 and letter_count<3 and number_count>3:
                     processed_accession_ID = accession_part
-                    processed_accession_IDs.loc[len(processed_accession_IDs.index)] = [Species,processed_accession_ID,segment,Genus]
+                    processed_accession_IDs.loc[len(processed_accession_IDs.index)] = [Species,processed_accession_ID,segment,Genus,
+                                                                                       df['Sort'][entry_count],
+                                                                                       df['Isolate Sort'][entry_count],
+                                                                                       df['Virus GENBANK accession'][entry_count],
+                                                                                       errors ]
                     #print("'"+processed_accession_ID+"'"+' has been cleaned.')
                 else:
                     segment = accession_part
@@ -186,14 +190,15 @@ def fetch_fasta(processed_accession_file_name):
         # Create the directory if it doesn't exist
         os.makedirs(fasta_dir)
         if args.verbose: print(f"Directory '{fasta_dir}' created successfully.")
-    
-    #Check to see if fasta data exists and, if it does, loads the accessions numbers from it into an np array.
-    bad_accessions = []
 
+    bad_accessions_fname="./bad_accessions_"+args.ea.lower()+".tsv"
+
+    #Check to see if fasta data exists and, if it does, loads the accessions numbers from it into an np array.
     if args.verbose: print("  loading:", processed_accession_file_name)
     Accessions = pandas.read_csv(processed_accession_file_name,sep='\t')
 
     all_reads = []
+    bad_accessions = pandas.DataFrame(columns=Accessions.columns)
 
     # NCBI Entrez Session setup
     entrez_sleep = 0.34 # 3 requests per second with email authN
@@ -259,7 +264,7 @@ def fetch_fasta(processed_accession_file_name):
 
                 except:
                     print("    [ERR] Accession ID"+"'"+str(accession_ID)+"'"+"did not get properly cleaned. Accession Cleaning Heuristic needs editing.",file=sys.stderr)
-                    bad_accessions = bad_accessions+[accession_ID]
+                    bad_accessions.append(row)
 
             # check if processed fasta is out of date
             if os.path.getsize(accession_raw_file_name) == 0:
@@ -297,7 +302,11 @@ def fetch_fasta(processed_accession_file_name):
                 
             count=count+1
 
-
+    # wrap up and report errors
+    print("Bad_Accession count:", len(bad_accessions.index))
+    pandas.DataFrame.to_csv(bad_accessions,bad_accessions_fname,sep='\t')
+    print("Wrote to ", bad_accessions_fname)
+    
 #######################################################################################################################################
 # Calls makedatabase.sh. Uses 'all.fa'
 #######################################################################################################################################
@@ -360,6 +369,7 @@ def main():
         tested_accessions_ids = test_accession_IDs(vmr_data)
         
         if args.verbose: print("Writing", processed_accession_file_name)
+        if args.verbose: print("\tColumn: ", tested_accessions_ids.columns)
         pandas.DataFrame.to_csv(tested_accessions_ids,processed_accession_file_name,sep='\t')
 
     if args.mode == "fasta" or None:
@@ -379,7 +389,6 @@ if args.verbose: print("Done.")
 
 
     
-
 
 
 

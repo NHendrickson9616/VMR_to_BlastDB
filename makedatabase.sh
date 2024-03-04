@@ -20,14 +20,18 @@
 #  last run was 402M
 #SBATCH --mem-per-cpu=30000
 #
+ACCESSION_TSV=processed_accessions_e.tsv
 ALL_FASTA=./fasta_new_vmr/vmr_e.fa
 SRC_DIR=$(dirname $ALL_FASTA)
 
 echo "# concatenate individual fasta's into all.fa"
 # if any fastas are updated, rebuild master fasta
 if [[ ! -e "$ALL_FASTA" || "$(find $SRC_DIR -newer $ALL_FASTA|wc -l)" -gt 0 ]]; then
-    echo "cat $SRC_DIR/*/*.fa > $ALL_FASTA"
-    cat $SRC_DIR/*/*.fa > $ALL_FASTA
+    echo "REBUILD $ALL_FASTA"
+    for FA in $(awk 'BEGIN{FS="\t";GENUS=5;ACC=3}(NR>1){print $GENUS"/"$ACC".raw"}' $ACCESSION_TSV); do
+	echo "cat $SRC_DIR/$FA >> $ALL_FASTA"
+	cat $SRC_DIR/$FA >> $ALL_FASTA
+	wc -l $ALL_FASTA
 else
     echo "SKIP: $ALL_FASTA is up-to-date."
 fi
