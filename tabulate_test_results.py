@@ -14,6 +14,20 @@ import os
 from pprint import pprint
 from Bio import SeqIO
 
+# blast output parsing & HSP collapsing
+from Bio.Blast import NCBIXML
+import bioframe as bf
+import bioframe.vis
+
+import itertools
+
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+#
+# parse ARGS
+#
 parser = argparse.ArgumentParser(description="")
 parser.add_argument('-verbose',help="printout details during run",action=argparse.BooleanOptionalAction)
 parser.add_argument('-blast',help="blast parameter abbreviation",default="blastn10")
@@ -111,6 +125,127 @@ def get_fasta_length(filename):
             return sequence_length
     return None
 
+#
+# parse XML blast results
+#
+# build per-query-subject coverage score by overlapping all HSPs
+#
+
+def blast_compute_hsp_coverage(blast_query):
+    #
+    # get query info
+    #
+    query_length = blast_query.query_length
+    query_def    = blast_query.query
+    # parse our headers
+    query_parts  = query_def.split(" ")
+    query_name   = query_parts[0]
+
+    #
+    # convert HSPs intervals into BioFrame
+    #
+    query_frames = []
+    subject_frames = []
+    for subject in blast_query.alignments:
+        subject_def = subject.hit_def
+        # parse our fasta headers
+        subject_parts = subject_def.split(" ")
+        subject_name = subject_parts[0]
+        for hsp in subject.hsps:
+            query_frames.append([subject_name, hsp.query_start, hsp.query_end])
+            #subject_frames.append([subject_name, hsp.subject_start, hsp.subject_end])
+    query_hsp_df = pd.DataFrame(query_frames,columns=['chrom','start','end'])
+    #subject_hsp_df = pd.DataFrame(subject_frames,columns=['chrom','start','end'])
+
+
+    print("QUERY_FRAMES:", query_hsp_df)#
+    # compute query coverage per subject
+    #
+    subject_stats = pd.DataFrame(columns=['pcov'])
+
+    scale = 100/query_length
+
+    subject_defs = set(query_hsp_df["chrom"])
+    
+    for subject_def in subject_defs:
+        if args.verbose: 
+            print("# Hit Def:",subject_def, "######################################################################")
+
+        # get HSPs for this subject
+        subject_intervals = query_hsp_df[query_hsp_df["chrom"]==subject_def]
+
+        # scale query coverage from 0-1
+        ref_df = pd.DataFrame([[subject_def,1,query_length]],columns=['chrom','start','end'])
+        scaled_hits = subject_intervals.copy()
+        scaled_hits.start *= scale
+        scaled_hits.end *= scale
+
+        print("# pre-merge ----------------------------------------------------------------------")
+        bf.vis.plot_intervals(scaled_hits, show_coords=True, xlim=(0,100))
+        plt.title('PRE-MERGE: ['+query_name+'] vs ['+subject_def+']');
+        fname ='figures/'+query_name+'.vs.'+subject_def+'.pre.pdf'
+        plt.savefig(fname)
+        print("wrote: ", fname)
+        #plt.show()
+
+        print("# post-merge ----------------------------------------------------------------------")
+        hits_merged =  bf.merge(subject_intervals, min_dist=0)
+
+        scaled_hits_merged = hits_merged.copy()
+        scaled_hits_merged.start *= scale
+        scaled_hits_merged.end *= scale
+
+        bf.vis.plot_intervals(scaled_hits_merged, show_coords=True, xlim=(0,100))
+        plt.title('POST-MERGE: ['+query_name+'] vs ['+subject_def+']');
+        fname ='figures/'+query_name+'.vs.'+subject_def+'.post.pdf'
+        plt.savefig(fname)
+        print("wrote: ", fname)
+        #plt.show()
+
+        print("# post-merge coverage---------------------------------------------------------------")
+        subject_cov_df = bf.coverage(ref_df,hits_merged)
+        print("# subject_cov_df: ", subject_cov_df)
+        subject_cov = subject_cov_df.coverage[0]
+        print("# subject_cov: ", subject_cov)
+        subject_pcov = subject_cov/query_length
+        print("# subject_pcov: ", subject_pcov)
+
+        subject_stats.loc[subject_def] = subject_pcov
+
+        
+    return subject_stats.sort_values(by=['pcov'],ascending=False)
+
+
+    
+def parse_blast_xml_collapse_hsps(filename):
+    #
+    # load XML
+    #
+    blast_records = NCBIXML.parse(open(filename, 'r'))
+    if args.verbose:
+        print("#########################################################################")
+        print("## Loaded: ",filename)
+
+    #
+    # iterate over queries (should be 1)
+    #
+    for blast_query in blast_records:
+        query_length=blast_query.query_length
+        query_def = blast_query.query
+        # parse our headers
+        query_parts = query_def.split(" ")
+        query_name = query_parts[0]
+        if args.verbose:
+            print("## query-len=",blast_record.query_length,
+                  " query-ID:", blast_record.query_id,
+                  " query-def:", blast_record.query)
+
+        subject_stats = blast_compute_hsp_coverage(blast_query)
+
+        print(subject_stats)
+        
+    return subject_stats
+    
 #
 # iterate over query (A) records, parse blast output
 #
@@ -256,10 +391,11 @@ for qidx in queryDf.index[0:10]:
     #
     # read and parse blast results (may be empty!)
     #
-    query_results_file = "./results/"+args.blast+"/a/"+qgenus+"/"+qacc+".raw.txt"
+    query_results_file = "./results/"+args.blast+"/a/"+qgenus+"/"+qacc+"..hit20.xml"
+    #query_results_file = "./results/"+args.blast+"/a/"+qgenus+"/"+qacc+".raw.txt"
     print("\tReading "+query_results_file)
-    status, num_hits, hits_df = parse_blast_fmt7(query_results_file)
-    print("\tStatus: ", status," hits:", num_hits)
+    hits_df = parse_blast_xml_collapse_hsps(query_results_file)
+    print("\thits:", len(hits_df.index))
 
     #
     # compare the results
