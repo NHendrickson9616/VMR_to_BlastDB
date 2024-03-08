@@ -23,14 +23,15 @@ RUN set -e \
       && apt-get -y dist-upgrade \
       && apt-get -y install --no-install-recommends --no-install-suggests \
         apt-transport-https apt-utils ca-certificates locales pandoc pkg-config \
-        ncbi-blast+ \
+        ssh rsync \
+	ncbi-blast+ \
       && apt-get -y autoremove \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
 
 # install several Python packages with Conda p
-RUN mkdir ./conda
-RUN ./create_conda_env.sh
+#RUN mkdir ./conda
+#RUN ./create_conda_env.sh
 
 # UTF-8 mode
 RUN set -e \
@@ -47,8 +48,12 @@ COPY version_git.txt .
 #
 # copy in reference data
 #
-RUN mkdir -p ./blast
+#RUN mkdir -p ./blast
 COPY blast/ ./blast/
+#COPY pull_blast_from_cheaha.sh .
+#RUN ./pull_blast_from_cheaha.sh
+#!/usr/bin/env bash
+#
 RUN find ./blast/
 COPY processed_accessions_e.tsv ./
 COPY processed_accessions_a.tsv ./
