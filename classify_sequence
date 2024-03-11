@@ -50,13 +50,13 @@ out_dict = {
             "status"                 : "CLASSIFIED",
             "classification_rank"    : "genus",
             "classification_lineage" : {"realm":"HelloRealm", "family":"BigFamily", "genus":"CountryGenus"},
-            "message"                : "Homologous to species within the genus, but not close enought to classify within an existintg species"
+            "message"                : "Homologous to species within the genus, but not close enough to classify within an existing species"
         }
         ,
         {
             "input_seq"              : "test_seq_3",
             "status"                 : "FAILED",
-            "error"                  : "Sequence did not have 0.5% or more of it's sequence homologus to a reference species"
+            "error"                  : "Sequence did not have 0.5% or more of it's sequence homologous to a reference species"
         }
     ]
 }
