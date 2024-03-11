@@ -1,6 +1,6 @@
 {
     "program_name": "classify_sequence",
-    "version": "v0.1.d3c5223\n",
+    "version": "v0.1.2a95bdf",
     "input_dir": "seq_in",
     "results": [
         {
@@ -8,11 +8,27 @@
             "status": "CLASSIFIED",
             "classification_rank": "species",
             "classification_lineage": {
-                "Realm": "HelloRealm",
-                "Family": "BigFamily",
-                "Genus": "WorldGenus",
-                "Species": "WorldGenus specius"
+                "realm": "HelloRealm",
+                "family": "BigFamily",
+                "genus": "WorldGenus",
+                "species": "WorldGenus specius"
             }
+        },
+        {
+            "input_seq": "test_seq_2",
+            "status": "CLASSIFIED",
+            "classification_rank": "genus",
+            "classification_lineage": {
+                "realm": "HelloRealm",
+                "family": "BigFamily",
+                "genus": "CountryGenus"
+            },
+            "message": "Homologous to species within the genus, but not close enought to classify within an existintg species"
+        },
+        {
+            "input_seq": "test_seq_3",
+            "status": "FAILED",
+            "error": "Sequence did not have 0.5% or more of it's sequence homologus to a reference species"
         }
     ]
 }

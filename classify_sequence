@@ -28,7 +28,7 @@ print("OUT_JSON:", args.json)
 # read version number
 #
 with open("version_git.txt") as verfile:
-    git_version = verfile.readline()
+    git_version = verfile.readline().strip()
 print("VERSION:", git_version )
 #
 # hello world data dictionry
