@@ -67,6 +67,6 @@ COPY fixed_vmr_e.tsv ./
 
 # what does ENTRYPOINT do exactly?
 # ENTRYPOINT fixed the base command; immutable
-#ENTRYPOINT [ "./classify_sequence" ]
+ENTRYPOINT [ "./classify_sequence" ]
 # CMD add default cmds/arguments
-CMD [ "./classify_sequence" ]
+#CMD [ "./classify_sequence" ]
