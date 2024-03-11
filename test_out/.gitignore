@@ -1,0 +1,4 @@
+# test results
+# the "reference" output is in .json.good
+*.json
+

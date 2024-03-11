@@ -1,0 +1,18 @@
+{
+    "program_name": "classify_sequence",
+    "version": "v0.1.d3c5223\n",
+    "input_dir": "seq_in",
+    "results": [
+        {
+            "input_seq": "test_seq_1",
+            "status": "CLASSIFIED",
+            "classification_rank": "species",
+            "classification_lineage": {
+                "Realm": "HelloRealm",
+                "Family": "BigFamily",
+                "Genus": "WorldGenus",
+                "Species": "WorldGenus specius"
+            }
+        }
+    ]
+}

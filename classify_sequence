@@ -1,9 +1,76 @@
 #!/usr/bin/env python3
 #
-# place holder
+# taxonomically classify a novel nucleotide sequence
 #
 
+import argparse
+import pandas as pd
+import json
+import os
+import sys
+
+#
+# parse ARGS
+#
+parser = argparse.ArgumentParser(description="")
+parser.add_argument('-verbose',help="print details during run",action=argparse.BooleanOptionalAction)
+parser.add_argument('-indir',help="directory for fasta files with NUCLEOTIDE seqeunces to classify",default="seq_in")
+parser.add_argument('-outdir',help="output directory for tax_results.json",default="tax_out")
+parser.add_argument('-json',help="output json filename",default="tax_results.json")
+args = parser.parse_args()
+
 print("Hello World")
+print("IN_DIR: ", args.indir)
+print("OUT_DIR:", args.outdir)
+print("OUT_JSON:", args.json)
+
+#
+# read version number
+#
+with open("version_git.txt") as verfile:
+    git_version = verfile.readline()
+print("VERSION:", git_version )
+#
+# hello world data dictionry
+#
+out_dict = {
+    "program_name": os.path.basename(sys.argv[0]),
+    "version"  : git_version,
+    "input_dir": args.indir,
+    "results"  : [
+        {
+            "input_seq"              : "test_seq_1",
+            "status"                 : "CLASSIFIED",
+            "classification_rank"    : "species",
+            "classification_lineage" : {"realm":"HelloRealm", "family":"BigFamily", "genus":"WorldGenus", "species":"WorldGenus specius"}
+        }
+        ,
+        {
+            "input_seq"              : "test_seq_2",
+            "status"                 : "CLASSIFIED",
+            "classification_rank"    : "genus",
+            "classification_lineage" : {"realm":"HelloRealm", "family":"BigFamily", "genus":"CountryGenus"},
+            "message"                : "Homologous to species within the genus, but not close enought to classify within an existintg species"
+        }
+        ,
+        {
+            "input_seq"              : "test_seq_3",
+            "status"                 : "FAILED",
+            "error"                  : "Sequence did not have 0.5% or more of it's sequence homologus to a reference species"
+        }
+    ]
+}
+
+#
+# write output/results
+#
+
+outpath=os.path.join(args.outdir, args.json)
+with open(outpath, "w") as outfile:
+    json.dump(obj=out_dict, fp=outfile, indent=4)
+
+print("Wrote: ", outpath)
+
 exit(0)
 
 

@@ -25,9 +25,14 @@ RUN set -e \
         apt-transport-https apt-utils ca-certificates locales pandoc pkg-config \
         ssh rsync \
 	ncbi-blast+ \
+	python3-pandas \
       && apt-get -y autoremove \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
+
+# install python packages
+#RUN pip install numpy
+#RUN pip install pandas
 
 # install several Python packages with Conda p
 #RUN mkdir ./conda
@@ -61,4 +66,7 @@ COPY fixed_vmr_a.tsv ./
 COPY fixed_vmr_e.tsv ./
 
 # what does ENTRYPOINT do exactly?
+# ENTRYPOINT fixed the base command; immutable
+#ENTRYPOINT [ "./classify_sequence" ]
+# CMD add default cmds/arguments
 CMD [ "./classify_sequence" ]
