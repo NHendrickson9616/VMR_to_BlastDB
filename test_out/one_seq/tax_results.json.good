@@ -1,9 +1,10 @@
 {
     "program_name": "classify_sequence",
-    "version": "v0.1.2a95bdf",
+    "version": "v0.1.2d07b03",
     "input_dir": "seq_in",
     "results": [
         {
+            "input_file": "test12.fa",
             "input_seq": "test_seq_1",
             "status": "CLASSIFIED",
             "classification_rank": "species",
@@ -15,6 +16,7 @@
             }
         },
         {
+            "input_file": "test12.fa",
             "input_seq": "test_seq_2",
             "status": "CLASSIFIED",
             "classification_rank": "genus",
@@ -26,6 +28,7 @@
             "message": "Homologous to species within the genus, but not close enought to classify within an existintg species"
         },
         {
+            "input_file": "test3.fasta",
             "input_seq": "test_seq_3",
             "status": "FAILED",
             "error": "Sequence did not have 0.5% or more of it's sequence homologus to a reference species"
