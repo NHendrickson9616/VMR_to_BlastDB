@@ -36,6 +36,7 @@ parser.add_argument('-blast',help="blast parameter abbreviation",default="blastn
 parser.add_argument('-out',help="tabulated results",default="tabulation.tsv")
 parser.add_argument('-qacc',help="query accession: analyze this one only",default="")
 parser.add_argument('-minqcov',help="minimum query coverage",default="0.05")
+parser.add_argument('-genus',help="only proces queries from this genus",default="")
 args = parser.parse_args()
 
 # hard coded things to move into ARGS
@@ -79,19 +80,42 @@ queryDf = pd.read_csv(A_ACC_FILE, sep="\t",
                            usecols=["Species","Accession_IDs","segment","Genus"],
                            dtype={'Species':'string','Accession_IDs':'string', 'segment':'string', 'Genus':'string'}
 #                           ,index_col=["Accession_IDs"]
-                           )
+                      )
+print("loaded",A_ACC_FILE,": {0} rows, {1} columns.".format(*queryDf.shape))
+# filter queryDf
+if not args.genus=="":
+    print("# filter ", A_ACC_FILE, " to just ", args.genus)
+    queryDf = queryDf[queryDf['Genus'] == args.genus]
+    print("# ",len(queryDf.index)," rows remaining")
+if not args.qacc=="":
+    print("# filter ", A_ACC_FILE, " to just ", args.qacc)
+    queryDf = queryDf[queryDf['Accession_IDs'].str.startswith(args.qacc)]
+    #queryDf = queryDf[queryDf['Accession_IDs'] == args.qacc]
+    print("# ",len(queryDf.index)," rows remaining")
+if len(queryDf.index)<1:
+    print("ERROR: no records left, after filtering, in ", A_ACC_FILE)
+    exit(1)
+
+#
+# add columns we will compute/fill in
+#
 queryDf["acc_count"] = 1
-queryDf["qcov"] = ""
+queryDf["qpcov"] = ""
 # parameters
 queryDf["_minqcov"] = args.minqcov
 queryDf["_blast"] = args.blast
+# result
+queryDf["qlen"] = int(0)
+queryDf["blast_status"] = ""
+# target accession
+queryDf["target_acc"] = ""
 # stats on top hit
-queryDf["subject_acc"] = ""
-queryDf["subject_seg"] = ""
-queryDf["subject_species"] = ""
+queryDf["top_hit_acc"] = ""
+queryDf["top_hit_species"] = ""
+queryDf["top_hit_seg"] = ""
+queryDf["top_hit_qcov"]= ""
 
 #queryDf = queryDf.head(4)
-print("loaded",A_ACC_FILE,": {0} rows, {1} columns.".format(*queryDf.shape))
 print("genera: ",queryDf["Genus"].nunique())
 print("species: ",queryDf["Species"].nunique())
 print("column names: ",queryDf.columns)
@@ -186,7 +210,7 @@ def blast_compute_hsp_coverage(blast_query):
     # compute query coverage per subject
     #
     scale = 100/query_length
-    subject_stats = pd.DataFrame(columns=['qacc','qspecies','qseg','sacc','sspecies','sseg','pcov'])
+    subject_stats = pd.DataFrame(columns=['qacc','qspecies','qseg','sacc','sspecies','sseg','qpcov'])
 
     #
     # convert HSPs intervals into BioFrame
@@ -260,18 +284,18 @@ def blast_compute_hsp_coverage(blast_query):
         # compute % of query sequence covered by at least 1 HSP 
         ref_df = pd.DataFrame([[subject_name,1,query_length]],columns=['chrom','start','end'])
         subject_cov_df = bf.coverage(ref_df,hits_merged)
-        subject_cov = subject_cov_df.coverage[0]
-        subject_pcov = subject_cov/query_length
+        subject_qcov = subject_cov_df.coverage[0]
+        subject_qpcov = subject_qcov/query_length
         if args.verbose:
             print("# post-merge coverage---------------------------------------------------------------")
             print("# subject_cov_df: ", subject_cov_df)
-            print("# subject_cov: ", subject_cov)
-            print("# subject_pcov: ", subject_pcov)
+            print("# subject_cov: ", subject_qcov)
+            print("# subject_pcov: ", subject_qpcov)
 
-        subject_stats.loc[subject_name,"pcov"] = subject_pcov
+        subject_stats.loc[subject_name,"qpcov"] = subject_qpcov
 
 
-    return subject_stats.sort_values(by=['pcov'],ascending=False)
+    return subject_stats.sort_values(by=['qpcov'],ascending=False)
 
 
     
@@ -280,8 +304,8 @@ def parse_blast_xml_collapse_hsps(filename):
     # default results
     #
     status        = "OK"
-    subject_stats = pd.DataFrame(columns=['pcov','qseqid','sseqid'])
-
+    subject_stats = pd.DataFrame(columns=['qpcov','qseqid','sseqid'])
+    stats_filename = filename + ".tsv"
 
     if args.verbose:
         print("#########################################################################")
@@ -318,16 +342,25 @@ def parse_blast_xml_collapse_hsps(filename):
             subject_stats = blast_compute_hsp_coverage(blast_query)
 
             if args.stats:
-                print(subject_stats)
+                stat_plus = subject_stats.copy()
+                stat_plus["filter"] =""
+                stat_plus.loc[stat_plus['qpcov'] < float(args.minqcov), 'filter'] = 'QCOV<'+args.minqcov
+                stat_plus["target"] =""
+                stat_plus.loc[stat_plus['qspecies'] == stat_plus['sspecies'], 'target'] = '<<TARGET'
+                
+                stat_plus.to_csv(stats_filename, sep="\t", index=False)
+                if args.verbose:
+                    print("Wrote : ", stats_filename)
+                    print(stat_plus)
 
-#    except Exception as inst:
-#        #print(type(inst))    # the exception type
-#        #print(inst.args)     # arguments stored in .args
-#        print("## ERROR: ", inst )
-#        status = "E_XMLBAD"
-#    except ValueError as inst:
-#        print("## ERROR: ", inst )
-#        status = "E_XMLBAD"
+    # except Exception as inst:
+    #     #print(type(inst))    # the exception type
+    #     #print(inst.args)     # arguments stored in .args
+    #     print("## ERROR: ", inst )
+    #     status = "E_XMLBAD"
+    # except ValueError as inst:
+    #     print("## ERROR: ", inst )
+    #     status = "E_XMLBAD"
             
     return status, subject_stats
     
@@ -407,7 +440,7 @@ def parse_blast_fmt7(filename):
 def analyze_blast_result(queryDf, qidx, blastdb_df, hits_df):
     status = "OK"
     #print("queryDf.columns: ",queryDf.columns)
-    queryDf.at[qidx,"qcov"] = ""
+    queryDf.at[qidx,"qpcov"] = ""
 
     if args.verbose: print("# analyze_blast_result(",queryDf.at[qidx,"Accession_IDs"],", num_hits=", len(hits_df.index))
     if args.verbose: print("\tQuery Len: {qlen}".format(qlen=queryDf.at[qidx,"qlen"]))
@@ -419,7 +452,7 @@ def analyze_blast_result(queryDf, qidx, blastdb_df, hits_df):
         queryDf.at[qidx,"top_hit_acc"]     = hits_df.sacc.iloc[0]
         queryDf.at[qidx,"top_hit_species"] = hits_df.sspecies.iloc[0]
         queryDf.at[qidx,"top_hit_seg"]     = hits_df.sseg.iloc[0]
-        queryDf.at[qidx,"top_hit_qcov"]    = hits_df.pcov.iloc[0]
+        queryDf.at[qidx,"top_hit_qcov"]    = hits_df.qpcov.iloc[0]
 
     
     #
@@ -428,7 +461,7 @@ def analyze_blast_result(queryDf, qidx, blastdb_df, hits_df):
     qspecies=queryDf.at[qidx,"Species"]
     qspecies_=qspecies.replace(" ","_")
     qseg=queryDf.at[qidx,"segment"]
-    if args.verbose: print("\tdb_check: species='{qspecies}', seg='{qseg}'".format(qspecies=qspecies_, qseg=qseg))
+    if args.verbose: print("\tdb_check: qspecies='{qspecies}', qseg='{qseg}'".format(qspecies=qspecies_, qseg=qseg))
     species_matches_df = blastdb_df.query("vmr_species==@qspecies_")
     if args.verbose: print("\tE species records: ", len(species_matches_df.index))
     # check this species exists in the db
@@ -440,45 +473,48 @@ def analyze_blast_result(queryDf, qidx, blastdb_df, hits_df):
         # check this segment exists in the db
         if len(species_seg_matches_df.index) < 1:
             status = "E_SPECIES_SEG_NOT_IN_DB"
-        elif len(hits_df.index) < 1:
-            status = "BLAST_NO_HITS"
         else:
-            #print("\tchecking {0} blast results...".format(len(hits_df.index)))
-            #print("\tcolumns: ", hits_df.columns )
-
-            #
-            # filter to 50% of query length
-            #
-            min_query_pcov = float(args.minqcov)
-            filt_hits_df = hits_df.query("pcov > @min_query_pcov")
-            #print("\tfilter for query pcov > {min_query_pcov} leaves {hits} blast results...".format(min_query_pcov=min_query_pcov,hits=len(filt_hits_df.index)))
-            
-            
-            #
-            # ok, actually analyze the blast results
-            #
-            # columns=['qseqid', 'sseqid', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore',
-            #         ['saccession', 'sspecies', 'sseg'
-            #print("\tFILT_HITS ", filt_hits_df)
-
-            # find the species (correct hit)
-            qspecies_idx = next((i for i,sspecies in enumerate(filt_hits_df["sspecies"]) if sspecies==filt_hits_df["qspecies"].iloc[0]),-1)
-            #print("qspecies_idx: ", qspecies_idx)
-            if int(qspecies_idx) < 0:
-                status = "E_QSPECIES_NOT_HIT"
-                # check if it was there before filtering
-                unfilt_qspecies_idx = next((i for i,sspecies in enumerate(hits_df["sspecies"]) if sspecies==hits_df["qspecies"].iloc[0]),-1)
-                if int(unfilt_qspecies_idx) >= 0:
-                    #print("unfilt_qspecies_idx: ", unfilt_qspecies_idx, ": ", hits_df.qspecies.iloc[0], " =?= ", hits_df.sspecies.iloc[unfilt_qspecies_idx])
-                    status = "E_QCOV_FILT_HIT_{idx:02d}".format(idx=int(unfilt_qspecies_idx+1))
-                    queryDf.at[qidx,"qcov"] = hits_df["pcov"].iloc[unfilt_qspecies_idx]
-                    
+            # the putative target is an entry in the blastdb
+            queryDf.at[qidx,"target_acc"] = species_seg_matches_df["vmr_acc"].iloc[0]
+            if len(hits_df.index) < 1:
+                status = "BLAST_NO_HITS"
             else:
-                status = "HIT_{idx:02d}".format(idx=int(qspecies_idx+1))
-                queryDf.at[qidx,"qcov"] = filt_hits_df["pcov"].iloc[qspecies_idx]
+                #print("\tchecking {0} blast results...".format(len(hits_df.index)))
+                #print("\tcolumns: ", hits_df.columns )
+
+                #
+                # filter to 50% of query length
+                #
+                min_query_pcov = float(args.minqcov)
+                filt_hits_df = hits_df.query("qpcov > @min_query_pcov")
+                #print("\tfilter for query qpcov > {min_query_pcov} leaves {hits} blast results...".format(min_query_pcov=min_query_pcov,hits=len(filt_hits_df.index)))
 
 
-            #print("\tBLAST_RESULT: ", status)
+                #
+                # ok, actually analyze the blast results
+                #
+                # columns=['qseqid', 'sseqid', 'pident', 'length', 'mismatch', 'gapopen', 'qstart', 'qend', 'sstart', 'send', 'evalue', 'bitscore',
+                #         ['saccession', 'sspecies', 'sseg'
+                #print("\tFILT_HITS ", filt_hits_df)
+
+                # find the species (correct hit)
+                qspecies_idx = next((i for i,sspecies in enumerate(filt_hits_df["sspecies"]) if sspecies==filt_hits_df["qspecies"].iloc[0]),-1)
+                #print("qspecies_idx: ", qspecies_idx)
+                if int(qspecies_idx) < 0:
+                    status = "E_QSPECIES_NOT_HIT"
+                    # check if it was there before filtering
+                    unfilt_qspecies_idx = next((i for i,sspecies in enumerate(hits_df["sspecies"]) if sspecies==hits_df["qspecies"].iloc[0]),-1)
+                    if int(unfilt_qspecies_idx) >= 0:
+                        #print("unfilt_qspecies_idx: ", unfilt_qspecies_idx, ": ", hits_df.qspecies.iloc[0], " =?= ", hits_df.sspecies.iloc[unfilt_qspecies_idx])
+                        status = "E_QCOV_FILT_HIT_{idx:02d}".format(idx=int(unfilt_qspecies_idx+1))
+                        queryDf.at[qidx,"qpcov"] = hits_df["qpcov"].iloc[unfilt_qspecies_idx]
+
+                else:
+                    status = "HIT_{idx:02d}".format(idx=int(qspecies_idx+1))
+                    queryDf.at[qidx,"qpcov"] = filt_hits_df["qpcov"].iloc[qspecies_idx]
+
+
+                #print("\tBLAST_RESULT: ", status)
             
     
     return status
@@ -486,12 +522,11 @@ def analyze_blast_result(queryDf, qidx, blastdb_df, hits_df):
 #
 # iterate through all queries, load blast results, classify
 #
+print("Genus: ", args.genus)
 print("QACC: ", args.qacc)
-
+print("rows: ", len(queryDf.index))
 for qidx in queryDf.index:
-    qacc = queryDf.at[qidx,"Accession_IDs"]
-    if not args.qacc=="" and not args.qacc==qacc:
-        continue
+    qacc   = queryDf.at[qidx,"Accession_IDs"]
     qgenus = queryDf.at[qidx,"Genus"]
     print("Query:",qgenus, qacc, queryDf.at[qidx,"Species"],"[",queryDf.at[qidx,"segment"],"] ", end='')
     
@@ -506,7 +541,7 @@ for qidx in queryDf.index:
     #
     # read and parse blast results (may be empty!)
     #
-    query_results_file = "./results/"+args.blast+"/a/"+qgenus+"/"+qacc+"..hit20.xml"
+    query_results_file = "./results/"+args.blast+"/a/"+qgenus+"/"+qacc+".hit60.xml"
     #query_results_file = "./results/"+args.blast+"/a/"+qgenus+"/"+qacc+".raw.txt"
     if args.verbose: print("\tReading "+query_results_file)
     (status, hits_df) = parse_blast_xml_collapse_hsps(query_results_file)
@@ -524,39 +559,45 @@ for qidx in queryDf.index:
     queryDf.at[qidx,"blast_status"] = status
 
 #
-# write results as tsv
+# write final, tabulated results as tsv
 #
-queryDf.rename(
-    columns={
-        'Species':'A_species',
-        'Accession_IDs':'A_acc',
-        'segment':'A_seg',
-        'Genus':'A_genus',
-        'acc_count':'acc_count',
-        'qcov':'perc_qcov',
-        '_minqcov':'_min_perc_cov',
-        '_blast':'_blast_mode',
-        'qlen':'A_seq_len',
-        'top_hit_acc':'E_top_hit_acc',
-        'top_hit_species':'E_top_hit_species',
-        'top_hit_seg':'E_top_hit_seg',
-        'top_hit_qcov':'E_top_hit_perc_qcov',
-        'blast_status':'STATUS'},
-    inplace=True)
-column_order = [
-    'A_acc',
-    'A_genus',
-    'A_species',
-    'A_seg',
-    'A_seq_len',
-    'STATUS',
-    'perc_qcov',
-    'E_top_hit_acc',
-    'E_top_hit_species',
-    'E_top_hit_seg',
-    'E_top_hit_perc_qcov',
-    '_min_perc_cov',
-    '_blast_mode'
-]
-queryDf[column_order].to_csv(args.out, sep="\t", index=False)
-print("Wrote {lines} to {fname}".format(lines=len(queryDf.index),fname=args.out))
+
+# map and order columns
+column_map={
+    'Accession_IDs':   'A_acc',
+    'Genus':           'A_genus',
+    'Species':         'A_species',
+    'segment':         'A_seg',
+    'qlen':            'A_seq_len',
+    'blast_status':    'STATUS',
+#        'acc_count':       'acc_count',
+    'qpcov':           'E_target_perc_cov',
+    'target_acc':      'E_target_acc',
+    'top_hit_acc':     'E_top_hit_acc',
+    'top_hit_species': 'E_top_hit_species',
+    'top_hit_seg':     'E_top_hit_seg',
+    'top_hit_qcov':    'E_top_hit_perc_qcov',
+    '_minqcov':        '_min_perc_cov',
+    '_blast':          '_blast_mode'
+}
+print("BEFORE queryDf.columns: ", queryDf.columns)#DEBUG
+queryDf.rename(columns=column_map, inplace=True)
+print("AFTER queryDf.columns: ", queryDf.columns)#DEBUG
+column_order = list(column_map.values())
+
+# out_filename 
+out_fname = args.out
+# add blast mode
+out_fname = out_fname[:-3]+args.blast+".tsv"
+# if doing a query-specific scan, use a specific output filename
+if not args.genus=="":
+    print("# add ",args.genus, " to ", out_fname)
+    out_fname = out_fname[:-3]+args.genus+".tsv"
+if not args.qacc=="":
+    print("# add ",args.qacc, " to ", out_fname)
+    out_fname = out_fname[:-3]+args.qacc+".tsv"
+
+# write file
+print("ORDER queryDf.columns: ", queryDf[column_order].columns)#DEBUG
+queryDf[column_order].to_csv(out_fname, sep="\t", index=False)
+print("Wrote {lines} lines to {fname}".format(lines=len(queryDf.index),fname=out_fname))
