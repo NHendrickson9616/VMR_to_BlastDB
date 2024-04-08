@@ -18,7 +18,7 @@ class LoadFromFile (argparse.Action):
 parser = argparse.ArgumentParser(description="")
 
 #setting arguments.
-parser.add_argument('-verbose',help="printout details during run",action=argparse.BooleanOptionalAction)
+parser.add_argument('-verbose',help="printout details during run",action=argparse.BooleanOptionalAction) #sets args.verbose to true
 parser.add_argument('-file',help="optional argument. Name of the file to get arguments from.",type=open, action=LoadFromFile)
 parser.add_argument("-email",help="email for Entrez to use when fetching Fasta files")
 parser.add_argument("-mode",help="what function to do. Options: VMR,fasta,db")
@@ -370,7 +370,7 @@ def main():
         
         if args.verbose: print("Writing", processed_accession_file_name)
         if args.verbose: print("\tColumn: ", tested_accessions_ids.columns)
-        pandas.DataFrame.to_csv(tested_accessions_ids,processed_accession_file_name,sep='\t')
+        pandas.DataFrame.to_csv(tested_accessions_ids, processed_accession_file_name, sep='\t')
 
     if args.mode == "fasta" or None:
         print("# pull FASTAs from NCBI")
